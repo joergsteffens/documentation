@@ -60,4 +60,4 @@ http://www.gnu.org/licenses/agpl-3.0.en.html
 Licensing inquiries aiming to use opsi in a closed software context please contact uib gmbh.
 
 
-uib gmbh owns the names 'opsi', 'opsi.org', 'open pc server integration' and the opsi logo as a registered trademark.
+uib gmbh owns the terms 'opsi', 'opsi.org', 'open pc server integration' and the opsi logo as registered trademarks.

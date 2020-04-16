@@ -21,17 +21,23 @@ include::../common/opsi_terms.asciidoc[]
 [[opsi-manual-introduction-who-should-read]]
 === Who should read this manual?
 
-This manual is written for all who want to gain a deeper insight into the mechanisms and the tools of the client management system opsi ("open pc server integration"). 
+This manual is for anyone interested in gaining deeper insight on the opsi software distribution platform (open pc server integration). The focus of the documentation is to provide a technical context of the processes involved.
 
-It presents a complete HOWTO for the use of opsi while emphasizing the understanding of the technical background. The decision maker who decides on using opsi as well as the system administrator who works with it will get a solid foundation for their tasks.
+This manual provides practical advice for the system administrator and the prospective customer looking for a concrete overview of opsi’s features.
+
 
 [[opsi-manual-introduction-conventions]]
 === Notations
 
-Angle brackets '< >' mark abstract names. In a concrete context any marked '<abstract name>' must be replaced by some real name. Example: The file share, where opsi places the software packets, may abstractly be noted as '<opsi-depot-share>'. If the real fileshare is `/var/lib/opsi/depot`, then you have to replace the abstract name by exactly this string. The location of the packet `<opsi-depot-share>/ooffice` becomes
-`/var/lib/opsi/depot/ooffice`.
+Replace names shown in '<angle brackets>' with the correct absolute or full path. 
 
-Example snippets from program code or configuration files use a Courier font, with a background color:
+Examples: 
+ '<opsi-depot-share>' is the location of the opsi packages file share located at the `/var/lib/opsi/depot` path on your server.   
+
+Likewise, the `<opsi-depot-share>/ooffice` software packet refers to the `/var/lib/opsi/depot/ooffice` path. 
+
+Example snippets from program code or configuration files use Courier font with highlight:
+
 [source,prompt]
 ----
 depoturl=smb://smbhost/sharename/path

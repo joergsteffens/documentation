@@ -18,20 +18,18 @@ include::../common/opsi_terms.asciidoc[]
 [[opsi-manual-overview]]
 == Overview of opsi
 
-Tools for automated software distribution and operating system installation are
-important and necessary tools for standardization, maintainability and cost saving of larger PC networks. Normally the application of such tools comes along with substantial royalties, whereas opsi as an open source tool affords explicit economics. Expenses thereby arise only from performed services like consulting, training and maintenance, and perhaps from low cofunding rates if you like to use some of the non free modules.
+Automated software and operating system deployment tools are important and necessary for standardizing, managing and reducing the operating cost of large PC networks. Although necessary, such tools compound licensing costs. Opsi offers a remarkable advantage as an open source tool. This means you limit your expenses to consulting, training, maintenance services, or to uib's cofinanced proprietary low-cost modules.
 
-Although the software itself and the handbooks are free of charge, the process of introducing any software distribution tool is still an investment. To get the benefit without throwbacks and without a long learning curve consulting and education of the system administrators by a professional partner is recommended. uib offers all these services around opsi.
+Although the software and the handbooks themselves are free, the process of introducing a software distribution tool is time intensive. Avoid the setbacks of a lengthy learning curve through our experienced system administrators. Uib offers training courses and consultancy services focused exclusively on opsi.
 
-The opsi system as developed by uib depends on Linux-servers. They are used for
-remote installation and maintenance of the client OS and the client software packets ("PC-Server-Integration"). It is based as far as possible on free available tools (GNUtools, SAMBA etc.). The complete system all together is named opsi (Open PC-Server-Integration) and with its configurability is a very interesting solution for the administration challenges of a large computer park.
+The opsi system, developed by uib, runs on Linux-servers. These servers install, manage and maintain PC-client operating systems and software packages (PC-Server integration). This system uses open source tools such as GNU-tools and SAMBA, among others. Opsi (Open PC-Server-Integration) is an interesting solution for administering large PC networks, due to its modularity and configurability.
 
 [[opsi-manual-overview-experience]]
 === Experience
 
-opsi is derived from a system, which is in use since the middle of the 90's with more than 2000 Client-PCs in different locations of a state authority. Since that time it has continuously been adapted to the changing Microsoft operating system world. As a product opsi is now accessible for a broad range of interested users.
+Opsi is a continuation of a concept, used non-stop by the state government, with 2000+ Client-PCs in different locations, since the mid 90s. It has improved and further developed since. Opsi is today within reach of a wide range of interested parties.
 
-You can find an geographical overview of the registered opsi-installations at:
+Find a geographical overview of the registered opsi installations at: 
 link:https://www.opsi.org/opsi-map/[opsi-map]
 
 [[opsi-manual-overview-features]]
@@ -41,61 +39,58 @@ The core features of opsi are:
 
 * automatic software distribution
 * automatic operating system installation
-* hard- and software inventory
-* comfortable control via the opsi management interface
-* support of multiple depot-servers
+* hardware and software inventory
+* convenient control via the opsi management interface
+* support for multiple depot-servers
 
 
 [[opsi-manual-overview-extensions]]
 === opsi Extensions
 
-* Management of licenses
+* License management
 * MySQL-Backend
 * Nagios Connector
-* Installation ab Shutdown
-* Local Image Backup (Rapid client restore of student computers. For public authorities (e.g. schools) only)
+* Installation at shutdown
+* Local Image Backup (fast recovery of student computers, reserved for the public sector (e.g. schools))
 * Linux Agent
-* WAN Extension (Support for clients behind slow connections)
-* User Profile Management (manipulation Profiles even with Roamin Profiles)
+* WAN Extension (integration of clients with slow connectivity)
+* User Profile Management (viable modifications in a Roaming profile environment)
 
-* OTRS::ITSM Connection - via KIX4OTRS by cape IT gmbh
+* OTRS::ITSM Connection (from our partner Cape-IT GmbH)
 
 [[opsi-manual-overview-structure]]
-=== Structure
+=== Architecture
 
 
-The configuration of opsi requires some data management. All non-server components are using a web service for data exchange with the opsi server. They exchange data via the 'opsiconfd', and the 'opsiconfd' forwards the data to the backend manager which passes the data into the selected backend.
+Opsi requires a data repository. External components communicate with the opsi server through a web service. The 'opsiconfd' process provides the web service and transfers data to the backend manager, who writes it to the configured backend.    
 
-opsi supports different backends: Backends:
+opsi supports different backends: 
 
 * File based
 * MySQL based
 
 
-.Scheme: opsi with File / MySQL backend
+.Diagram: opsi with File / MySQL backend
 image::opsi_with_sql_file_backend.png["Scheme: opsi with File / MySQL backend", width=430]
 
 
-More details you will find at <<opsi-manual-backends>>.
+Refer to Section 5.6, "opsi data storage (backends)" for additional information regarding data repositories.
+ <<opsi-manual-backends>>.
 
-The backend configuratin will be found at the files in ther directories
- `/etc/opsi/backendManager` and `/etc/opsi/backends`.
 
-.Scheme: backend layers and access control
+The `/etc/opsi/backendManager` and `/etc/opsi/backends` files configure the backend. 
+
+.Diagram: backend layers and access control
 image::opsibackend_configuration_layers.png["Scheme: backend layers and access control", width=400]
 
 The configuration files in `/etc/opsi/backends` define the backends.
 
-Which backend is used for which data, is configured in the file
-`/etc/opsi/backendManager/dispatch.conf`.
+The `/etc/opsi/backendManager/dispatch.conf` file defines the backends and their purpose.
 
-The file `/etc/opsi/backendManager/acl.conf` defines who has access to which
-methods.
+The file `/etc/opsi/backendManager/acl.conf` defines who has access to which methods.
 
-Below the directory `/etc/opsi/backendManager/extend.d` there could be files
-which defines extended opsi methods. So you will find here for example the files which define the action based ('legacy') methods by mapping them to the object based methods (`/etc/opsi/backendManager/extend.d/20_legacy.conf`).
+The `/etc/opsi/backendManager/extend.d` defines opsi extended methods. 
 
-A more detailed reference of these configuration files you will find at
-
-<<opsi-manual-important-files-etc>>.
+The `/etc/opsi/backendManager/extend.d/20_legacy.conf` file defines the mapping of the process-based methods (legacy) to the object-based methods. Refer to the "General Configuration files in /etc" section for detailed descriptions of these configuration files.
+<<opsi-manual-important-files-etc>>. 
 
