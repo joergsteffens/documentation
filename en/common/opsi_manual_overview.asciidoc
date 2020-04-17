@@ -51,12 +51,12 @@ The core features of opsi are:
 * MySQL-Backend
 * Nagios Connector
 * Installation at shutdown
-* Local Image Backup (fast recovery of student computers, reserved for the public sector (e.g. schools))
+* Local Image Backup (fast recovery of student computers, reserved for the public school sector)
 * Linux Agent
 * WAN Extension (integration of clients with slow connectivity)
 * User Profile Management (viable modifications in a Roaming profile environment)
 
-* OTRS::ITSM Connection (from our partner Cape-IT GmbH)
+* OTRS::ITSM Connection (from our partner cape IT GmbH)
 
 [[opsi-manual-overview-structure]]
 === Architecture
@@ -83,13 +83,13 @@ The `/etc/opsi/backendManager` and `/etc/opsi/backends` files configure the back
 .Diagram: backend layers and access control
 image::opsibackend_configuration_layers.png["Scheme: backend layers and access control", width=400]
 
-The configuration files in `/etc/opsi/backends` define the backends.
+`/etc/opsi/backends` defines the backends configuration. 
 
-The `/etc/opsi/backendManager/dispatch.conf` file defines the backends and their purpose.
+`/etc/opsi/backendManager/dispatch.conf` displays active backends and their purpose.  
 
-The file `/etc/opsi/backendManager/acl.conf` defines who has access to which methods.
+`/etc/opsi/backendManager/acl.conf` defines method access control. 
 
-The `/etc/opsi/backendManager/extend.d` defines opsi extended methods. 
+`/etc/opsi/backendManager/extend.d` defines opsi extended methods. 
 
 The `/etc/opsi/backendManager/extend.d/20_legacy.conf` file defines the mapping of the process-based methods (legacy) to the object-based methods. Refer to the "General Configuration files in /etc" section for detailed descriptions of these configuration files.
 <<opsi-manual-important-files-etc>>. 
