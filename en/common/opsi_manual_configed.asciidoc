@@ -468,22 +468,18 @@ image::opsi-configed-clientinfos.png["{opsi-configed}: Erweiterte Spaltensicht f
 
 [[opsi-manual-configed-client-editing-wakeonlan]]
 ==== WakeOnLan ('Wake selected clients')
-Choosing this menu entry, you will send the selected clients a WakeOnLan signal.
+This option sends a WakeOnLan signal to the selected clients. Starting on version 4.0.7 you can choose:
 
-Since version 4.0.7 you can choose
+* if the wake up signal will be sent immediately
+* configure wake delays between clients
+* schedule wake events via scheduler
 
+If a client resides in a depot server different from the configserver sending the WakeOnLan signal, '{opsi-configed}' will attempt to connect and relay the message to this 'opsiconfd' depot via HTTPS. This second server will in turn deliver the WakeOnLan signal to the client.
 
-* if the network signal is meant to be sent to the selected clients at once
-* which delay should be between the waking of two clients
-* when the process shall start (via a scheduler).
+.'{opsi-configed}': WakeOnLan scheduler
+image::opsi-configed-wake-on-lan-scheduler.png["{opsi-configed}: WakeOnLan scheduler", width="120mm"]
 
-If a client is assigned to a depot server which is not the configserver then the Wake On Lan signal is not directly sent to the client,
-but the '{opsi-configed}' tries to establish a HTTPS connection to the 'opsiconfd' of the depot server which in turn sends the Wake On Lan package to the client inside its network segment.
-
-.'{opsi-configed}': Scheduler for Wake On Lan
-image::opsi-configed-wake-on-lan-scheduler.png["{opsi-configed}: Scheduler for Wake On Lan", width="120mm"]
-
-It should be observed that it is the '{opsi-configed}' which triggers the actions, therefore the program must not be shut down in the meantime.
+Please note '{opsi-configed}' triggers the WakeOnLan signal and must therefore remain running. If you intend to use this feature, do not shutdown or close '{opsi-configed}'.
 
 
 [[opsi-manual-configed-client-editing-ondemand]]
