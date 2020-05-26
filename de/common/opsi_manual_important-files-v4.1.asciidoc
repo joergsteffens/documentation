@@ -485,6 +485,23 @@ Status, den das Produkt zu dem eine Abhängigkeit besteht, haben soll. Typischer
 * [ProductDependency]-'Requirement type': +
 Installationsreihenfolge. Wenn das Produkt zu dem eine Abhängigkeit besteht installiert sein muss, bevor mit der Installation des aktuellen Produkts begonnen werden kann, dann ist dies 'before'. Muss es nach dem aktuellen Produkt installiert werden, so ist dies 'after'. Ist die Reihenfolge egal, so muss hier nichts eingetragen werden.
 
+Zusätzlich gibt es bei Netboot Produkten ein zusätzliches Produkt Property namens `pxeConfigTemplate`.
+Dies bezieht sich auf die verwendete Vorlage, welche vom TFTP Server ausgeliefert wird.
+
+* [Product]-'pxeConfigTemplate' +
+Definiert die Vorlage zum Bau einer named pipe, welche vom TFTP Server verteilt wird.
+
+Für gewöhnlich verteilt das opsi-linux-bootimage die von den Netboot Paketen benötigten Vorlagen für den PXE Boot.
+Falls ein Netboot Paket eine besondere Vorlage benötigt, wird diese über das SERVER Paketverzeichnis auf dem opsi Server verteilt.
+Solch ein Produkt ist `memtest`.
+memtest liefert seine eigene Vorlage für den PXE Boot.
+Bis Version 4.1.0.19-1 des `opsipxeconfd` Server Pakets funktionierte eine eigene Vorlage nicht mit UEFI Installationen.
+Dies beruht darauf, das der opsipxeconfd bei UEFI Installationen alle möglichen Vorgaben mit der UEFI Vorlage überschrieb.
+Seit Version 4.1.0.20-1 ist dies nicht mehr der Fall.
+Wenn bei einem Client der UEFI Boot im opsi-configed gesetzt ist, schaut der opsipxeconfd ob eine Vorlage aus pxeConfigTemplate mit der Dateieindung .efi existiert.
+Sollte diese existieren, wird diese Datei als Vorlage verwendet, ansonsten wird die übliche UEFI Vorlage für den Bau der named pipe verwendet.
+
+
 [[opsi-manual-important-files-filebackend-detail-audit]]
 ===== Inventarisierungsdateien /var/lib/opsi/audit
 

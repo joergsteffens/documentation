@@ -486,6 +486,23 @@ The required status of the product, which the dependency entry refers to. Typica
 * [ProductDependency]-'Requirement type': +
 this is regarding the installation order. If the product, which the dependency entry refers to, has to be installed before the actual product installation starts, the 'Requirement type' must be 'before'. If the dependency product has to be (re-)installed after the actual product, the 'Requirement type' is set to 'after'. If there is no entry, the installation order is of no relevance.
 
+In addition netboot products contain an additional product property called `pxeConfigTemplate`.
+This refers to the template that builds the base of the named pipe served by the tftp server.
+
+* [Product]-'pxeConfigTemplate' +
+Defines the template for the pxe configuration file served by the tftp server.
+
+by default the opsi-linux-bootimage server package provides the usual templates.
+If any package uses a template not provided by the opsi-linux-bootimage this template comes with the netboot package in the SERVER directory.
+One of such packages is `memtest`.
+memtest provies its own pxeConfigTemplate.
+This provied template overwrites the opsi default and is used as the base for the named pipe.
+Up until version 4.1.0.19-1 of the `opsipxeconfd` server package this feature didn't work with UEFI installations.
+This was due to the fact that the opsipxeconfd overwrites any entry in pxeConfigTemplate with a specific UEFI template.
+Since version 4.1.0.20-1 of the opsipxeconfd this has beed reworked.
+When the UEFI checkbox is marked and a custom pxeConfigTemplate exists the opsipxeconfd checks if a .efi file exists of the provided pxeConfigTemplate.
+e.g. if a memtest.efi file exists then this file is used by the opsipxeconfd otherwise the default UEFI template is used.
+
 
 [[opsi-manual-important-files-filebackend-detail-audit]]
 ===== Inventory data /var/lib/opsi/audit
