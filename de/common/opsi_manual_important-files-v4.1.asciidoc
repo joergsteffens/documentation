@@ -492,7 +492,7 @@ Dies bezieht sich auf die verwendete Vorlage, welche vom TFTP Server ausgeliefer
 Definiert die Vorlage zum Bau einer named pipe, welche vom TFTP Server verteilt wird.
 
 Für gewöhnlich verteilt das opsi-linux-bootimage die von den Netboot Paketen benötigten Vorlagen für den PXE Boot.
-Falls ein Netboot Paket eine besondere Vorlage benötigt, wird diese über das SERVER Paketverzeichnis auf dem opsi Server verteilt.
+Falls ein Netboot Paket eine besondere Vorlage benötigt, wird diese über das SERVER_DATA Paketverzeichnis auf dem opsi Server verteilt.
 Solch ein Produkt ist `memtest`.
 memtest liefert seine eigene Vorlage für den PXE Boot.
 Bis Version 4.1.0.19-1 des `opsipxeconfd` Server Pakets funktionierte eine eigene Vorlage nicht mit UEFI Installationen.

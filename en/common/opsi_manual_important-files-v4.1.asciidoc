@@ -493,7 +493,7 @@ This refers to the template that builds the base of the named pipe served by the
 Defines the template for the pxe configuration file served by the tftp server.
 
 by default the opsi-linux-bootimage server package provides the usual templates.
-If any package uses a template not provided by the opsi-linux-bootimage this template comes with the netboot package in the SERVER directory.
+If any package uses a template not provided by the opsi-linux-bootimage this template comes with the netboot package in the SERVER_DATA directory.
 One of such packages is `memtest`.
 memtest provies its own pxeConfigTemplate.
 This provied template overwrites the opsi default and is used as the base for the named pipe.
