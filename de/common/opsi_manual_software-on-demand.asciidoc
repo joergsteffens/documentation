@@ -197,7 +197,7 @@ Nach dem Start der Anwendung zeigt sich folgendes Hauptfenster:
 .'opsi-client-kiosk': Hauptfenster
 
 .opsi-client-kiosk: Hauptfenster mit Kacheln (Default Modus)
-image::opsi-client-kiosk_tile_simple_de.png["opsi-client-kiosk: Hauptfenster mit Kacheln (Default Modus)", width=400]
+image::opsi-client-kiosk_tile_simple_de.png["opsi-client-kiosk: Hauptfenster mit Kacheln (Default Modus)"]
 
 Elemente:
 
@@ -217,7 +217,7 @@ Durch anklicken der Radiobuttons im Feld 'Aktionsanforderung' können Anforderun
 
 
 .opsi-client-kiosk: Hauptfenster mit Kacheln (Experten Modus)
-image::opsi-client-kiosk_tile_expert_de.png["opsi-client-kiosk: Hauptfenster mit Kacheln (Experten Modus)", width=400]
+image::opsi-client-kiosk_tile_expert_de.png["opsi-client-kiosk: Hauptfenster mit Kacheln (Experten Modus)"]
 
 Elemente:
 
@@ -245,7 +245,7 @@ Abschließend wird in einem gesonderten Fenster die Gesamtliste der anstehenden 
 
 
 .opsi-client-kiosk: Hauptfenster mit Listen (Experten Modus)
-image::opsi-client-kiosk_list_expert_de.png["opsi-client-kiosk: Hauptfenster mit Listen (Experten Modus)", width=400]
+image::opsi-client-kiosk_list_expert_de.png["opsi-client-kiosk: Hauptfenster mit Listen (Experten Modus)"]
 
 Elemente:
 
@@ -276,7 +276,7 @@ Abschließend wird in einem gesonderten Fenster die Gesamtliste der anstehenden 
 
 
 ////
-image::opsi-client-kiosk_num.png["opsi-client-kiosk: Hauptfenster", width=400]
+image::opsi-client-kiosk_num.png["opsi-client-kiosk: Hauptfenster"]
 
 Elemente:
 
@@ -308,7 +308,7 @@ Abschließend wird in einem gesonderten Fenster die Gesamtliste der anstehenden 
 ////
 
 .'opsi-client-kiosk': Aktionsbestätigung
-image::opsi-client-kiosk2.png["opsi Client Kiosk: Aktionsbestätigung", width=200]
+image::opsi-client-kiosk2.png["opsi Client Kiosk: Aktionsbestätigung"]
 
 Dieses Fenster erscheint nur im 'Experten-Modus' und zwar nach dem Betätigen des Buttons 'Aktionen Speichern'. +
 In diesem Fenster kann nun über den oberen Button `Installiere jetzt` eine sofortige Installation ausgelöst werden. In diesem Fall ist es schlau möglichst alle Applikationen zu schließen (bzw. zumindest Daten abzuspeichern) da die gestarteten Installationen mit laufenden Anwendungen in Konflikt geraten können. +
