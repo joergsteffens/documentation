@@ -15,7 +15,13 @@
 :Author:    uib gmbh
 :Email:     info@uib.de
 :Revision:  4.2
-:toclevels: 6
+:toc: left
+:toclevels: 3
+:numbered:
+:doctype: book
+:icons: font 
+:xrefstyle: full
+:imagesdir: ../images
 
 opsi Handbuch opsi-Version 4.2
 ==============================

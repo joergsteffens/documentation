@@ -96,47 +96,31 @@ Das Update erscheint jeweils innerhalb von 3 Arbeitstagen nach dem Erscheinen ei
 http://technet.microsoft.com/de-de/security/gg309177.aspx
 
 
-http://technet.microsoft.com/en-us/security/gg309177.aspx
-[source,prompt]
-----
 
-Bewertung	Beschreibung
-Kritisch
+|===
+|Bewertung	|Beschreibung
+|Kritisch
 
-Eine Schwachstelle, deren Ausnutzung ohne Eingreifen des Benutzers Codeausführung ermöglichen kann. Dies umfasst Szenarien wie sich selbst verbreitende Malware (z. B. Würmer) oder nicht zu vermeidende gebräuchliche Anwendungsszenarien, in denen Codeausführung ohne Warnungen oder Eingabeaufforderungen erfolgt. Dies könnte das Abrufen einer Webseite oder das Öffnen einer E-Mail bedeuten.
+|Eine Schwachstelle, deren Ausnutzung ohne Eingreifen des Benutzers Codeausführung ermöglichen kann. Dies umfasst Szenarien wie sich selbst verbreitende Malware (z. B. Würmer) oder nicht zu vermeidende gebräuchliche Anwendungsszenarien, in denen Codeausführung ohne Warnungen oder Eingabeaufforderungen erfolgt. Dies könnte das Abrufen einer Webseite oder das Öffnen einer E-Mail bedeuten.
 
 Microsoft empfiehlt, dass Kunden kritische Updates unverzüglich installieren.
-Hoch
 
-Eine Schwachstelle, deren Ausnutzung die Vertraulichkeit, Integrität oder Verfügbarkeit von Benutzerdaten oder anderen Ressourcen gefährden kann. Dies umfasst gebräuchliche Anwendungsszenarien, in denen der Kunde durch Warnungen oder Eingabeaufforderungen unabhängig von deren Herkunft, Qualität oder Nutzbarkeit geschädigt wird. Abfolgen von Nutzerhandlungen, die keine Eingabeaufforderungen oder Warnungen hervorrufen, sind ebenfalls abgedeckt.
+|Hoch	
+
+|Eine Schwachstelle, deren Ausnutzung die Vertraulichkeit, Integrität oder Verfügbarkeit von Benutzerdaten oder anderen Ressourcen gefährden kann. Dies umfasst gebräuchliche Anwendungsszenarien, in denen der Kunde durch Warnungen oder Eingabeaufforderungen unabhängig von deren Herkunft, Qualität oder Nutzbarkeit geschädigt wird. Abfolgen von Nutzerhandlungen, die keine Eingabeaufforderungen oder Warnungen hervorrufen, sind ebenfalls abgedeckt.
 
 Microsoft empfiehlt, dass Kunden Updates mit hohem Risiko so frühzeitig wie möglich installieren.
-Mittel
 
-Die Auswirkungen der Schwachstelle sind durch Faktoren wie Authentifizierungsanforderungen oder die Anwendbarkeit nur auf Nicht-Standardkonfigurationen erheblich eingeschränkt.
+|Mittel 
+
+|Die Auswirkungen der Schwachstelle sind durch Faktoren wie Authentifizierungsanforderungen oder die Anwendbarkeit nur auf Nicht-Standardkonfigurationen erheblich eingeschränkt.
 
 Microsoft empfiehlt, dass Kunden die Anwendung des Sicherheitsupdates in Erwägung zieht.
-Niedrig	Die Auswirkungen der Schwachstelle sind aufgrund von Eigenschaften der betroffenen Komponente umfassend eingeschränkt. Microsoft empfiehlt, dass Kunden erwägen, ob sie das Sicherheitsupdate auf die betroffenen Systeme anwenden.
 
-Rating	Definition
-Critical
+|Niedrig	
 
-A vulnerability whose exploitation could allow code execution without user interaction. These scenarios include self-propagating malware (e.g. network worms), or unavoidable common use scenarios where code execution occurs without warnings or prompts. This could mean browsing to a web page or opening email.
-
-Microsoft recommends that customers apply Critical updates immediately.
-Important
-
-A vulnerability whose exploitation could result in compromise of the confidentiality, integrity, or availability of user data, or of the integrity or availability of processing resources. These scenarios include common use scenarios where client is compromised with warnings or prompts regardless of the prompt's provenance, quality, or usability. Sequences of user actions that do not generate prompts or warnings are also covered.
-
-Microsoft recommends that customers apply Important updates at the earliest opportunity.
-Moderate
-
-Impact of the vulnerability is mitigated to a significant degree by factors such as authentication requirements or applicability only to non-default configurations.
-
-Microsoft recommends that customers consider applying the security update.
-Low	Impact of the vulnerability is comprehensively mitigated by the characteristics of the affected component. Microsoft recommends that customers evaluate whether to apply the security update to the affected systems.
-
-----
+|Die Auswirkungen der Schwachstelle sind aufgrund von Eigenschaften der betroffenen Komponente umfassend eingeschränkt. Microsoft empfiehlt, dass Kunden erwägen, ob sie das Sicherheitsupdate auf die betroffenen Systeme anwenden.
+|===
 
 Das opsi-mshotfix Paket verwendet (wie WSUS Offline Update http://forums.wsusoffline.net/viewtopic.php?f=7&t=172 Abdeckung des / Coverage of WSUS Offline Update ) für den Download Microsoft's Update-Katalogdatei wsusscn2.cab, um die erforderlichen Patches zu ermitteln.
 Diese Katalogdatei enthält mindestens alle als „kritisch“ und „sicherheitsrelevant“ eingestuften Updates, aber nicht notwendigerweise alle „wichtigen“ und „optionalen“.
@@ -145,13 +129,13 @@ Die opsi mshotfix-Pakete sind modular aufgebaut.
 Das Basis-Paket „mshotfix“ beinhaltet nur ein Skript zum Installieren der Patches. Die eigentlichen Patches sind gesondert in separaten Paketen enthalten
 
 .mshotfix Client-Betriebssystem Voraussetzung
-|==========================================
+|===
 |OS|
 |Windows 7 / Windows 2008 R2|Servicepack 1
 |Windows Windows 2012
 |Windows 8.1 / Windows 2012 R2|
 |Windows 10 / Windows 2016 / Windows 2019|
-|==========================================
+|===
 
 
 
@@ -407,12 +391,12 @@ Regelmäßige Updates für MS-Office 2010/2013/2016 32 Bit sowie MS-Office 64 Bi
 Das Update erscheint jeweils innerhalb von 3 Arbeitstagen nach dem Erscheinen eines von Microsoft als wichtig oder kritisch eingeschätzten Patches.
 
 .Office hotfix  Voraussetzung
-|===================================
+|===
 |Office Version| required
 |Office 2010 32-bit|Service Pack 2
 |Office 2013 32-bit|Servicepack 1
 |Office 2016 |
-|====================================
+|===
 
 
 [[opsi-manual-abo-products-office_2010_hotfix]]

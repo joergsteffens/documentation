@@ -145,7 +145,7 @@ Testen einer Übersetzungsdatei genutzt werden.
 === Login
 
 .Login des '{opsi-configed}'
-image::opsi-configed-login.png["Login des {opsi-configed}", width="90mm"]
+image::opsi-configed-login.png["Login des {opsi-configed}"]
 
 Beim Login versucht sich der  '{opsi-configed}' per 'https' mit dem 'opsiconfd'  auf dem ausgewählten Server/Port zu verbinden. Wenn der 'opsiconfd'
 seinen Defaultport 4447 verwendet, muss dieser nicht angegeben werden. Die User müssen der Unix-Gruppe 'opsiadmin' angehören.
@@ -240,7 +240,7 @@ Der '{opsi-configed}' speichert lokal auf dem Rechner, auf dem er läuft userbez
 und aktiviert sie beim nächsten Start wieder.
 
 .'{opsi-configed}': Client-Auswahl
-image::opsi-configed-clientselection.png["{opsi-configed}: Client-Auswahl", width=400]
+image::opsi-configed-clientselection.png["{opsi-configed}: Client-Auswahl"]
 
 In der Liste kann eine Zeile auch über die Suche nach einem Stringwert ausgewählt werden, der im Suchfeld
 oberhalb der Liste einzugeben ist.
@@ -271,7 +271,7 @@ Betätigen der Return-Taste springt auf den nächsten Treffer der Suche (ohne Tr
 Weitere Auswahlfunktionen basierend auf der Suche zeigt das Kontextmenü des Suchfeldes:
 
 .'{opsi-configed}': Suchfunktion für Client-Auswahl
-image::opsi-configed-clientselection-search.png["{opsi-configed}: Client-Suche", width=200 ]
+image::opsi-configed-clientselection-search.png["{opsi-configed}: Client-Suche"]
 
 
 [NOTE]
@@ -374,7 +374,7 @@ Während einer Sitzung können sie mittels des Kontextmenüs eingeblendet werden
 mittels des Configs 'configed.host_displayfields' bearbeitet werden.
 
 .'{opsi-configed}': Spaltenkonfiguration für die Clientliste
-image::opsi-configed-config-host-displayfields.png["{opsi-configed}: Spaltenkonfiguration für die Clientliste", width="82mm"]
+image::opsi-configed-config-host-displayfields.png["{opsi-configed}: Spaltenkonfiguration für die Clientliste"]
 
 
 Das Hinzufügen der Spalte 'Session-Informationen' schaltet den Button  'Abfrage der Session-Informationen von allen Clients' auf aktiv.
@@ -411,7 +411,7 @@ Im Client-Auswahldialog, der über 'Auswahl / Auswahl definieren' oder über das
 Clientzusammenstellungen anhand wählbarer Kriterien erstellt werden.
 
 .'{opsi-configed}': Auswahldialog
-image::configed_clientselection.png["{opsi-configed}: Auswahldialog", width="73mm"]
+image::configed_clientselection.png["{opsi-configed}: Auswahldialog"]
 
 
 Neben allgemeinen Eigenschaften der Clients (Rubrik 'Wähle nach Host Eigenschaften') können als Suchkriterium auch (sowohl auf dem PC gefundene als auch mit Opsi installierte) Software sowie Hardware-Komponenten verwendet werden.
@@ -442,7 +442,7 @@ Unter dem Menüpunkt _Auswahl_ die Punkte _Fehlgeschlagene Aktionen bei Produkt.
 gibt es die Möglichkeit, fehlerhafte Installationen zu suchen. +
 
 .'{opsi-configed}': Fehlgeschlagene Aktionen
-image::opsi-configed-failedactions-today.png["{opsi-configed}: Fehlgeschlagene Aktionen - heute", width=250]
+image::opsi-configed-failedactions-today.png["{opsi-configed}: Fehlgeschlagene Aktionen - heute"]
 
 Wählt man den ersten Punkt, erhält man eine Liste aller Produkte. Selektiert man ein Produkt, so werden
 alle Clients markiert, bei denen die Installation dieses Produktes fehlgeschlagen ist. +
@@ -466,7 +466,7 @@ Die ersten zwei Basisknoten unterscheiden sich darin,
 wie oft ein Client in ihnen bzw. in Unterknoten von ihnen vorkommen darf.
 
 .'{opsi-configed}': 'Treeview'
-image::opsi-configed-treeview.png["{opsi-configed}: Treeview", width="50mm"]
+image::opsi-configed-treeview.png["{opsi-configed}: Treeview"]
 
 Das Prinzip lautet: Während eine Gruppe eindeutig durch ihren Namen bestimmt ist und nicht mehrfach vorkommen kann,
 kann ein Client beliebig vielen Gruppen angehören. Im 'Directory'-Teilbaum hat jedoch jeder Client einen eindeutigen Ort; 
@@ -491,12 +491,12 @@ In diesem Treeview werden die Gruppen angezeigt, die Sie gemäß <<opsi-manual-c
 Sie können zusätzlich Gruppen definieren, indem Sie mit der rechten Maustaste über der Eltern-Gruppe bzw. dem Eltern-Knoten (z.B. "GRUPPEN") das Kontextmenü öffnen und 'Untergruppe erzeugen' wählen.
 
 .'{opsi-configed}': Gruppe anlegen
-image::opsi-configed-treeview-generate-group.png["{opsi-configed}: Gruppe anlegen", width="49mm"]
+image::opsi-configed-treeview-generate-group.png["{opsi-configed}: Gruppe anlegen"]
 
 Wenn Sie dies gemacht haben, werden Sie in einem Dialogfenster nach dem Namen der Gruppe und einer optionalen Beschreibung gefragt.
 
 .'{opsi-configed}': Gruppenname eingeben
-image::opsi-configed-treeview-groupname.png["{opsi-configed}: Gruppenname und Beschreibung eingeben", width="46mm"]
+image::opsi-configed-treeview-groupname.png["{opsi-configed}: Gruppenname und Beschreibung eingeben"]
 
 Eine Gruppe können Sie nun mit Clients füllen, indem Sie mit gedrückter linker Maustaste per Drag&Drop:
 
@@ -531,7 +531,7 @@ Im Client-Tab können Sie über den Menüpunkt 'OpsiClient' oder das Kontextmen�
 Außerdem befinden sich auf der rechten Seite Eigenschaften von dem ausgewählten Client, die bei Auswahl eines Clients editierbar sind.
 
 .'{opsi-configed}': Kontextmenü der Clientliste
-image::opsi-configed-client-contextmenu.png["{opsi-configed}: Kontextmenü der Clientliste", width="90mm"]
+image::opsi-configed-client-contextmenu.png["{opsi-configed}: Kontextmenü der Clientliste"]
 
 [[opsi-manual-configed-module-uefi-wan-installbyShutdown]]
 ==== Install By Shutdown, Uefi-Boot und WAN-Konfiguration
@@ -539,7 +539,6 @@ image::opsi-configed-client-contextmenu.png["{opsi-configed}: Kontextmenü der C
 Einige Standard Konfigurationen für einen Client können direkt in der Client-Information gesetzt werden, 
 die sich rechts von der Client-Liste befindet. Zu beachten ist, dass es sich bei der UEFI-Boot-Unterstützung und bei der WAN-Konfiguration 
 um derzeit kostenpflichtige Erweiterungsmodule handelt. Wenn die Module nicht aktiv sind,  werden die Buttons ausgegraut.
-
 
 * Install By Shutdown: +
 Der herkömmliche Weg, Installationen  beim Herunterfahren des Rechners zu konfigurieren, ist in  <<opsi-on-shutdown>> beschrieben.
@@ -570,7 +569,7 @@ für welche Clients die Eigenschaft gesetzt ist, und es kann auch danach gesucht
 
 
 .'{opsi-configed}': Erweiterte Spaltensicht für opsi-Clients
-image::opsi-configed-clientinfos.png["{opsi-configed}: Erweiterte Spaltensicht für opsi-Clients", width="150mm"]
+image::opsi-configed-clientinfos.png["{opsi-configed}: Erweiterte Spaltensicht für opsi-Clients"]
  
 
 
@@ -587,7 +586,7 @@ Wenn der Client einem mit dem configserver nicht identischen Depotserver  zugeor
 eine HTTPS-Verbindung zum 'opsiconfd' auf dem Depotserver aufgebaut und dieser veranlasst, in seinem Netz das Netzwerkpaket zu schicken.
 
 .'{opsi-configed}': Scheduler für Wake On Lan
-image::opsi-configed-wake-on-lan-scheduler.png["{opsi-configed}: Schedule für Wake On Lan", width="120mm"]
+image::opsi-configed-wake-on-lan-scheduler.png["{opsi-configed}: Schedule für Wake On Lan"]
  
 Zu beachten ist, dass es der '{opsi-configed}' ist, der die Aktionen auslöst, d.h. das Programm darf in diesem Zeitraum nicht beendet werden.
 
@@ -632,12 +631,12 @@ Nachrichten an einen oder mehrere Clients zu senden.
 Es erscheint zunächst ein Fenster in dem Sie die Nachricht editieren können.
 
 .'{opsi-configed}': Bearbeitungsfenster einer Nachricht
-image::opsi-configed-client-message-editing.png["{opsi-configed}: Bearbeitungsfenster einer Nachricht", width="51mm"]
+image::opsi-configed-client-message-editing.png["{opsi-configed}: Bearbeitungsfenster einer Nachricht"]
 
 Durch Anklicken des roten Häkchens versenden Sie die Nachricht. Auf den selektierten Clients wird nun die Nachricht angezeigt:
 
 .'{opsi-configed}': Nachrichtenfenster auf dem Client
-image::opsi-configed-client-message-reading.png["{opsi-configed}: Nachrichtenfenster auf dem Client", width="53mm"]
+image::opsi-configed-client-message-reading.png["{opsi-configed}: Nachrichtenfenster auf dem Client"]
 
 [[opsi-manual-configed-client-editing-sessioninfo]]
 ==== Sessioninfo der ausgewählten Clients
@@ -666,7 +665,7 @@ aus 'seiner' Systemumgebung auf. D.h., die Form des benötigten Kommandos hängt
 '{opsi-configed}' unter Windows oder Linux läuft.
 
 .'{opsi-configed}': Auswahl des Remote-Control-Aufrufs
-image::opsi-configed-client-remotecontrol-choice.png["{opsi-configed}: Auswahl des Remote-Control-Aufrufs", width="52 mm"]
+image::opsi-configed-client-remotecontrol-choice.png["{opsi-configed}: Auswahl des Remote-Control-Aufrufs"]
 
 Das Auswahlfenster ist dreigeteilt: Oben steht die Liste der Namen der verfügbaren Aufrufe.
 Es folgt eine Zeile, in der das ausgewählte Kommando angezeigt wird sowie, falls zulässig, verändert werden
@@ -716,7 +715,7 @@ verändert werden darf.
 
 
 .'{opsi-configed}': Bearbeitung der Remote-Control-Aufrufe bei den Server-Konfigurationseinträgen
-image::opsi-configed-properties-remotecontrol.png["{opsi-configed}: Bearbeitung der Remote-Control-Aufrufe bei den Server-Konfigurationseinträgen", width="124 mm"]
+image::opsi-configed-properties-remotecontrol.png["{opsi-configed}: Bearbeitung der Remote-Control-Aufrufe bei den Server-Konfigurationseinträgen"]
 
 [[opsi-manual-configed-client-editing-manage]]
 ==== Clients entfernen, erstellen, umbenennen, umziehen
@@ -727,7 +726,7 @@ Sie haben hier auch die Möglichkeit, Clients neu anzulegen.
 Über den Menü-Punkt 'Neuen OpsiClient erstellen', erhalten Sie eine Maske zur Eingabe der nötigen Informationen zur Erstellung eines Clients.
 
 .'{opsi-configed}': Client anlegen
-image::opsi-configed-client-new.png["{opsi-configed}: Client anlegen", width="54mm"]
+image::opsi-configed-client-new.png["{opsi-configed}: Client anlegen"]
 
 Diese Maske enthält auch Felder für die optionale Angabe der IP-Nummer und der Hardware- (MAC)-Adresse.
 Wenn das Backend für die Konfiguration eines lokalen DHCP-Servers aktiviert ist (dies ist nicht der Default),
@@ -767,7 +766,7 @@ Sie können den ausgewählten Client innerhalb von opsi umbenennen. Sie werden d
 Ein weiterer Dialog steht für den Umzug von einem Client oder mehreren Clients zu einem anderen Depot zur Verfügung:
 
 .'{opsi-configed}': Client zu anderem Depot umziehen
-image::opsi-configed-client-change-depot.png["{opsi-configed}: Client zu anderem Depot umziehen", width="53mm"]
+image::opsi-configed-client-change-depot.png["{opsi-configed}: Client zu anderem Depot umziehen"]
 
 [[opsi-manual-configed-client-editing-productreset]]
 ==== Localboot-Produkte zurücksetzen
@@ -782,7 +781,7 @@ so erhalten Sie die Liste der zur Softwareverteilung bereitstehenden Produkte
 und des Installations- und Aktionsstatus zu den ausgewählten Clients.
 
 .'{opsi-configed}': Tab Produktkonfiguration
-image::opsi-configed-localbootproducts.png["{opsi-configed}: Tab Produktkonfiguration", width=400]
+image::opsi-configed-localbootproducts.png["{opsi-configed}: Tab Produktkonfiguration"]
 
 Seit opsi 4.0.4 wird hier eine Suchfunktion angeboten.
 Mit der Suchfunktion kann nach Produktnamen bzw. - je nach Einstellung in der Auswahlbox -
@@ -794,7 +793,7 @@ Markierung auf die erste Tabellenzeile.
 Im Kontextmenü des Suchfeldes werden weitere Optionen angeboten.
 
 .'{opsi-configed}': Produktsuche, mit Kontextmenü
-image::configed_productsearch.png["{opsi-configed}: Produktsuche, mit Kontextmenü", width="300"]
+image::configed_productsearch.png["{opsi-configed}: Produktsuche, mit Kontextmenü"]
 
 Hilfreich kann die Benutzung der Filterfunktion sein. Aktivieren des Filters reduziert die angezeigten Produkte
 auf die in diesem Moment markierten. Die Auswahl bleibt erhalten, bis der Filter durch erneutes
@@ -869,14 +868,14 @@ Sofern entsprechend konfiguriert, wird ein Hinweis zur Bedeutung eines Wertes so
 sobald der Mauszeiger über die betreffende Zeile bewegt wird ("Tooltip"):
 
 .'{opsi-configed}': Property-Tabelle
-image::opsi-configed-editlist1.png["{opsi-configed}: Property-Tabelle", width="80mm"]
+image::opsi-configed-editlist1.png["{opsi-configed}: Property-Tabelle"]
 
 
 Beim Anklicken eines Wertes poppt ein Fenster auf, der 'Listen-Editor', und zeigt einen Wert bzw. eine Liste vorkonfigurierter Werten, 
 wobei der derzeit gültige Wert (bzw. die derzeit selektierte Wertekombination)  markiert ist:
 
 .'{opsi-configed}': Listen-Editor, Auswahlliste
-image::opsi-configed-editlist2.png["{opsi-configed}: Listen-Editor, Auswahlliste", width="80mm"]
+image::opsi-configed-editlist2.png["{opsi-configed}: Listen-Editor, Auswahlliste"]
 
 
 Durch Anklicken eines (anderen) Wertes kann die Auswahl neu gesetzt  (bzw. durch Strg-Click erweitert oder verkleinert) werden.
@@ -886,7 +885,7 @@ bietet das Fenster zusätzlich ein Editierfeld an,
 in dem neue bzw. geänderte Werte eingegeben werden können.
 
 .'{opsi-configed}': Listeneditor, Editierfeld
-image::opsi-configed-editlist3.png["{opsi-configed}: Listeneditor, Editierfeld", width="80mm"]
+image::opsi-configed-editlist3.png["{opsi-configed}: Listeneditor, Editierfeld"]
 
 Wenn ein Wert nur modifiziert werden soll, kann er Wert aus der Liste der vorhandenen mit Doppelklick in das Editierfeld übernommen werden.
 Sobald ein in der Liste noch nicht vorhandener Wert im Editierfeld steht,
@@ -924,7 +923,7 @@ Die hier angeführten Produkte versuchen, werden sie auf 'setup' gestellt, zu de
 Dies dient üblicherweise der OS-Installation.
 
 .'{opsi-configed}': Tab Netboot-Produkte
-image::opsi-configed-netbootproducts.png["{opsi-configed}: Tab Netboot-Produkte", width=400]
+image::opsi-configed-netbootproducts.png["{opsi-configed}: Tab Netboot-Produkte"]
 
 [[opsi-manual-configed-hardwareinformation]]
 === Hardwareinformationen
@@ -933,7 +932,7 @@ Unter diesem Karteireiter erhalten Sie die letzten - entweder durch das Bootimag
 erhobenen - Hardwareinformationen zum ausgewählten Client.
 
 .'{opsi-configed}': Tab Hardware-Information
-image::opsi-configed-hardwareinformation.png["{opsi-configed}: Tab Hardware-Information", width=400]
+image::opsi-configed-hardwareinformation.png["{opsi-configed}: Tab Hardware-Information"]
 
 ==== Automatisierte Treiberintegration
 
@@ -942,7 +941,7 @@ der Version 4.0.5 die Möglichkeit aus den Hardwareinformationen mögliche Pfade
 übertragen werden.
 Die zwei angebotenen byAudit-Treiberpfade setzten sich zusammen aus dem Hersteller und dem Produkt bzw. dem Modell, welche jeweils aus dem Computer und der Hauptplatine ausgelesen werden. Betätigt man den rechten Button zum Treiberupload, so erscheint ein neues Fenster um weitere Einstellungen zu tätigen.
 
-image::opsi-configed-hardwareinfo-treiberintegration.png["{opsi-configed}: Tab Hardware-Information - Treiberupload", width=400]
+image::opsi-configed-hardwareinfo-treiberintegration.png["{opsi-configed}: Tab Hardware-Information - Treiberupload"]
 
 Haben Sie  den '{opsi-configed}' auf einem Linux-System geöffnet, so ist es nicht direkt möglich einen Treiberupload durchzuführen, da die Verbindung über einen Share durchgeführt wird. Dies muss dann manuell getätigt werden. Jedoch sind die Methoden bzw. Verzeichnisstrukturen ein wesentlicher Aspekt der Treiberintegration.
 
@@ -976,7 +975,7 @@ IMPORTANT: Nach einem Treiberupload nach `./drivers/drivers` oder `./drivers/dri
 Unter diesem Karteireiter erhalten Sie  die letzten mit swaudit ausgelesenen Informationen über installierte Software beim Client.
 
 .'{opsi-configed}': Tab Software-Inventur
-image::opsi-configed-softwareinventory.png["{opsi-configed}: Tab Software-Inventur", width=400]
+image::opsi-configed-softwareinventory.png["{opsi-configed}: Tab Software-Inventur"]
 
 
 [[opsi-manual-configed-logfiles]]
@@ -991,7 +990,7 @@ Dabei kann auch in den Logdateien gesucht werden (Fortsetzung der Suche mit 'F3'
 Die einzelnen Zeilen sind je nach Loglevel farbig hervorgehoben.
 
 .'{opsi-configed}': Tab Logdateien
-image::opsi-configed-logfiles.png["{opsi-configed}: Tab Logdateien", width=400]
+image::opsi-configed-logfiles.png["{opsi-configed}: Tab Logdateien"]
 
 [[opsi-manual-configed-product-defaultproperties]]
 === Produkt-Defaultproperties
@@ -1003,7 +1002,7 @@ ebenfalls bekannt aus der Client-Produktkonfiguration.
 
 [[image-configed-product-defaultproperties]]
 .'{opsi-configed}': Produkt-Defaultproperties
-image::opsi-configed-produkt-defaultproperties-jedit-verschiedene-werte.png["{opsi-configed}: Produkt-Defaultproperties: jEdit", width=400]
+image::opsi-configed-produkt-defaultproperties-jedit-verschiedene-werte.png["{opsi-configed}: Produkt-Defaultproperties: jEdit"]
 Man kann ein oder mehrere Depots auswählen, um die Defaultwerte (d.h. die Depotwerte) des Produktes zu ändern. Als Voreinstellung werden alle verfügbaren Depots ausgewählt. Mit den üblichen Tastenkombinationen (_Strg-a_, _Strg-Klick_ oder _Shift-Klick_) lassen sich mehrere bzw. alle Clients markieren. +
 Ist der Property-Wert ausgegraut (siehe <<image-configed-product-defaultproperties>> - ``gui_language''), so sind auf den ausgewählten Depots verschiedene Werte für diese Property gesetzt. Rechts neben den Depots befinden sich drei Buttons:
 
@@ -1066,11 +1065,11 @@ Parameter und ihre Werte erscheinen auf der rechten Seite.
 
 
 .'{opsi-configed}': Tab Hostparameter (als Serverkonfiguration)
-image::opsi-configed-hostparameters.png["{opsi-configed}: Tab Hostparameter (als Serverkonfiguration)", width=400]
+image::opsi-configed-hostparameters.png["{opsi-configed}: Tab Hostparameter (als Serverkonfiguration)"]
 
 
 .'{opsi-configed}': Tab Hostparameter (Kontextmenü eines Clienteintrags)
-image::opsi-configed-hostparameter_setting.png["{opsi-configed}: Tab Hostparameter (Kontextmenü eines Clienteintrags)", width=250]
+image::opsi-configed-hostparameter_setting.png["{opsi-configed}: Tab Hostparameter (Kontextmenü eines Clienteintrags)"]
 
 
 
@@ -1153,7 +1152,7 @@ Bei anderen Zugriffsmethoden auf das {json-rpc}-Interface des opsi-servers werde
 Im Modus Depotkonfiguration (vgl. <<opsi-manual-configed-mode-selection>>) öffnet sich der Tab 'Depots'. Nach Auswahl eines Depotservers in der Drop-Down-Liste können Werte bearbeitet werden, die das Depot parametrisieren.
 
 .'{opsi-configed}': Tab Depot-Konfiguration
-image::opsi-configed-depotconfiguration.png["{opsi-configed}: Tab Depot-Konfiguration", width=400]
+image::opsi-configed-depotconfiguration.png["{opsi-configed}: Tab Depot-Konfiguration"]
 
 
 [[opsi-manual-configed-groupactions]]
@@ -1167,7 +1166,7 @@ Im Moment wird nur eine Funktion angeboten, die für die opsi-localimage-Option 
 *  die Suche nach einem Betriebssystem, das auf allen PCs der selektierten Gruppe schon installiert war und daher zur Auswahl für die Inbetriebnahme (auf allen PCs der Gruppe) angeboten werden kann.
 
 .'{opsi-configed}': Gruppenaktionen (für opsi-local-image)
-image::configed_groupaction_localimage.png["{opsi-configed}: Gruppenaktionen (für opsi-local-image)", width=400]
+image::configed_groupaction_localimage.png["{opsi-configed}: Gruppenaktionen (für opsi-local-image)"]
 
 [[opsi-manual-configed-packageactions]]
 === Produktaktionen
@@ -1182,7 +1181,7 @@ Im Moment stehen zwei Funktionen zur Verfügung:
 *  Die WinPE-Dateien bzw. die Installfiles für ein Windows-Produkt (ab Windows Vista) können in das Server-Produktverzeichnis (Share opsi_depot) hochgeladen werden, so dass die Windows-Produkte nicht mehr serverseitig angefasst werden müssen.
 
 .'{opsi-configed}': Paket- bzw. Produktaktionen
-image::configed_package-actions.png["{opsi-configed}: Produktaktionen", width=400]
+image::configed_package-actions.png["{opsi-configed}: Produktaktionen"]
 
 
 [[opsi-manual-configed-serverconsole]]
@@ -1201,7 +1200,7 @@ zum anderen existieren Menüpunkte für vordefinierte Kommandozeilenbefehle.
 
 
 .'{opsi-configed}': Menü: Server-Konsole
-image::configed_serverkonsole.png["{opsi-configed}: Server-Konsole", width=350]
+image::configed_serverkonsole.png["{opsi-configed}: Server-Konsole"]
 
 [[opsi-manual-configed-serverconsole-permissions]]
 ==== Verbindungsdaten und Berechtigungen
@@ -1249,7 +1248,7 @@ Außerdem können Datenquellen aus dem configed-Kontext angegeben werden, die be
 (Mehr zu dieser Funktionalität: <<opsi-manual-configed-serverconsole-commandcontrol>> - Punkt: Datenquellen)
 
 .'{opsi-configed}': SSH-Terminal
-image::configed_serverkonsole-terminal.png["{opsi-configed}: SSH-Terminal", width=350]
+image::configed_serverkonsole-terminal.png["{opsi-configed}: SSH-Terminal"]
 
 [[opsi-manual-configed-serveractions-parametercommands]]
 ==== Vordefinierte Befehle mit Eingabemasken
@@ -1298,7 +1297,7 @@ Dabei ist zu beachten, dass unterschiedliche Linux-Systeme unter Umständen nich
 
 
 .'{opsi-configed}': Befehle definieren
-image::configed_serverkonsole-defcommands.png["{opsi-configed}: Befehle definieren", width=400]
+image::configed_serverkonsole-defcommands.png["{opsi-configed}: Befehle definieren"]
 
 Folgende Daten müssen bzw. können (gekennzeichnet durch ein "*") für einen Befehl angegeben werden: 
 
@@ -1335,7 +1334,7 @@ Hinweis: Außer für die "Interaktive Eingabe" kann die Rückgabe der Methoden f
 In der Oberfläche kann die Datenquelle sowohl getestet, als auch an die im Feld der Befehlsliste markierten Stelle eingefügt werden.
 
 .'{opsi-configed}': Befehl ausführen - Parameterabfrage
-image::configed_serverkonsole-exec.png["{opsi-configed}: Befehl ausführen - Parameterabfrage", width=400]
+image::configed_serverkonsole-exec.png["{opsi-configed}: Befehl ausführen - Parameterabfrage"]
 
 TIP: -- Unter Linux lassen sich Befehle mit Hilfe von zwei kaufmännischen Unds ("&&") kombinieren. Dabei muss jedoch darauf geachtet werden, dass zum zweiten Befehl, falls benötigt ein sudo ergänzt wird, da dies nicht automatisch geschieht. Beispiel: Benötigt root-Rechte:"aktiviert" , Befehlsliste: "apt-get update --yes && sudo apt-get upgrade --yes". + 
  -- Während der Ausführung lassen sich keine Benutzereingaben tätigen. Es ist notwendig, alle Eingaben über die Befehls\-parameter zu steuern (Beispiel: "--yes" -Option bei "apt-get upgrade") 

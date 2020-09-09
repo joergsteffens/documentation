@@ -478,7 +478,7 @@ Die Umstellung zwischen diesen Algorithmen erfolgt entweder:
 im '{opsi-configed}', in der Server-Konfiguration
 
 .'{opsi-configed}': Serverkonfiguration
-image::configed_serverconfiguration.png[width=500]
+image::configed_serverconfiguration.png[]
 
 oder auf der Kommandozeile mit folgendem Befehl:
 [source, prompt]
@@ -487,10 +487,10 @@ opsi-setup --edit-config-defaults
 ----
 
 .Wählen des Sortieralgorithmus: Teil 1
-image::opsi-setup-product_sort_algorithm.png[width=300]
+image::opsi-setup-product_sort_algorithm.png[]
 
 .Wählen des Sortieralgorithmus: Teil 2
-image::opsi-setup-product_sort_algorithm2.png[width=300]
+image::opsi-setup-product_sort_algorithm2.png[]
 
 [[opsi-manual-localboot-product-order-algorithm1]]
 ===== Algorithm1: Produktabhängigkeit vor Priorität (Default)
