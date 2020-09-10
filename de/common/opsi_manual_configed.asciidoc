@@ -868,14 +868,14 @@ Sofern entsprechend konfiguriert, wird ein Hinweis zur Bedeutung eines Wertes so
 sobald der Mauszeiger über die betreffende Zeile bewegt wird ("Tooltip"):
 
 .'{opsi-configed}': Property-Tabelle
-image::opsi-configed-editlist1.png["{opsi-configed}: Property-Tabelle"]
+image::opsi-configed-editlist1.png["{opsi-configed}: Property-Tabelle", scale=40]
 
 
 Beim Anklicken eines Wertes poppt ein Fenster auf, der 'Listen-Editor', und zeigt einen Wert bzw. eine Liste vorkonfigurierter Werten, 
 wobei der derzeit gültige Wert (bzw. die derzeit selektierte Wertekombination)  markiert ist:
 
 .'{opsi-configed}': Listen-Editor, Auswahlliste
-image::opsi-configed-editlist2.png["{opsi-configed}: Listen-Editor, Auswahlliste"]
+image::opsi-configed-editlist2.png["{opsi-configed}: Listen-Editor, Auswahlliste", scale=130]
 
 
 Durch Anklicken eines (anderen) Wertes kann die Auswahl neu gesetzt  (bzw. durch Strg-Click erweitert oder verkleinert) werden.
@@ -885,7 +885,7 @@ bietet das Fenster zusätzlich ein Editierfeld an,
 in dem neue bzw. geänderte Werte eingegeben werden können.
 
 .'{opsi-configed}': Listeneditor, Editierfeld
-image::opsi-configed-editlist3.png["{opsi-configed}: Listeneditor, Editierfeld"]
+image::opsi-configed-editlist3.png["{opsi-configed}: Listeneditor, Editierfeld", scale=130]
 
 Wenn ein Wert nur modifiziert werden soll, kann er Wert aus der Liste der vorhandenen mit Doppelklick in das Editierfeld übernommen werden.
 Sobald ein in der Liste noch nicht vorhandener Wert im Editierfeld steht,
@@ -923,7 +923,7 @@ Die hier angeführten Produkte versuchen, werden sie auf 'setup' gestellt, zu de
 Dies dient üblicherweise der OS-Installation.
 
 .'{opsi-configed}': Tab Netboot-Produkte
-image::opsi-configed-netbootproducts.png["{opsi-configed}: Tab Netboot-Produkte"]
+image::opsi-configed-netbootproducts.png["{opsi-configed}: Tab Netboot-Produkte", scaledwidth=400]
 
 [[opsi-manual-configed-hardwareinformation]]
 === Hardwareinformationen
@@ -932,7 +932,7 @@ Unter diesem Karteireiter erhalten Sie die letzten - entweder durch das Bootimag
 erhobenen - Hardwareinformationen zum ausgewählten Client.
 
 .'{opsi-configed}': Tab Hardware-Information
-image::opsi-configed-hardwareinformation.png["{opsi-configed}: Tab Hardware-Information"]
+image::opsi-configed-hardwareinformation.png["{opsi-configed}: Tab Hardware-Information", scaledwidth=400]
 
 ==== Automatisierte Treiberintegration
 
@@ -941,7 +941,7 @@ der Version 4.0.5 die Möglichkeit aus den Hardwareinformationen mögliche Pfade
 übertragen werden.
 Die zwei angebotenen byAudit-Treiberpfade setzten sich zusammen aus dem Hersteller und dem Produkt bzw. dem Modell, welche jeweils aus dem Computer und der Hauptplatine ausgelesen werden. Betätigt man den rechten Button zum Treiberupload, so erscheint ein neues Fenster um weitere Einstellungen zu tätigen.
 
-image::opsi-configed-hardwareinfo-treiberintegration.png["{opsi-configed}: Tab Hardware-Information - Treiberupload"]
+image::opsi-configed-hardwareinfo-treiberintegration.png["{opsi-configed}: Tab Hardware-Information - Treiberupload", scaledwidth=400]
 
 Haben Sie  den '{opsi-configed}' auf einem Linux-System geöffnet, so ist es nicht direkt möglich einen Treiberupload durchzuführen, da die Verbindung über einen Share durchgeführt wird. Dies muss dann manuell getätigt werden. Jedoch sind die Methoden bzw. Verzeichnisstrukturen ein wesentlicher Aspekt der Treiberintegration.
 
@@ -975,7 +975,7 @@ IMPORTANT: Nach einem Treiberupload nach `./drivers/drivers` oder `./drivers/dri
 Unter diesem Karteireiter erhalten Sie  die letzten mit swaudit ausgelesenen Informationen über installierte Software beim Client.
 
 .'{opsi-configed}': Tab Software-Inventur
-image::opsi-configed-softwareinventory.png["{opsi-configed}: Tab Software-Inventur"]
+image::opsi-configed-softwareinventory.png["{opsi-configed}: Tab Software-Inventur", scaledwidth=400]
 
 
 [[opsi-manual-configed-logfiles]]
@@ -990,7 +990,7 @@ Dabei kann auch in den Logdateien gesucht werden (Fortsetzung der Suche mit 'F3'
 Die einzelnen Zeilen sind je nach Loglevel farbig hervorgehoben.
 
 .'{opsi-configed}': Tab Logdateien
-image::opsi-configed-logfiles.png["{opsi-configed}: Tab Logdateien"]
+image::opsi-configed-logfiles.png["{opsi-configed}: Tab Logdateien", scaledwidth=400]
 
 [[opsi-manual-configed-product-defaultproperties]]
 === Produkt-Defaultproperties
@@ -1002,7 +1002,7 @@ ebenfalls bekannt aus der Client-Produktkonfiguration.
 
 [[image-configed-product-defaultproperties]]
 .'{opsi-configed}': Produkt-Defaultproperties
-image::opsi-configed-produkt-defaultproperties-jedit-verschiedene-werte.png["{opsi-configed}: Produkt-Defaultproperties: jEdit"]
+image::opsi-configed-produkt-defaultproperties-jedit-verschiedene-werte.png["{opsi-configed}: Produkt-Defaultproperties: jEdit", scaledwidth=400]
 Man kann ein oder mehrere Depots auswählen, um die Defaultwerte (d.h. die Depotwerte) des Produktes zu ändern. Als Voreinstellung werden alle verfügbaren Depots ausgewählt. Mit den üblichen Tastenkombinationen (_Strg-a_, _Strg-Klick_ oder _Shift-Klick_) lassen sich mehrere bzw. alle Clients markieren. +
 Ist der Property-Wert ausgegraut (siehe <<image-configed-product-defaultproperties>> - ``gui_language''), so sind auf den ausgewählten Depots verschiedene Werte für diese Property gesetzt. Rechts neben den Depots befinden sich drei Buttons:
 
@@ -1065,11 +1065,11 @@ Parameter und ihre Werte erscheinen auf der rechten Seite.
 
 
 .'{opsi-configed}': Tab Hostparameter (als Serverkonfiguration)
-image::opsi-configed-hostparameters.png["{opsi-configed}: Tab Hostparameter (als Serverkonfiguration)"]
+image::opsi-configed-hostparameters.png["{opsi-configed}: Tab Hostparameter (als Serverkonfiguration)", scaledwidth=400]
 
 
 .'{opsi-configed}': Tab Hostparameter (Kontextmenü eines Clienteintrags)
-image::opsi-configed-hostparameter_setting.png["{opsi-configed}: Tab Hostparameter (Kontextmenü eines Clienteintrags)"]
+image::opsi-configed-hostparameter_setting.png["{opsi-configed}: Tab Hostparameter (Kontextmenü eines Clienteintrags)", scaledwidth=300]
 
 
 
@@ -1152,7 +1152,7 @@ Bei anderen Zugriffsmethoden auf das {json-rpc}-Interface des opsi-servers werde
 Im Modus Depotkonfiguration (vgl. <<opsi-manual-configed-mode-selection>>) öffnet sich der Tab 'Depots'. Nach Auswahl eines Depotservers in der Drop-Down-Liste können Werte bearbeitet werden, die das Depot parametrisieren.
 
 .'{opsi-configed}': Tab Depot-Konfiguration
-image::opsi-configed-depotconfiguration.png["{opsi-configed}: Tab Depot-Konfiguration"]
+image::opsi-configed-depotconfiguration.png["{opsi-configed}: Tab Depot-Konfiguration", scaledwidth=400]
 
 
 [[opsi-manual-configed-groupactions]]
@@ -1166,7 +1166,7 @@ Im Moment wird nur eine Funktion angeboten, die für die opsi-localimage-Option 
 *  die Suche nach einem Betriebssystem, das auf allen PCs der selektierten Gruppe schon installiert war und daher zur Auswahl für die Inbetriebnahme (auf allen PCs der Gruppe) angeboten werden kann.
 
 .'{opsi-configed}': Gruppenaktionen (für opsi-local-image)
-image::configed_groupaction_localimage.png["{opsi-configed}: Gruppenaktionen (für opsi-local-image)"]
+image::configed_groupaction_localimage.png["{opsi-configed}: Gruppenaktionen (für opsi-local-image)", scaledwidth=400]
 
 [[opsi-manual-configed-packageactions]]
 === Produktaktionen
@@ -1181,7 +1181,7 @@ Im Moment stehen zwei Funktionen zur Verfügung:
 *  Die WinPE-Dateien bzw. die Installfiles für ein Windows-Produkt (ab Windows Vista) können in das Server-Produktverzeichnis (Share opsi_depot) hochgeladen werden, so dass die Windows-Produkte nicht mehr serverseitig angefasst werden müssen.
 
 .'{opsi-configed}': Paket- bzw. Produktaktionen
-image::configed_package-actions.png["{opsi-configed}: Produktaktionen"]
+image::configed_package-actions.png["{opsi-configed}: Produktaktionen", scaledwidth=400]
 
 
 [[opsi-manual-configed-serverconsole]]
@@ -1200,7 +1200,7 @@ zum anderen existieren Menüpunkte für vordefinierte Kommandozeilenbefehle.
 
 
 .'{opsi-configed}': Menü: Server-Konsole
-image::configed_serverkonsole.png["{opsi-configed}: Server-Konsole"]
+image::configed_serverkonsole.png["{opsi-configed}: Server-Konsole", scaledwidth=400]
 
 [[opsi-manual-configed-serverconsole-permissions]]
 ==== Verbindungsdaten und Berechtigungen
@@ -1248,7 +1248,7 @@ Außerdem können Datenquellen aus dem configed-Kontext angegeben werden, die be
 (Mehr zu dieser Funktionalität: <<opsi-manual-configed-serverconsole-commandcontrol>> - Punkt: Datenquellen)
 
 .'{opsi-configed}': SSH-Terminal
-image::configed_serverkonsole-terminal.png["{opsi-configed}: SSH-Terminal"]
+image::configed_serverkonsole-terminal.png["{opsi-configed}: SSH-Terminal", scaledwidth=400]
 
 [[opsi-manual-configed-serveractions-parametercommands]]
 ==== Vordefinierte Befehle mit Eingabemasken
@@ -1297,7 +1297,7 @@ Dabei ist zu beachten, dass unterschiedliche Linux-Systeme unter Umständen nich
 
 
 .'{opsi-configed}': Befehle definieren
-image::configed_serverkonsole-defcommands.png["{opsi-configed}: Befehle definieren"]
+image::configed_serverkonsole-defcommands.png["{opsi-configed}: Befehle definieren", scaledwidth=400]
 
 Folgende Daten müssen bzw. können (gekennzeichnet durch ein "*") für einen Befehl angegeben werden: 
 
@@ -1334,7 +1334,7 @@ Hinweis: Außer für die "Interaktive Eingabe" kann die Rückgabe der Methoden f
 In der Oberfläche kann die Datenquelle sowohl getestet, als auch an die im Feld der Befehlsliste markierten Stelle eingefügt werden.
 
 .'{opsi-configed}': Befehl ausführen - Parameterabfrage
-image::configed_serverkonsole-exec.png["{opsi-configed}: Befehl ausführen - Parameterabfrage"]
+image::configed_serverkonsole-exec.png["{opsi-configed}: Befehl ausführen - Parameterabfrage", scaledwidth=400]
 
 TIP: -- Unter Linux lassen sich Befehle mit Hilfe von zwei kaufmännischen Unds ("&&") kombinieren. Dabei muss jedoch darauf geachtet werden, dass zum zweiten Befehl, falls benötigt ein sudo ergänzt wird, da dies nicht automatisch geschieht. Beispiel: Benötigt root-Rechte:"aktiviert" , Befehlsliste: "apt-get update --yes && sudo apt-get upgrade --yes". + 
  -- Während der Ausführung lassen sich keine Benutzereingaben tätigen. Es ist notwendig, alle Eingaben über die Befehls\-parameter zu steuern (Beispiel: "--yes" -Option bei "apt-get upgrade") 

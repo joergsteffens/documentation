@@ -307,10 +307,10 @@ Mit dem Befehl `opsi-setup --configure-mysql` kann nun die Datenbank aufgebaut w
 Eine Beispiel-Sitzung:
 
 .opsi-setup --configure-mysql: Eingabemaske
-image::mysql-config-input-mask.png["opsi-setup --configure-mysql: Eingabemaske"]
+image::mysql-config-input-mask.png["opsi-setup --configure-mysql: Eingabemaske", scaledwidth=400]
 
 .opsi-setup --configure-mysql: Ausgabe
-image::mysql-config-output.png["opsi-setup --configure-mysql: Ausgabe"]
+image::mysql-config-output.png["opsi-setup --configure-mysql: Ausgabe", scaledwidth=400]
 
 
 Bei den Abfragen können außer beim Passwort alle Vorgaben mit Enter bestätigt werden.
