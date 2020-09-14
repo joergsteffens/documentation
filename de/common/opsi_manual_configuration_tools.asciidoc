@@ -516,7 +516,7 @@ kann über ein grafisches Frontend in elementare Form auf diesen Webservice zuge
 Dazu müssen Sie sich als Mitglied der Gruppe 'opsiadmin' authentifizieren.
 
 .'opsiconfd': Web-Interface
-image::opsi-webinterface2.png["opsiconfd: Web-Interface"]
+image::opsi-webinterface2.png["opsiconfd: Web-Interface", pdfwidth=80%]
 
 
 [[opsi-manual-configuration-tools-opsi-admin]]
@@ -750,10 +750,10 @@ aufbereitete Informationen über den Lastverlauf des 'opsiconfd' der
 letzten Stunde, des letzten Tages, des letzten Monats und des letzten Jahrs sowie weitere tabellarische Informationen.
 
 .opsiconfd info: 'opsiconfd'-Werte der letzten Stunde
-image::opsiconfd-info-hour.png["opsiconfd info: opsiconfd-Werte der letzten Stunde", scaledwidth=400]
+image::opsiconfd-info-hour.png["opsiconfd info: opsiconfd-Werte der letzten Stunde", pdfwidth=80%, scaledwidth=400]
 
 .opsiconfd info: 'opsiconfd'-Werte des letzten Tages
-image::opsiconfd-info-day.png["opsiconfd info: opsiconfd-Werte des letzten Tages", scaledwidth=400]
+image::opsiconfd-info-day.png["opsiconfd info: opsiconfd-Werte des letzten Tages", pdfwidth=80%, scaledwidth=400]
 
 [[opsi-manual-configuration-tools-serverprocess-tftpd]]
 ==== Serverprozess: opsi-tftpd-hpa

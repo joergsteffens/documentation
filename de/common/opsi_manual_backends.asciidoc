@@ -261,7 +261,7 @@ Dieser ist der 'windowsDisplayName' bzw. wenn dieser nicht vorhanden ist die 'wi
 In der Tabelle 'Software_config' sind diese Felder zum Feld 'config_id' zusammengefasst.
 
 .Datenbankschema: Softwareinventarisierung
-image::mysql-schema-inventory-software.png["Datenbankschema: Softwareinventarisierung"]
+image::mysql-schema-inventory-software.png["Datenbankschema: Softwareinventarisierung", pdfwidth=70%]
 
 
 [[opsi-manual-backends-mysql-configdata-overview]]
@@ -277,7 +277,7 @@ Das '{mysql-Backend}' hat den Vorteil der höheren Performanz insbesondere bei g
 Hier eine Übersicht über die Datenstruktur:
 
 .Datenbankschema: Konfigurationsdaten
-image::mysql-schema-configdata.png["Datenbankschema: Konfigurationsdaten"]
+image::mysql-schema-configdata.png["Datenbankschema: Konfigurationsdaten", pdfwidth=80%]
 
 
 [[opsi-manual-backends-mysql-initializing]]
@@ -307,10 +307,10 @@ Mit dem Befehl `opsi-setup --configure-mysql` kann nun die Datenbank aufgebaut w
 Eine Beispiel-Sitzung:
 
 .opsi-setup --configure-mysql: Eingabemaske
-image::mysql-config-input-mask.png["opsi-setup --configure-mysql: Eingabemaske", scaledwidth=400]
+image::mysql-config-input-mask.png["opsi-setup --configure-mysql: Eingabemaske", pdfwidth=70%, scaledwidth=400]
 
 .opsi-setup --configure-mysql: Ausgabe
-image::mysql-config-output.png["opsi-setup --configure-mysql: Ausgabe", scaledwidth=400]
+image::mysql-config-output.png["opsi-setup --configure-mysql: Ausgabe", pdfwidth=70%, scaledwidth=400]
 
 
 Bei den Abfragen können außer beim Passwort alle Vorgaben mit Enter bestätigt werden.
