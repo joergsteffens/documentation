@@ -33,4 +33,4 @@ destination_file_path = os.path.join(destination_folder, destination_file)
 print(destination_file_path)
 
 
-os.system(f'asciidoctor -a encoding=UTF-8 -a doctype=book -a imagedir="{image_path}" -a lang=de --verbose  --out-file "{destination_file_path}" {source} ')
+os.system(f'asciidoctor -a encoding=UTF-8 -a doctype=book -a icons=font -a xrefstyle=full -a imagedir="{image_path}" -a lang=de --verbose  --out-file "{destination_file_path}" {source} ')

@@ -54,30 +54,29 @@ Insbesondere zeigt dann der Aufruf  `java -jar configed.jar --help` die Kommando
 
 [source, prompt]
 ----
-
--l LOC			--locale LOC			Set locale LOC (format: <language>_<country>)
--h HOST			--host HOST			Configuration server HOST to connect to
--u NAME			--user NAME			User for authentication
--p PASSWORD	--password PASSWORD		password for authentication
--c CLIENT		--client CLIENT		CLIENT to preselect
--g CLIENTGROUP	--group CLIENTGROUP	CLIENTGROUP to preselect
--t INDEX			--tab INDEX                   Start with tab number INDEX, index counting starts with 0, works only if a CLIENT is preselected
--d PATH			--logdirectory PATH       Directory for the log files
--r REFRESHMINUTES			--refreshminutes REFRESHMINUTES			Refresh data every REFRESHMINUTES  (where this feature is implemented, 0 = never)
--qs [SAVEDSEARCH_NAME]		--querysavedsearch [SAVEDSEARCH_NAME]	On command line: tell saved host searches list resp. the search result for [SAVEDSEARCH_NAME])
---gzip [y/n]							Activate gzip transmission of data from opsi server yes/no
+-l LOC --locale LOC			        Set locale LOC (format: <language>_<country>)
+-h HOST --host HOST			        Configuration server HOST to connect to
+-u NAME --user NAME			        User for authentication
+-p PASSWORD --password PASSWORD		password for authentication
+-c CLIENT --client CLIENT		    CLIENT to preselect
+-g CLIENTGROUP --group CLIENTGROUP	CLIENTGROUP to preselect
+-t INDEX --tab INDEX                Start with tab number INDEX, index counting starts with 0, works only if a CLIENT is preselected
+-d PATH	--logdirectory PATH         Directory for the log files
+-r REFRESHMINUTES --refreshminutes  REFRESHMINUTES      Refresh data every REFRESHMINUTES  (where this feature is implemented, 0 = never)
+-qs [SAVEDSEARCH_NAME] --querysavedsearch [SAVEDSEARCH_NAME]	On command line: tell saved host searches list resp. the search result for [SAVEDSEARCH_NAME])
+--gzip [y/n]						Activate gzip transmission of data from opsi server yes/no
 --sslversion PREFERRED_SSL_VERSION	Try to use this SSL/ TLS version
---ssh-key SSHKEY						full path with filename from sshkey used for authentication on ssh server
+--ssh-key SSHKEY					full path with filename from sshkey used for authentication on ssh server
 --ssh-passphrase PASSPHRASE			passphrase for given sshkey used for authentication on ssh server
---version								Tell configed version
---collect_queries_until_no N				Collect the first N queries; N = -1 (default, no collect), 0 = infinite 
+--version							Tell configed version
+--collect_queries_until_no N		Collect the first N queries; N = -1 (default, no collect), 0 = infinite 
 --help								Give this help
---loglevel L 							Set logging level L, L is a number >= 0, <= 5
+--loglevel L 						Set logging level L, L is a number >= 0, <= 5
 --halt								Use  first occurring debug halt point that may be in the code
---sqlgetrows							Force use sql statements by getRawData
+--sqlgetrows						Force use sql statements by getRawData
 --nosqlrawdata						Avoid getRawData
---localizationfile EXTRA_LOCALIZATION_FILENAME							Use EXTRA_LOCALIZATION_FILENAME as localization file, the file name format has to be: configed_LOCALENAME.properties
---localizationstrings													Show internal labels together the strings of selected localization
+--localizationfile EXTRA_LOCALIZATION_FILENAME      Use EXTRA_LOCALIZATION_FILENAME as localization file, the file name format has to be: configed_LOCALENAME.properties
+--localizationstrings				Show internal labels together the strings of selected localization
 --swaudit-pdf FILE_WITH_CLIENT_IDS_EACH_IN_A_LINE [OUTPUT_PATH]		export pdf swaudit reports for given clients (if no OUTPUT_PATH given, use home directory)
 
 ----

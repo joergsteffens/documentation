@@ -11,11 +11,10 @@
 ;                                                               
 ;                          
 ////                                                            
-                                                                
-:Revision:                                                 
+                                               
 :doctype: book                                               
-:Author:    detlef oertel
-:Email:    d.oertel@uib.de
+:Author: detlef oertel
+:Email: d.oertel@uib.de
 :toc:
 
 [[Doc_fileuib_exitcode.opsiscript]]
@@ -150,32 +149,32 @@ http://msdn.microsoft.com/en-us/library/aa368542.aspx
 
 
 
-anchor:isMsExitcodeFatal_short[]
+// anchor:isMsExitcodeFatal_short[]
 
-[[Doc_func_isMsExitcodeFatal_short]]
-== Documentation of local function `isMsExitcodeFatal_short`
-
-
-Definition::
-`isMsExitcodeFatal_short($exitcode$ : string, $allowRebootRequest$ : string, ref $ErrorString$ : string) : string`
-
-Description::
+// [[Doc_func_isMsExitcodeFatal_short]]
+// == Documentation of local function `isMsExitcodeFatal_short`
 
 
-* Parameter: `$exitcode$`
-** Type: `String`  -  Calltype: `CallByValue`
+// Definition::
+// `isMsExitcodeFatal_short($exitcode$ : string, $allowRebootRequest$ : string, ref $ErrorString$ : string) : string`
 
-* Parameter: `$allowrebootrequest$`
-** Type: `String`  -  Calltype: `CallByValue`
+// Description::
 
-* Parameter: `$errorstring$`
-** Type: `String`  -  Calltype: `CallByReference`
 
-* Author:     detlef oertel
-* Date:     14.05.2019
-* Email:     d.oertel@uib.de
-* Version:     1.0.2
-* Copyright:     AGPLv3
+// * Parameter: `$exitcode$`
+// ** Type: `String`  -  Calltype: `CallByValue`
+
+// * Parameter: `$allowrebootrequest$`
+// ** Type: `String`  -  Calltype: `CallByValue`
+
+// * Parameter: `$errorstring$`
+// ** Type: `String`  -  Calltype: `CallByReference`
+
+// * Author:     detlef oertel
+// * Date:     14.05.2019
+// * Email:     d.oertel@uib.de
+// * Version:     1.0.2
+// * Copyright:     AGPLv3
 
 
 

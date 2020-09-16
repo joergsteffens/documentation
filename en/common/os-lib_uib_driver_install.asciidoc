@@ -86,17 +86,21 @@ anchor:setFirewallExceptionsTcpUdp4product4profile[]
 Definition::
 `setFirewallExceptionsTcpUdp4product4profile($rulename$ : string, $fwprofile$ : string, $path2product$ : string) : void`
 
-Description::
+Description:: 
+setFirewallExceptionsTcpUdp4product4profile
 
+* Parameter: `$rulename$` 
 
-* Parameter: `$rulename$`
-** Type: `String`  -  Calltype: `CallByValue`
+** Type: `String - Calltype: `CallByValue` 
 
-* Parameter: `$fwprofile$`
-** Type: `String`  -  Calltype: `CallByValue`
+* Parameter: `$fwprofile$` 
 
-* Parameter: `$path2product$`
-** Type: `String`  -  Calltype: `CallByValue`
+** Type: `String` - Calltype: `CallByValue` 
+
+* Parameter: `$path2product$` 
+
+** Type: `String` - Calltype: `CallByValue`
+
 
 * Author:     detlef oertel
 * Date:     27.08.2013

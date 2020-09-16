@@ -176,7 +176,7 @@ Es folgt zunächst ein Überblick über den Ablauf eines "Standard-Events" bei d
 ob Aktionen auszuführen sind (z.B. 'event_gui_startup').
 
 .Ablauf eines Standard-Events
-image::eventflowchsrt.png["Abbildung: Ablauf eines Standard-Events", scaledwidth=400]
+image::eventflowchsrt.png["Abbildung: Ablauf eines Standard-Events", pdfwidth=90%, scaledwidth=400]
 
 Die wichtigsten Parameter wirken hier wie folgt zusammen:
 
