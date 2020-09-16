@@ -15,8 +15,11 @@
 :Author:    uib gmbh
 :Email:     info@uib.de
 :Revision:  4.2
-:toclevels: 6
-:doctype:   book
+:toc: left
+:toclevels: 3
+:numbered:
+:icons: font 
+:xrefstyle: full
 
 // Include common opsi terms
 include::../common/opsi_terms.asciidoc[]
@@ -356,7 +359,7 @@ Er lässt sich in der Regel problemlos installieren, sofern die Ausstattung des 
 Nach dem Start des Systems müssen Sie die gewünschte Sprache auswählen:
 
 .Sprachauswahl
-image::abbildung1.png["Screenshot: Sprachauswahl",width=400]
+image::abbildung1.png["Screenshot: Sprachauswahl", pdfwidth=90%]
 
 [[opsi-getting-started-installation-base-vm-1stboot]]
 =====  Erster Start
@@ -369,12 +372,12 @@ Die Logdatei von `1stboot.py` ist `/var/lib/1stboot/1stboot.log`.
 WARNING: `1stboot.py` eignet sich nicht, um einen konfigurierten {opsi-Server} nachträglich umzubenennen!
 
 .Startmaske
-image::abbildung2.png["Screenshot: 1stboot.py Startmaske",width=400]
+image::abbildung2.png["Screenshot: 1stboot.py Startmaske", pdfwidth=90%]
 
 Sie werden dann zur Eingabe von Informationen zur Konfiguration des Netzwerkes aufgefordert. Beantworten Sie die Fragen.
 
 .Eingabemaske
-image::1stboot-Eingabemaske.png["Screenshot: 1stboot Eingabemaske",width=400]
+image::1stboot-Eingabemaske.png["Screenshot: 1stboot Eingabemaske", pdfwidth=90%]
 
 Im Folgenden werden Sie gefragt nach:
 
@@ -430,7 +433,7 @@ Wenn die Meldung erscheint, dass keine Netzwerkverbindung verfügbar ist, kann d
 Vor einer weiteren Fehlersuche sollten Sie zunächst probieren, den Server nochmals zu rebooten (z.B. mit dem Ausschaltknopf in der Bedienleiste unten auf der graphischen Oberfläche).
 
 .Graphische Startoberfläche des opsiservers
-image::opsiserver_start_gui.png["Screenshot: Graphische Startoberfläche des opsiservers",400]
+image::opsiserver_start_gui.png["Screenshot: Graphische Startoberfläche des opsiservers", pdfwidth=90%]
 
 Sobald die Netzwerkkonfiguration funktioniert, können Sie auch remote auf den {opsi-Server} zugreifen:
 
@@ -1219,10 +1222,10 @@ Der Befehl wird nach den Zugangsdaten zum Datenbanksystem fragen, um eine Datenb
 Eine Beispiel-Sitzung:
 
 .opsi-setup --configure-mysql: Eingabemaske
-image::mysql-config-input-mask.png["opsi-setup --configure-mysql: Eingabemaske",width=400]
+image::mysql-config-input-mask.png["opsi-setup --configure-mysql: Eingabemaske", pdfwidth=90%]
 
 .opsi-setup --configure-mysql: Ausgabe
-image::mysql-config-output.png["opsi-setup --configure-mysql: Ausgabe",width=400]
+image::mysql-config-output.png["opsi-setup --configure-mysql: Ausgabe", pdfwidth=90]
 
 Bei den Abfragen können außer beim 'Database Admin Password' alle Vorgaben mit Enter bestätigt werden.
 Das 'Database Admin Password' ist auf der opsi-VM `linux123` ansonsten das, was Sie bei der Installation des mysql-servers vergeben haben.
@@ -1724,27 +1727,27 @@ Starten Sie den Rechner von der CD.
 Sie sollten dann folgendes Bild sehen:
 
 .Startbild opsi-client-boot-cd
-image::opsi-client-boot-cd.png["Screenshot: Startbild opsi-client-boot-cd",width=400]
+image::opsi-client-boot-cd.png["Screenshot: Startbild opsi-client-boot-cd", pdfwidth=90%]
 
 Wählen Sie 'Opsi starten'. Nach einer Weile wird folgender Bildschirm erscheinen. Wenn Ihr DHCP-Server IP-Adressen an unbekannte Rechner vergibt ist die Maske schon weitgehend ausgefüllt. Ansonsten müssen Sie es von Hand tun. In der Regel müssen Sie mindestens den Hostnamen vergeben.
 
 .bootimage/boot-cd Konfigurationsmakse
-image::boot-cd-config.png["Screenshot: bootimage/boot-cd Konfigurationsmaske",width=400]
+image::boot-cd-config.png["Screenshot: bootimage/boot-cd Konfigurationsmaske", pdfwidth=90%]
 
 Wählen Sie dann 'ok'.
 
 .bootimage/boot-cd Auswahl Erstellungsmethode
-image::boot-cd-select.png["Screenshot: bootimage/boot-cd Auswahl Erstellungsmethode",width=200]
+image::boot-cd-select.png["Screenshot: bootimage/boot-cd Auswahl Erstellungsmethode", pdfwidth=70%]
 
 Wählen Sie dann 'Admin account'. Sie erklären damit, dass der Client sich selbst beim {opsi-server} anmelden und erstellen soll. Dieser Vorgang muss natürlich autorisiert werden.
 
 .bootimage/boot-cd Authentifizierungsmaske
-image::boot-cd-authent.png["Screenshot: bootimage/boot-cd Authentifizierungsmaske",width=400]
+image::boot-cd-authent.png["Screenshot: bootimage/boot-cd Authentifizierungsmaske", pdfwidth=90%]
 
 Sie erhalten daher eine Loginmaske, bei der Sie sich als ein Mitglied der Gruppe {opsi-admin-group} authentifizieren müssen. Wenn dies Erfolgreich war, so teilt der Client dem Server seine Daten mit und der Client wird auf der Serverseite automatisch erstellt. Als nächstes fragt der Client die Liste der verfügbaren netboot Produkte ab und stellt Sie Ihnen zur Auswahl zur Verfügung.
 
 .bootimage/boot-cd netboot Produktauswahl
-image::boot-cd-product.png["Screenshot: bootimage/boot-cd netboot Produktauswahl",width=200]
+image::boot-cd-product.png["Screenshot: bootimage/boot-cd netboot Produktauswahl", pdfwidth=60%]
 
 Sie können jetzt direkt das zu installierende Betriebssystem (oder z.B. <<opsi-getting-started-firststeps-osinstall-tests-hwinvent,hwinvent>>) auswählen.
 
@@ -2646,11 +2649,9 @@ HD-Audio-Devices
    No devices installed
 ----
 
-TIPPS::
-* Treiberverzeichnisname `NDIS1` sind Vista-Treiber ; `NDIS2` sind Win7-Treiber
-
-* NDIS Versionen: +
-(https://en.wikipedia.org/wiki/Network_Driver_Interface_Specification)
+TIP: Treiberverzeichnisname `NDIS1` sind Vista-Treiber ; `NDIS2` sind Win7-Treiber +
+ NDIS Versionen: +
+ (https://en.wikipedia.org/wiki/Network_Driver_Interface_Specification)
 
 ----
 NDIS 6.0: Windows Vista
