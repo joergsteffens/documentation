@@ -15,10 +15,15 @@
 :Author:    uib gmbh
 :Email:     info@uib.de
 :Revision:  4.2
-:toclevels: 6
+:toc: left
+:toclevels: 3
+:numbered:
+:icons: font 
+:xrefstyle: full
 
 opsi manual opsi version 4.2
 ============================
+
 
 include::../common/opsi_manual_copyright.asciidoc[]
 include::../common/opsi_manual_introduction.asciidoc[]

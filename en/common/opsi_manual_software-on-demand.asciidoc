@@ -71,7 +71,7 @@ TIP: Since version 4.0.1.6 of the `opsi-configed` you can change to `product con
 The product-group menu is above the product list.
 
 .product-group menue
-image::configed_productgroup_en.png[width=300]
+image::configed_productgroup_en.png[pdfwidth=70%]
 
 With the drop down menu you can choose a product-group to edit it.
 If you have chosen a group, the corresponding products will be highlighted.
@@ -109,7 +109,7 @@ The configuration here is the default system wide for every client.
 The configuration can be edited in the `opsi-configed`. Push the Button `Server Configuration` and change to the tab `Host Parameter`
 
 .part of the module server configuration in the opsi configuration editor
-image::configed_serverconfiguration_en.png[width=300]
+image::configed_serverconfiguration_en.png[pdfwidth=70%]
 
 Another possibility is to change the server-configuration with the following command:
 
@@ -119,7 +119,7 @@ opsi-setup --edit-config-defaults
 ----
 
 .edit-config-defaults with opsi-setup
-image::editconfigdefaults.png[width=300]
+image::editconfigdefaults.png[pdfwidth=70%]
 
 TIP: Administration is also possible with the opsi-python-API or with 'opsi-admin'
 
@@ -135,7 +135,7 @@ Choose one or several clients (even all clients of a client group if you want to
 and then navigate to the tab "Host parameters".
 
 .edit hostparameter in the configuration editor
-image::opsi-configed-hostparameters.png[width=300]
+image::opsi-configed-hostparameters.png[pdfwidth=70%]
 
 This editing overrides the system wide defaults.
 
@@ -188,7 +188,7 @@ The used icon for the start menu / Desktop may be modified by storing a `kiosk.i
 After starting the application, the following main window will be shown:
 
 .opsi-client-kiosk: Main window with tiles (Default Modus)
-image::opsi-client-kiosk_tile_simple_en.png["opsi-client-kiosk: Main window with tiles (Default Modus)", width=400]
+image::opsi-client-kiosk_tile_simple_en.png["opsi-client-kiosk: Main window with tiles (Default Modus)", pdfwidth=90%]
 
 Elements:
 
@@ -208,7 +208,7 @@ Using the checkbox 'Expert mode' (4) additional control elements can be displaye
 
 
 .opsi-client-kiosk: Main window with tiles (Expert Mode)
-image::opsi-client-kiosk_tile_expert_en.png["opsi-client-kiosk: Main window with tiles (Expert Mode)", width=400]
+image::opsi-client-kiosk_tile_expert_en.png["opsi-client-kiosk: Main window with tiles (Expert Mode)", pdfwidth=90%]
 
 Elements:
 
@@ -236,7 +236,7 @@ By using the checkbox 'Expert mode' (7) additional control elements are displaye
 
 
 .opsi-client-kiosk: Main window with lists (Expert Mode)
-image::opsi-client-kiosk_list_expert_en.png["opsi-client-kiosk: Main window with lists (Expert Mode)", width=400]
+image::opsi-client-kiosk_list_expert_en.png["opsi-client-kiosk: Main window with lists (Expert Mode)", pdfwidth=90%]
 
 Elements:
 
@@ -269,7 +269,7 @@ By using the checkbox 'Expert mode' (7) additional control elements are displaye
 
 ////
 .'opsi-client-kiosk': main window
-image::opsi-client-kiosk_num.png["opsi-client-kiosk: Main Window", width=400]
+image::opsi-client-kiosk_num.png["opsi-client-kiosk: Main Window", pdfwidth=90%]
 
 Elements:
 
@@ -302,7 +302,7 @@ Finally, the total list of pending actions will be displayed on a separate windo
 ////
 
 .'opsi-client-kiosk': Confirm action
-image::opsi-client-kiosk2.png["opsi-client-kiosk: Confirm action", width=200]
+image::opsi-client-kiosk2.png["opsi-client-kiosk: Confirm action", pdfwidth=70%]
 
 This window appears only in the 'expert mode' after using the 'Store Actions' button. +
 In this window and by using the upper button 'Install now' an immediate installation can be triggered. In that case, it is advisable to close all applications (or at least save your data) since the installation can interfere with the running applications. +

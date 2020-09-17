@@ -124,26 +124,26 @@ blocking notifier::
 Indicates that the '{opsi-login-blocker}' is blocking
 
 .opsiclientd blocklogin notifier
-image::opsiclientd-blocklogin-notifier.png["opsiclientd blocklogin notifier",width=80]
+image::opsiclientd-blocklogin-notifier.png["opsiclientd blocklogin notifier", width=80]
 
 event notifier::
 Shows information about the current event.
 
 .opsiclientd event notifier
-image::opsiclientd-event-notifier.png["opsiclientd event notifier",width=150]
+image::opsiclientd-event-notifier.png["opsiclientd event notifier", pdfwidth=50%]
 
 action notifier::
 Shows state of the event processing
 
 .opsiclientd action notifier
-image::opsiclientd-action-notifier.png["opsiclientd action notifier",width=150]
+image::opsiclientd-action-notifier.png["opsiclientd action notifier", pdfwidth=50%]
 
 shutdown notifier::
 Gives information about a requested reboot / shutdown
 (if +shutdown_warning_time+ > 0)
 
 .opsiclientd shutdown notifier
-image::opsiclientd-shutdown-notifier.png["opsiclientd shutdown notifier",width=150]
+image::opsiclientd-shutdown-notifier.png["opsiclientd shutdown notifier", pdfwidth=50%]
 
 CAUTION: Names and functionality of the notifier have changed from opsi 4.0 to opsi 4.0.1. +
 The opsi 4.0 event notifier doesn't exist anymore. +
@@ -165,7 +165,7 @@ This 'credential provider filter' blocks all 'credential providers' until the op
 How the opsiclientd works may be configured in many details. To understand these configuration options, it is necessary to understand the processing sequence. Here comes an overview of the work flow of a 'standard event' like the 'event_gui_startup'.
 
 .simplified work flow of a 'standard event'
-image::eventflowchsrt.png["simplified work flow of a 'standard event'",height=400]
+image::eventflowchsrt.png["simplified work flow of a 'standard event'", pdfwidth=90%]
 
 The most important parameters have the following relations:
 
@@ -795,7 +795,7 @@ set in the configuration file `opsiclientd.conf` in the section +[event_gui_star
 The following figure shows how to change the serverwide general configure via '{opsi-configed}'
 
 .Setting the server default opsiclientd configuration
-image::opsiclientd-configuration-via-configed-serverdefault.png["Setting the server default opsiclientd configuration",width=400]
+image::opsiclientd-configuration-via-configed-serverdefault.png["Setting the server default opsiclientd configuration", pdfwidth=90%]
 
 Using the context menu you may choose 'add property' to set a new key/value pair.
 
@@ -819,7 +819,7 @@ Example:
 ----
 
 .client specific {opsiclientd} configuration via {opsi-configed}
-image::opsiclientd-configuration-via-configed.png["client specific {opsiclientd} configuration via {opsi-configed}",width=400]
+image::opsiclientd-configuration-via-configed.png["client specific {opsiclientd} configuration via {opsi-configed}", pdfwidth=90%]
 
 
 [[opsi-manual-clientagent-logging]]
@@ -889,7 +889,7 @@ You may view this 'info page' at the browser calling the url: +
 https://<address-of-the-client>:4441/info.html
 
 .Info page of the {opsiclientd} after push installation with activated product caching
-image::opsiclientd_infopage_event_on_demand.png["Info page of the {opsiclientd} at push installation with activated product caching",width=400]
+image::opsiclientd_infopage_event_on_demand.png["Info page of the {opsiclientd} at push installation with activated product caching", pdfwidth=90%]
 
 [[opsi-manual-clientagent-bitlockersuspend]]
 ===== {opsiclientd} Bitlocker Suspend Feature
@@ -992,7 +992,7 @@ Using the control server port you may remote control the '{opsiclientd}'. In ord
 Using the '{opsi-configed}' you may choose the menu 'opsiClient' or the context menu in the 'Clients' Tab.
 
 .Web service of the {opsiclientd}
-image::opsiclientd-control-server-web-interface.png["Web service of the {opsiclientd}",width=400]
+image::opsiclientd-control-server-web-interface.png["Web service of the {opsiclientd}", pdfwidth=90%]
 
 At the command line you also can initiate a client:
 
@@ -1212,10 +1212,10 @@ The systray program of the 'opsi-client-agent' focuses on the following targets:
 * Possibility for the user to start the installations.
 
 .Message window of the opsi-systray program
-image::opsi-systray-message.png["Message window of the opsi-systray program",width=200]
+image::opsi-systray-message.png["Message window of the opsi-systray program", pdfwidth=70%]
 
 .Context menu (right mouse click) of the opsi-systray program
-image::opsi-systray-menue.png["Context menu (right mouse click) of the opsi-systray program",width=200]
+image::opsi-systray-menue.png["Context menu (right mouse click) of the opsi-systray program", pdfwidth=70%]
 
 *Controlling the opsi systray program via the 'opsi-client-agent' product properties:* +
 

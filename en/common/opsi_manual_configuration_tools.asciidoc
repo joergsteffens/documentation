@@ -116,7 +116,7 @@ To edit the default values of some configuration data like in the 'server
 configuration' of the '{opsi-configed}'.
 +
 .Dialog: `opsi-setup --edit-config-defaults`
-image::opsi-setup_editconfigdefaults.png["Dialog: opsi-setup --edit-config-defaults", width=400]
+image::opsi-setup_editconfigdefaults.png["Dialog: opsi-setup --edit-config-defaults", pdfwidth=90%]
 +
 e.g.:
 +
@@ -505,7 +505,7 @@ Calling 'https://<opsi-server>:4447/interface' in your browser gives you graphic
 You have to login as a member of the group 'opsiadmin'.
 
 .opsi config interface: Access to the web service via browser
-image::opsi-webinterface2.png["opsi config interface: Access to the web service via browser", width=400]
+image::opsi-webinterface2.png["opsi config interface: Access to the web service via browser", pdfwidth=90%]
 
 
 [[opsi-manual-configuration-tools-opsi-admin]]
@@ -727,10 +727,10 @@ Regarding this central rule, a tool to monitor this process gives a lot of infor
 Using the web address https://<opsi-server>:4447/info you will get a graphical chart of 'opsiconfd' load and cpu/memory usage in the last hour/day/month/year. This information is completed by tabulary information to the actual tasks and sessions.
 
 .opsiconfd info: opsiconfd values from the last hour
-image::opsiconfd-info-hour.png["opsiconfd info: opsiconfd values from the last hour", width="120mm"]
+image::opsiconfd-info-hour.png["opsiconfd info: opsiconfd values from the last hour", pdfwidth=60%]
 
 .opsiconfd info: opsiconfd values from the last day
-image::opsiconfd-info-day.png["opsiconfd info: opsiconfd values from the last day", width="120mm"]
+image::opsiconfd-info-day.png["opsiconfd info: opsiconfd values from the last day", pdfwidth=60%]
 
 [[opsi-manual-configuration-tools-serverprocess-tftpd]]
 ==== Server process: opsi-tftpd-hpa
