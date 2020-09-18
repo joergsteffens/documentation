@@ -7,7 +7,7 @@ stages:
 build_docu:
   stage: build
   script:
-    - python3 tools/create_docu.python3
+    - python3 tools/create_docu.py
   
 
 # - HTML build jobs -
