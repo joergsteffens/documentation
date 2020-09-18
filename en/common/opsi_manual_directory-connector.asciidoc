@@ -21,7 +21,7 @@
 :doctype:   book
 
 [[opsi-manual-dircon]]
-=== 'opsi directory connector'
+=== opsi directory connector
 
 
 [[opsi-manual-dircon-introduction]]
@@ -32,7 +32,7 @@ to an opsi installation.
 This avoids the need of maintaining data in two separate systems.
 
 [[opsi-manual-dircon-preconditions]]
-==== Prerequisites for the opsi extension 'opsi directory connector'
+==== Prerequisites for the opsi extension opsi directory connector
 
 This module is currently a
 link:https://www.opsi.org/product/extensions-of-opsi/[co-funded opsi extension]. +

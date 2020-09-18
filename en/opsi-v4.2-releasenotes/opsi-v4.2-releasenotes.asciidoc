@@ -15,7 +15,12 @@
 :Author:    uib gmbh
 :Email:     info@uib.de
 :Revision:  4.2
-:doctype:   book
+:toc: left
+:toclevels: 1
+:numbered:
+:icons: font 
+:xrefstyle: full
+
 
 // Include common opsi terms
 include::../common/opsi_terms.asciidoc[]
