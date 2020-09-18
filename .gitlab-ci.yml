@@ -7,8 +7,9 @@ stages:
 build_docu:
   stage: build
   script:
+    - python3 --version
     - python3 tools/create_docu.py
-  
+    - ls -la
 
 # - HTML build jobs -
 .test_template: &test_template
