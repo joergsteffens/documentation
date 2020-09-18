@@ -10,49 +10,23 @@ stages:
 .build_template_html: &build_template_html
   stage: build
   script:
-    - ruby -v
     - apk add ruby-dev
-    - apk add ruby-full
     - apk add build-base
-    - apk add graphicsmagick
     - apk add graphicsmagick-dev
-    - apk add imagemagick
     - gem install prawn-gmagick
     - python3 tools/create_docu.py --lang $LANGUAGE --files $DOCUMENT --output html
-    - echo $DOCUMENT
-    - echo $LANGUAGE
-    - echo "build/$LANGUAGE/html/$DOCUMENT/$DOCUMENT.html"
-    - ls -la
-    - ls -la build
-    - ls -la build/$LANGUAGE
-    - ls -la build/$LANGUAGE/html/
-    - ls -la build/$LANGUAGE/html/$DOCUMENT
     - test -f build/$LANGUAGE/html/$DOCUMENT/$DOCUMENT.html
   artifacts:
     paths:
       - build/$LANGUAGE/html/$DOCUMENT/*
     expire_in: 2 days
 
-# .build_template_epub: &build_template_epub
-#   stage: build
-#   script:
-#     - python3 --lang $LANGUAGE --files $DOCUMENT --output html
-#     - test -f build/epub/$LANGUAGE/$DOCUMENT/$DOCUMENT.epub
-#   artifacts:
-#     paths:
-#       - build/epub/$LANGUAGE/$DOCUMENT/$DOCUMENT.epub
-#     expire_in: 2 days
-
 .build_template_pdf: &build_template_pdf
   stage: build
   script:
-    - ruby -v
     - apk add ruby-dev
-    - apk add ruby-full
     - apk add build-base
-    - apk add graphicsmagick
     - apk add graphicsmagick-dev
-    - apk add imagemagick
     - gem install prawn-gmagick
     - python3 tools/create_docu.py --lang $LANGUAGE --files $DOCUMENT --output pdf
     - test -f build/$LANGUAGE/pdf/$DOCUMENT/$DOCUMENT.pdf
@@ -105,12 +79,6 @@ en-html-winst-reference-card:
     LANGUAGE: en
     DOCUMENT: opsi-winst-reference-card
 
-# de-html-releasenotes-v4.2:
-#   <<: *build_template_html
-#   variables:
-#     LANGUAGE: de
-#     DOCUMENT: opsi-v4.2-releasenotes
-
 en-html-releasenotes-v4.2:
   <<: *build_template_html
   variables:
@@ -127,74 +95,6 @@ en-html-supportmatrix:
   variables:
     LANGUAGE: en
     DOCUMENT: opsi-supportmatrix
-
-
-# - epub build jobs -
-# de-epub-getting-started-v4.2:
-#   <<: *build_template_epub
-#   variables:
-#     LANGUAGE: de
-#     DOCUMENT: opsi-getting-started-v4.2
-
-# en-epub-getting-started-v4.2:
-#   <<: *build_template_epub
-#   variables:
-#     LANGUAGE: en
-#     DOCUMENT: opsi-getting-started-v4.2
-
-# de-epub-manual-v4.2:
-#   <<: *build_template_epub
-#   variables:
-#     LANGUAGE: de
-#     DOCUMENT: opsi-manual-v4.2
-
-# en-epub-manual-v4.2:
-#   <<: *build_template_epub
-#   variables:
-#     LANGUAGE: en
-#     DOCUMENT: opsi-manual-v4.2
-
-# de-epub-winst-manual:
-#   <<: *build_template_epub
-#   variables:
-#     LANGUAGE: de
-#     DOCUMENT: opsi-winst-manual
-
-# en-epub-winst-manual:
-#   <<: *build_template_epub
-#   variables:
-#     LANGUAGE: en
-#     DOCUMENT: opsi-winst-manual
-
-# en-epub-winst-reference-card:
-#   <<: *build_template_epub
-#   variables:
-#     LANGUAGE: en
-#     DOCUMENT: opsi-winst-reference-card
-
-# de-epub-releasenotes-v4.2:
-#   <<: *build_template_epub
-#   variables:
-#     LANGUAGE: de
-#     DOCUMENT: opsi-v4.2-releasenotes
-
-# en-epub-releasenotes-v4.2:
-#   <<: *build_template_epub
-#   variables:
-#     LANGUAGE: en
-#     DOCUMENT: opsi-v4.2-releasenotes
-# de-epub-supportmatrix:
-#   <<: *build_template_epub
-#   variables:
-#     LANGUAGE: de
-#     DOCUMENT: opsi-supportmatrix
-
-# en-epub-supportmatrix:
-#   <<: *build_template_epub
-#   variables:
-#     LANGUAGE: en
-#     DOCUMENT: opsi-supportmatrix
-
 
 # - pdf build jobs -
 de-pdf-getting-started-v4.2:
@@ -238,12 +138,6 @@ en-pdf-winst-reference-card:
   variables:
     LANGUAGE: en
     DOCUMENT: opsi-winst-reference-card
-
-# de-pdf-releasenotes-v4.2:
-#   <<: *build_template_pdf
-#   variables:
-#     LANGUAGE: de
-#     DOCUMENT: opsi-v4.2-releasenotes
 
 en-pdf-releasenotes-v4.2:
   <<: *build_template_pdf
