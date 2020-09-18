@@ -19,6 +19,10 @@ build_docu:
   dependencies:
     - build_docu
   script:
+    - ls -la
+    - echo "build/$FORMAT/$LANGUAGE/$DOCUMENT/$DOCUMENT.html"
+    - echo $FORMAT
+    - echo $DOCUMENT
     - test -f build/$FORMAT/$LANGUAGE/$DOCUMENT/$DOCUMENT.html
   artifacts:
     paths:
