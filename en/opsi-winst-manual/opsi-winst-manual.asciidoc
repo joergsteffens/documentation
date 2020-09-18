@@ -15,7 +15,11 @@
 :Author:    uib gmbh
 :Email:     info@uib.de
 :Revision:  4.1.0
-:doctype:		book
+:toc: left
+:toclevels: 3
+:numbered:
+:icons: font 
+:xrefstyle: full
 
 :manual: opsi-script
 
@@ -644,20 +648,20 @@ The adjustment of all log messages to this new way is in progress and will be ta
 
 anchor:opsi-script-configs_debug_lib[]
 
-* `opsi-script.global.debug_lib` : boolean +
+* `opsi-script.global.debug_lib : boolean` +
 If false log messages from defined functions that are imported from external library files will be suppressed excepting Warnings and Errors. +
 Default: false
 
 anchor:opsi-script-configs_default_loglevel[]
 
-* `opsi-script.global.default_loglevel` : intstr +
+* `opsi-script.global.default_loglevel : intstr` +
 Sets (overrides) the default log level that is imlemented inside the opsi-script code. This config has no effect on scripts where the loglevel is explicit set by a `setLogLevel` statement. +
 Default:  '6' +
 see also <<SetLogLevel>>
 
 anchor:opsi-script-configs_force_min_loglevel[]
 
-* `opsi-script.global.force_min_loglevel` : intstr +
+* `opsi-script.global.force_min_loglevel : intstr` +
 Forces a minimal log level. +
 This can be used while debugging or development to set temporary and for selected clients a higher log level wthout changing the script.
 Default: '0' +
@@ -1719,7 +1723,7 @@ returns the exit code (also called ErroLevel) of the last Winbatch call.
 
 anchor:GetUserSID[]
 
-* `GetUserSID(`<Windows Username>`)`  [W] +
+* `GetUserSID(<Windows Username>)`  [W] +
 returns the SID for a given user (possibly with domain prefix in the form
 DOMAIN\USER).
 
@@ -1733,7 +1737,7 @@ returns the string which was given to the '{opsi-winst}/opsi-script' by the opti
 
 anchor:getRegistryValue[]
 
-*  `getRegistryValue (`<keystr>, <varstr> [, <access str>]`)` : string //since 4.12.0.16 [W] +
+*  `getRegistryValue(<keystr>, <varstr> [, <access str>]) : string` //since 4.12.0.16 [W] +
 tries to use <keystr> as Registry key and open it and read there the variable <varstr> and return the value of this variable as a string. +
 If there is no registry key <keystr> or the variable <varstr> does not exist the function produces a warning message in the log file and returns the empty string. +
 If <varstr> is an empty string, the default entry of the key will be returned. +
@@ -1751,7 +1755,7 @@ getRegistryValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersio
 
 anchor:GetRegistrystringvalue[]
 
-* `GetRegistrystringvalue(`"[key] var"`) : string` [W] +
+* `GetRegistrystringvalue("[key] var") : string` [W] +
 tries to interpret the passed String value as an expression of format +
 '[KEY] X' +
 Then, the function tries to open the registry key `KEY`, and, in case it succeeds, to read and return the String value that belongs to the registry variable name `X` . +
@@ -1785,25 +1789,25 @@ The value of the variable "$CompValue$" is now: "standard entry"
 
 anchor:GetRegistryStringValue32[]
 
-* `GetRegistryStringValue32 (`"[key] var"`) : string`  +
+* `GetRegistryStringValue32("[key] var") : string`  +
 ->	see <<opsi-winst-64bit,Chapter 64 Bit>> +
 see also : <<getRegistryValue>>
 
 anchor:GetRegistryStringValue64[]
 
-* `GetRegistryStringValue64 (`"[key] var"`) : string` +
+* `GetRegistryStringValue64("[key] var") : string` +
 ->	see <<opsi-winst-64bit,Chapter 64 Bit>> +
 see also : <<getRegistryValue>>
 
 anchor:GetRegistryStringValueSysNative[]
 
-* `GetRegistryStringValueSysNative (`"[key] var"`) : string`  +
+* `GetRegistryStringValueSysNative("[key] var") : string`  +
 ->	see <<opsi-winst-64bit,Chapter 64 Bit>> +
 see also : <<getRegistryValue>>
 
 anchor:RegString[]
 
-* `RegString(`<string>`)` +
+* `RegString(<string>)` +
 is useful for transforming path names into the format which is used in the Windows registry. That is, any backslash is duplicated. E. g., +
 [source,winst]
 ----
@@ -1814,7 +1818,7 @@ yields +
 
 anchor:which[]
 
-*  `which(`<command string>`) : string`  //since 4.12.3.6 [W/L/M] +
+*  `which(<command string>) : string`  //since 4.12.3.6 [W/L/M] +
 returns the complete path to the given <command string> (if <command string> is in the search path)
 Just like the well known Unix command 'which'.
 
@@ -1840,12 +1844,12 @@ The most general function reads the value belonging to some key in some section 
 
 anchor:GetValueFromInifile[]
 
-* `GetValueFromInifile (` file, section, key, default value `) : string` [W/L/M] +
+* `GetValueFromInifile(file, section, key, default value) : string` [W/L/M] +
 The function tries to open the ini file `FILE`, retrieve the requested `SECTION` and find the value belonging to the specified `KEY` which the function will return. If any of these operations fail `DEFAULTVALUE` is returned.
 
 The second function borrows its syntax from the ini file format itself, and may sometimes be easier to use. But since this syntax turns complicated in more general circumstances it is deprecated. The syntax reads:
 
-* `GetIni (` <Stringausdruck> [ <character sequence> ] <character sequence> `)` +
+* `GetIni(<Stringausdruck> [ <character sequence> ] <character sequence>)` +
 (Deprecated) The <String expression> is interpreted as file name, the first <character sequence> as section name, the second as key name.
 
 [[opsi-winst-string-functions-prodprop]]
@@ -1853,7 +1857,7 @@ The second function borrows its syntax from the ini file format itself, and may 
 
 anchor:GetProductProperty[]
 
-* `GetProductProperty (` <PropertyName>, <DefaultValue>`)` +
+* `GetProductProperty(<PropertyName>, <DefaultValue>)` +
 where $PropertyName$ and $DefaultValue$ are String expressions.
 If '{opsi-winst}/opsi-script' is connected to the opsi configuration service the product property is retrieved from the service.
 If the '{opsi-winst}/opsi-script' is not connected to the service or for other reasons the the call fails, the given +<DefaultValue>+ will be returned.
@@ -1875,11 +1879,11 @@ GetProductProperty("policy", "factory_default")
 
 anchor:GetConfidentialProductProperty[]
 
-* `GetConfidentialProductProperty (` <PropertyName>, <DefaultValue>`)` //since 4.11.5.2 +
+* `GetConfidentialProductProperty(<PropertyName>, <DefaultValue>)` //since 4.11.5.2 +
 like `GetProductProperty` but handles the resulting value as confidential string. +
 Useful for getting passwords without logging. see also `SetConfidential`
 
-* `IniVar(`<PropertyName>`)` +
+* `IniVar(<PropertyName>)` +
 (deprecated: use GetProductProperty)
 
 [[opsi-winst-string-functions-hosts]]
@@ -1887,12 +1891,12 @@ Useful for getting passwords without logging. see also `SetConfidential`
 
 anchor:GetHostsName[]
 
-* `GetHostsName(`<string>`)` +
+* `GetHostsName(<string>)` +
 returns the host name to a given IP address as it is declared in the local hosts file. If the operating system is "Windows_NT" (according to environment variable OS) "%systemroot%\system32\drivers\etc\" is assumed as host file location, otherwise "C:\Windows\".
 
 anchor:GetHostsAddr[]
 
-* `GetHostsAddr(`<string>`)` +
+* `GetHostsAddr(<string>)` +
 tells the IP address to a given host or alias name.
 
 [[opsi-winst-string-functions-handling]]
@@ -1900,7 +1904,7 @@ tells the IP address to a given host or alias name.
 
 anchor:ExtractFilePath[]
 
-* `ExtractFilePath (`<path>`) : string` [W/L/M] +
+* `ExtractFilePath(<path>) : string` [W/L/M] +
 interprets the passed String value as file or path name and returns the path part (the string up to the last path delimiter, including it).
 
 Examples:
@@ -1921,7 +1925,7 @@ endif
 
 anchor:ExtractFileExtension[]
 
-* `ExtractFileExtension (`<path>`) : string`   //since 4.12.1 [W/L/M] +
+* `ExtractFileExtension(<path>) : string`   //since 4.12.1 [W/L/M] +
 interprets the passed String value as file or path name and returns the extension part (the string after the last dot ('.'), including it).
 
 Examples:
@@ -1941,7 +1945,7 @@ endif
 
 anchor:ExtractFileName[]
 
-* `ExtractFileName (`<path>`) : string`   //since 4.12.1 [W/L/M] +
+* `ExtractFileName(<path>) : string`   //since 4.12.1 [W/L/M] +
 interprets the passed String value as file or path name and returns the file name part (the string after the last path delimiter, not including it).
 
 Examples:
@@ -1961,7 +1965,7 @@ endif
 
 anchor:DirectoryExists[]
 
-* `DirectoryExists (`<path> [,<access str>]`) : bool`   //since 4.12.1 [W/L/M] +
+* `DirectoryExists(<path> [,<access str>]) : bool`   //since 4.12.1 [W/L/M] +
 Tests if <path> points to a directory. +
 <access str> = one of 32bit, 64bit, sysnative ; default sysnative ; ignored at non windows
 
@@ -2016,17 +2020,17 @@ endif
 ----
 
 
-* `StringSplit (`STRINGWERT1, STRINGWERT2, INDEX`)` +
+* `StringSplit(STRINGWERT1, STRINGWERT2, INDEX)` +
 (deprecated: use `splitString` / `takeString`) +
 see also : <<splitString>> +
 see also : <<takeString>> +
 
 anchor:takeString[]
 
-* `takeString (`<index>, <list>`) : string` [W/L/M] +
+* `takeString(<index>, <list>) : string` [W/L/M] +
 returns from a string list <list> the string with the index <index>. +
 Often used in combination with `splitstring`:
-`takeString(`<index>, `splitString(`<string1>, <string2>`)` +
+`takeString(<index>, splitString(<string1>, <string2>)` +
 (see also <<opsi-winst-stringlist>>). +
 The result is produced by slicing <string1> where each slice is delimited by an occurrence of <string2>, and then taking the slice with index <index> (where counting starts with 0).
 
@@ -2054,7 +2058,7 @@ denotes the last element of String list $list1$. +
 see also : <<setStringInListAtIndex>> +
 
 
-* `SubstringBefore(`<string1>, <string2>`)` +
+* `SubstringBefore(<string1>, <string2>)` +
 (deprecated: use `splitString` / `takestring`)
 yields the sequence of characters of stringValue1 up to the beginning of stringValue2. +
 Example:
@@ -2066,35 +2070,35 @@ returns '"C:\programme\staroffice"'.
 
 anchor:getIndexFromListByContaining[]
 
-* `getIndexFromListByContaining`(<list> : stringlist,<search string> : string`)` : <number> : string  //since 4.12.0.13 [W/L/M] +
+* `getIndexFromListByContaining(<list> : stringlist,<search string> : string) : <number> : string`  //since 4.12.0.13 [W/L/M] +
 Returns a string that holds the index of the first string in <list> which contains <search string>. +
 Retruns a empty string if no matching string is found. +
 The check is performed case-insensitive.
 
 
-* `takeFirstStringContaining(`<list>,<search string>`) : string` [W/L/M] +
+* `takeFirstStringContaining(<list>, <search string>) : string` [W/L/M] +
 returns the first string from <list> which contains <search string>. +
 Retruns a empty string if no matching string is found. +
 see also : <<takeFirstStringContaining>>
 
 anchor:trim[]
 
-* `trim(`<string>`) : string` [W/L/M] +
+* `trim(<string>) : string` [W/L/M] +
 cuts leading and trailing white space from <string>.
 
 anchor:lower[]
 
-* `lower(`<string>`) : string` [W/L/M] +
+* `lower(<string>) : string` [W/L/M] +
 returns <string> with lower case.
 
 anchor:upper[]
 
-* `upper(`<string>`)` [W/L/M] +
+* `upper(<string>)` [W/L/M] +
 returns <string> with upper case.
 
 anchor:contains[]
 
-* `contains(`<str>, <substr>`) : bool`  //since 4.11.3: true if <substr> in <str> [W/L/M] +
+* `contains(<str>, <substr>) : bool`  //since 4.11.3: true if <substr> in <str> [W/L/M] +
 A boolean function which returns 'true' if <str> contains <substr>. This function is case sensitive. +
 Available since 4.11.3 +
 Example:
@@ -2119,7 +2123,7 @@ endif
 
 anchor:stringReplace[]
 
-* `stringReplace(`<string>, <oldPattern>, <newPattern>`) : string`  //since 4.11.3 [W/L/M] +
+* `stringReplace(<string>, <oldPattern>, <newPattern>) : string`  //since 4.11.3 [W/L/M] +
 returns a string, which has all occurrences of <oldPattern> replaced with <newPattern> given then input string <string>. The pattern match is case insensitive. +
 
 Example:
@@ -2137,7 +2141,7 @@ endif
 
 anchor:strLength[]
 
-* `strLength(`<string>`) : string (number)`  //since 4.11.3 [W/L/M] +
+* `strLength(<string>) : string (number)`  //since 4.11.3 [W/L/M] +
 Returns the number of chars in in <string> +
 
 Example:
@@ -2165,7 +2169,7 @@ endif
 
 anchor:strPos[]
 
-* `strPos(`<string>, <sub string>`) : string (numner)`  //since 4.11.3 [W/L/M] +
+* `strPos(<string>, <sub string>) : string (numner)`  //since 4.11.3 [W/L/M] +
 returns the first position of <sub string> in <string>. If <sub string> is not found, then "0" is the return value. The function is case sensitive. +
 
 Example:
@@ -2193,7 +2197,7 @@ endif
 
 anchor:strPart[]
 
-* `strPart(`<string>, <start pos>, <number of chars>`) : string`  //since 4.11.3 [W/L/M] +
+* `strPart(<string>, <start pos>, <number of chars>) : string`  //since 4.11.3 [W/L/M] +
 returns the part of <string> starting with <start pos> and include the next <number of chars> chars. If there are fewer than <number of chars> after <start pos>, then the returned string will be the rest of the chars after <start pos>. +
 The counting of chars starts with 1. +
 
@@ -2222,7 +2226,7 @@ endif
 
 anchor:unquote[]
 
-* `unquote(`<string>,<quote-string>`) : string`  //since 4.11.2.1  [W/L/M] +
+* `unquote(<string>, <quote-string>) : string`  //since 4.11.2.1  [W/L/M] +
 returns the unquoted version of <string>, if <string> is quoted with <quote-string> +
 Only one char (the first char) of <quote-string> is accepted as a quote char. The leading white spaces are ignored. +
 see also : <<unquote2>>
@@ -2286,19 +2290,19 @@ endif
 
 anchor:unquote2[]
 
-* `unquote2(`<string>,<quote-string>`) : string`  //since 4.11.5.2  [W/L/M] +
+* `unquote2(<string>, <quote-string>) : string`  //since 4.11.5.2  [W/L/M] +
 Acts like `unquote(<string>,<quote-string>)` with the following differences: +
 If <quote-string> contains only one char, so this char will be used as 'start quote char' and 'end quote char'. If <quote-string> contains two chars, so the first char will be used as 'start quote char' and the second char as 'end quote char'. Example: a <quote-string> like "()" will unquote a string like '(hello)'. +
 The function returns the unchanged <string> if not ('start quote char' AND 'end quote char') is found.
 
 anchor:HexStrToDecStr[]
 
-* `HexStrToDecStr (`<hexstring>`) : string` [W/L/M]  +
+* `HexStrToDecStr(<hexstring>) : string` [W/L/M]  +
 returns the decimal representation of the input string if this was the hexadecimal representation of an integer. Leading chars like '0x' or '$' will be ignored. In case of a converting error the function returns a empty string.
 
 anchor:DecStrToHexStr[]
 
-* `DecStrToHexStr (` <decstring>, <hexlength>`) : string` [W/L/M] +
+* `DecStrToHexStr(<decstring>, <hexlength>) : string` [W/L/M] +
 returns a <hexlength> long string with the the hexadecimal representation of <decstring> if this was the decimal representation of an integer. In case of a converting error the function returns a empty string.
 
 [source,winst]
@@ -2329,12 +2333,12 @@ endif
 
 anchor:base64EncodeStr[]
 
-* `base64EncodeStr(`<string>`) : string`  [W/L/M]  +
+* `base64EncodeStr(<string>) : string`  [W/L/M]  +
 returns the base64 encoded value of <string>.
 
 anchor:base64DecodeStr[]
 
-* `base64DecodeStr(`<string>`) : string`  [W/L/M]  +
+* `base64DecodeStr(<string>) : string`  [W/L/M]  +
 returns the base64 decoded value of <string>.
 
 [source,winst]
@@ -2368,12 +2372,12 @@ endif
 
 anchor:encryptStringBlow[]
 
-* `encryptStringBlow(`<keystring>,<datastring>`) : string` [W/L/M]  +
+* `encryptStringBlow(<keystring>, <datastring>) : string` [W/L/M]  +
 Encrypted <datastring> with the Key <keystring> under application of Blowfish and returns the encrypted value.
 
 anchor:decryptStringBlow[]
 
-* `decryptStringBlow(`<keystring>,<datastring>`) : string` [W/L/M]  +
+* `decryptStringBlow(<keystring>, <datastring>) : string` [W/L/M]  +
 Decrypts <datastring> with the Key <keystring> under the application of Blowfish and returns the decrypted value.
 
 [source,winst]
@@ -2392,7 +2396,7 @@ endif
 
 anchor:md5sumFromFile[]
 
-* `md5sumFromFile(`<path to file>`) : string` [W/L/M]  +
+* `md5sumFromFile(<path to file>) : string` [W/L/M]  +
 Returns the md5sum that under <path to file> was found. +
 In case of error returns an empty String.
 
@@ -2410,12 +2414,12 @@ endif
 
 anchor:reencodestr[]
 
-* `reencodestr(`<str>, <from>, <to>`)` //since 4.11.4.2 [W/L/M] +
+* `reencodestr(<str>, <from>, <to>)` //since 4.11.4.2 [W/L/M] +
 assumes that <str> is encoded in <from> and returns the in <to> encoded version of <str>. <from> and <to> are encodings as listet in chapter <<opsi-winst-encoding>>.
 
 anchor:strLoadTextFile[]
 
-* `strLoadTextFile (`<file name>`) : string` [W/L/M] +
+* `strLoadTextFile(<file name>) : string` [W/L/M] +
 returns the first line of <filename> as String. +
 see also : <<loadTextFile>> +
 see also : <<strLoadTextFileWithEncoding>> +
@@ -2424,7 +2428,7 @@ see also : <<loadTextFileWithEncoding>> +
 
 anchor:strLoadTextFileWithEncoding[]
 
-* `strLoadTextFileWithEncoding (` <filename> , <encoding>`) : string` [W/L/M] +
+* `strLoadTextFileWithEncoding(<filename> , <encoding>) : string` [W/L/M] +
 returns the first line of <filename> as String reencodes from <encoding>. +
 see also : <<loadTextFile>> +
 see also : <<strLoadTextFile>> +
@@ -2449,16 +2453,16 @@ returns a random String of length 10 where upper case letters, lower case letter
 
 anchor:RandomIntStr[]
 
-* `RandomIntStr(`<number str>`) : string` [W/L/M] +
+* `RandomIntStr(<number str>) : string` [W/L/M] +
 returns a number between 0 and <number str> as string.
 
 
 anchor:CompareDotSeparatedNumbers_str[]
 
-* `CompareDotSeparatedNumbers(`<string1>, <string2>`) : string` [W/L/M] +
+* `CompareDotSeparatedNumbers(<string1>, <string2>) : string` [W/L/M] +
 compares two strings of the form <number>[.<number>[.<number>[.<number>]]] +
 It returns "0" if the strings are equal, "1" if <string1> is higher and "-1" if <string1> is lower than <string2>. +
-see also: `CompareDotSeparatedNumbers(`<str1>,<relation str>,<str2>`)` : <<CompareDotSeparatedNumbers_bool>>
+see also: `CompareDotSeparatedNumbers(<str1>,<relation str>,<str2>)` : <<CompareDotSeparatedNumbers_bool>>
 
 Example: +
 The Code:
@@ -2594,7 +2598,7 @@ EndIf
 
 anchor:CompareDotSeparatedStrings_str[]
 
-* `CompareDotSeparatedStrings(`<string1>, <string2>`) : string` [W/L/M]  +
+* `CompareDotSeparatedStrings(<string1>, <string2>) : string` [W/L/M]  +
 compares two strings of the form <string>.<string>[.<string>[.<string>]] +
 It returns "0" if the strings are equal, "1" if <string1> is higher and "-1" if <string1> is lower than <string2>. The function is not case sensitive. +
 see also : <<CompareDotSeparatedStrings_bool>>
@@ -2834,13 +2838,13 @@ Gives Date and Time from now as string that contains a decimal number in the for
 
 anchor:SidToName[]
 
-* `SidToName(`<well known sid>`)` [W]  +
+* `SidToName(<well known sid>)` [W]  +
 returns a string with the localized name of the group with the <well known sid>. For example, if <well known sid> is equal to 'S-1-5-32-544' then `SidToName` returns 'Administrators'.  +
 Available since 4.11.3.1
 
 anchor:GetMyIpByTarget[]
 
-* `GetMyIpByTarget(`<target ip addr>`)` [W/L/M]  +
+* `GetMyIpByTarget(<target ip addr>)` [W/L/M]  +
 returns a list of interface IP-addresses, which are trying to reach the operating system at <target ip addr>. This function returns a value that is safer than the constant `%IPAddress%`. +
 Since Version 4.11.3.1 +
 Example:
@@ -2852,7 +2856,7 @@ see also : <<GetIpByName>> +
 see also : <<IPAddress>> +
 
 anchor:GetIpByName[]
-* `GetIpByName(`<ip addr / ip name>`)` [W/L/M]  +
+* `GetIpByName(<ip addr / ip name>)` [W/L/M]  +
 returns the IP-addresses of the computers with the <ip addr / ip name> +
 Since Version 4.11.3.2
 [source,winst]
@@ -2911,7 +2915,7 @@ exit %ERRORLEVEL%
 
 anchor:stringinput[]
 
-* `stringinput(`< message str>,< boolstr confidential>`) : string` //since 4.12.1.2 [W/L/M] +
+* `stringinput(< message str>, < boolstr confidential>) : string` //since 4.12.1.2 [W/L/M] +
 Interactive function. +
 Interactive function to get a string from the user. It outputs the < message str> and waits for the Input and returns the input string. +
 In the grafical mode this is done in a modal Window, in the non grafical mode at the command line. +
@@ -2920,7 +2924,7 @@ If < boolstr confidential> = "false" the the input is readable.
 
 anchor:replaceOpsiConstants_string[]
 
-* `replaceOpsiConstants(`<string>`) : string`  //since 4.12.3.6 [W/L/M] +
+* `replaceOpsiConstants(<string>) : string`  //since 4.12.3.6 [W/L/M] +
 returns a string, which has all occurrences of opsi constants in <string> replaced with their value. +
 see also : <<replaceOpsiConstants_list>>
 
@@ -2930,7 +2934,7 @@ see also : <<replaceOpsiConstants_list>>
 
 anchor:DemandLicenseKey[]
 
-* `DemandLicenseKey(`poolId [, productId [,windowsSoftwareId]]`)` +
+* `DemandLicenseKey(poolId [, productId [,windowsSoftwareId]])` +
 asks the opsi service via the function getAndAssignSoftwareLicenseKey for a reservation of a licence for the client. +
 The pool from which the licences is taken may be explicitly given by its ID or is identified via an associated product ID or Windows Software Id (possible, if these associations are defined in the licences configuration). +
 'poolId', 'productId', 'windowsSoftwareId' are Strings (resp. String expressions). +
@@ -2947,7 +2951,7 @@ set $mykey$ = DemandLicenseKey ("", "", "{3248F0A8-6813-11D6-A77B}")
 
 anchor:FreeLicense[]
 
-* `FreeLicense(`poolId [, productId [,windowsSoftwareId]]]`)` +
+* `FreeLicense(poolId [, productId [,windowsSoftwareId]]])` +
 asks the opsi service via the function freeSoftwareLicense to release the current licence reservation.
 The syntax is analogous to the syntax for `DemandLicenseKey`
 
@@ -3253,10 +3257,10 @@ Background infos for getMSVersionMap
 
 anchor:getFileInfoMap[]
 
-* `getFileInfoMap(` <file name> `) : stringlist` [W]
-* `getFileInfoMap32(` <file name> `) : stringlist` //since 4.11.6.6 [W]
-* `getFileInfoMap64(` <file name> `) : stringlist` //since 4.11.6.6 [W]
-* `getFileInfoMapSynative(` <file name> `) : stringlist` //since 4.11.6.6 [W]
+* `getFileInfoMap(<file name>) : stringlist` [W]
+* `getFileInfoMap32(<file name>) : stringlist` //since 4.11.6.6 [W]
+* `getFileInfoMap64(<file name>) : stringlist` //since 4.11.6.6 [W]
+* `getFileInfoMapSynative(<file name>) : stringlist` //since 4.11.6.6 [W]
 
 retrieves the version infos built into the file FILENAME and writes it to a Stringlist map.
 
@@ -3514,7 +3518,7 @@ Set  $string1$ = getValue("id", $INST_Resultlist$)
 
 anchor:editmap[]
 
-* `editmap(`< strlist>`) : stringlist` //since 4.12.1.2 [W/L/M] +
+* `editmap(< strlist>) : stringlist` //since 4.12.1.2 [W/L/M] +
 Interactive function. +
 Show the given < strlist> as <key>=<value> pair list to the user 
 and gives the possibility to change values. Returned ist the edited version of <str list>, after the user user finished editing. +
@@ -3522,7 +3526,7 @@ In the grafical mode this is done in a modal Window, in the non grafical mode at
 
 anchor:getListFromWMI[]
 
-`getListFromWMI(`<wmi namespace str>,<wmi class str>,<property list>,<condition str>`) : stringlist` //since 4.12.1.0 [W] +
+`getListFromWMI(<wmi namespace str>, <wmi class str>, <property list>, <condition str>) : stringlist` //since 4.12.1.0 [W] +
 Returns a info map of <wmi class str> that is limited to the properties in <property list> and also is limited by the <condition str>. +
 If <property list> is empty, all properties of <wmi class str> will be returned. +
 Attention: If <property list> contains properties that not exist in the called wmi class, the query will fail. +
@@ -3790,7 +3794,7 @@ image::opsi-wmitestgui-result.png["opsi-wmitestgui-result"]
 
 anchor:createStringList[]
 
-* `createStringList (`<string0>, <string1> ,... `) : stringlist` [W/L/M] +
+* `createStringList(<string0>, <string1> ,...) : stringlist` [W/L/M] +
 forms a String list from the values of the listed String expressions. For example, by
 [source,winst]
 ----
@@ -3801,7 +3805,7 @@ we get a list of the first four letters of the alphabet.
 
 anchor:splitString[]
 The following two functions produce a String list by splitting some string:
-`splitString (`<string1>, <string2>`) : stringlist` [W/L/M]  +
+`splitString(<string1>, <string2>) : stringlist` [W/L/M]  +
 generates the list of partial strings of <string1> (including empty strings) before resp. between the occurences of <string2>. E.g.,
 [source,winst]
 ----
@@ -3813,7 +3817,7 @@ If the given string is in the list of confidential strings, so the resulting str
 
 anchor:splitStringOnWhiteSpace[]
 
-* `splitStringOnWhiteSpace (`<string>`)  : stringlist` [W/L/M]  +
+* `splitStringOnWhiteSpace(<string>)  : stringlist` [W/L/M]  +
 slices StringVal by the "white spots" in it. E. g.
 [source,winst]
 ----
@@ -3829,23 +3833,23 @@ If the given string is in the list of confidential strings, so the resulting str
 
 anchor:loadTextFile[]
 
-* `loadTextFile (`<file name>`) : stringlist` [W/L/M] +
+* `loadTextFile(<file name>) : stringlist` [W/L/M] +
 reads the file <file name> and generates the string list, that contains all lines of the file.
 
 anchor:loadTextFileWithEncoding[]
 
-* `loadTextFileWithEncoding(` <file name> `,` <encoding>`) : stringlist` [W/L/M] +
+* `loadTextFileWithEncoding(<file name>, <encoding>) : stringlist` [W/L/M] +
 reads the file <file name> and generates the string list, that contains all lines of the file. The string will be reencoded from <encoding> to system encoding.
 
 anchor:loadUnicodeTextFile[]
 
-* `loadUnicodeTextFile (`<file name>`) : stringlist` [W] +
+* `loadUnicodeTextFile(<file name>) : stringlist` [W] +
 reads the unicode text file <file name> and generates the string list, that contains all lines of the file. +
 By this call, the strings are converted into the system default 8 bit code.
 
 anchor:getSectionNames[]
 
-* `getSectionNames(`<ini-file>`) : stringlist` [W/L/M] +
+* `getSectionNames(<ini-file>) : stringlist` [W/L/M] +
 interprets the specified file as an inifile, looks for list of all lines of form +
 '[<SectionName>]' +
 and returns the pure section names (without brackets).
@@ -3855,7 +3859,7 @@ and returns the pure section names (without brackets).
 
 anchor:composeString[]
 
-* `composeString (`<string list>, <Link>`) : string` [W/L/M] +
+* `composeString(<string list>, <Link>) : string` [W/L/M] +
 With this function, the elements of any String list can be glued to one another, mediated by a "glue string". +
 E.g. if '$list1$' represents the list 'a', 'b', 'c', 'd', 'e' +
 by
@@ -3866,7 +3870,7 @@ $line$ = composeString ($list1$, " | ")
 we assign the value '"a | b | c | d | e".' to '$line$'.
 
 
-* `takeString (`<index>, <list>`) : string` [W/L/M]  +
+* `takeString(<index>, <list>) : string` [W/L/M]  +
 For example, if '$list1$' represents the list of the first five letters of the alphabet, using
 
 [source,winst]
@@ -3885,13 +3889,13 @@ see also : <<takeString>>
 
 anchor:takeFirstStringContaining[]
 
-* `takeFirstStringContaining(`<list>,<search string>`) : string` [W/L/M] +
+* `takeFirstStringContaining(<list>, <search string>) : string` [W/L/M] +
 returns the first string of the list which contains the <search string>. +
 Returns an empty string if no matching string was found.
 
 anchor:getValue[]
 
-* `getValue(`<key string>, <hash string list> `) : string` [W/L/M] +
+* `getValue(<key string>, <hash string list>) : string` [W/L/M] +
 This function tries to interpret a String list as list of lines of the form
 'key=value' +
 It looks for the first line, where the string <key> is followed by the equality sign, and returns the remainder of the line (the 'value', the string that starts after the equality sign). If there is no fitting line, it returns the string 'NULL'. +
@@ -3899,23 +3903,23 @@ The function is required for using the `GetLocaleInfoMap` and `getFileVersionMap
 
 anchor:getValueBySeparator[]
 
-* `getValueBySeparator(`<key string>,<separator string>,<hash string list> `) : string` //since 4.11.2.1 [W/L/M] +
+* `getValueBySeparator(<key string>, <separator string>, <hash string list>) : string` //since 4.11.2.1 [W/L/M] +
 works like `getValue` but you have to give the <separator string> so that can also work with hashes like +
 'key:value'
 
 anchor:getValueFromFile[]
 
-* `getValueFromFile(`<key string>, <file name>`) : string` //since 4.11.4.4 [W/L/M] +
+* `getValueFromFile(<key string>, <file name>) : string` //since 4.11.4.4 [W/L/M] +
 Searches in <file name> for a key/value pair with key <key string> and separator string '=' and returns the value. If <key string> is not found it returns an empty string.
 
 anchor:getValueFromFileBySeparator[]
 
-* `getValueFromFileBySeparator(`<key string>,<separator string>,<file name>`) : string` //since 4.11.4.4 [W/L/M] +
+* `getValueFromFileBySeparator(<key string>, <separator string>, <file name>`) : string` //since 4.11.4.4 [W/L/M] +
 Searches in <file name> for a key/value pair with key <key string> and separator string <separator string> and returns the value. If <key string> is not found it returns an empty string.
 
 anchor:count[]
 
-* `count (`<list>`) : string (number)` [W/L/M] +
+* `count(<list>) : string (number)` [W/L/M] +
 returns the number of elements of the string list <list> as string. +
 e.g. for $list1$ composed as +
 'a', 'b', 'c', 'd', 'e' +
@@ -3926,12 +3930,12 @@ e.g. for $list1$ composed as +
 
 anchor:retrieveSection[]
 
-* `retrieveSection (`<section name>`) : stringlist` [W/L/M] +
+* `retrieveSection(<section name>) : stringlist` [W/L/M] +
 gives the lines of the specified section as string list.
 
 anchor:getOutStreamFromSection[]
 
-* `getOutStreamFromSection (`<dos section name>`) : stringlist (output)` [W/L/M] +
+* `getOutStreamFromSection(<dos section name>) : stringlist (output)` [W/L/M] +
 invokes the section and – at this moment implemented only for `DosInAnIcon` (`ShellInAnIcon`),`ExecWith` and `ExecPython` calls – captures the output to standard out and standard error of the invoked commands writing them into a string list. For example: +
 [source,winst]
 ----
@@ -3946,7 +3950,7 @@ see also : <<getReturnListFromSection>> +
 There are 3 shortcuts for simple calls to the shell. At Windows these commands runs in the sysnative mode.
 
 
-* `shellCall (`<command string>`) : stringlist (output)` //since 4.11.4.2 [W/L/M] +
+* `shellCall(<command string>) : stringlist (output)` //since 4.11.4.2 [W/L/M] +
 Executing <command string> with the standard shell (cmd.exe / bash)
 [source,winst]
 ----
@@ -3962,7 +3966,7 @@ net start
 ----
 see also : <<shellCall_list>>
 
-* `shellCall (`<command string>`) : noresult` //since 4.11.6.1 [W/L/M] +
+* `shellCall(<command string>) : noresult` //since 4.11.6.1 [W/L/M] +
 [source,winst]
 ----
 shellCall('net start')
@@ -3978,7 +3982,7 @@ net start
 see also : <<shellCall>>
 
 
-* `shellCall (`<command string>`) : string (exitcode)` //since 4.11.6.1 [W/L/M] +
+* `shellCall(<command string>) : string (exitcode)` //since 4.11.6.1 [W/L/M] +
 [source,winst]
 ----
 set $exitcode$ = shellCall('net start')
@@ -3996,7 +4000,7 @@ see also : <<shellCall_str>>
 
 anchor:getReturnListFromSection[]
 
-* `getReturnListFromSection (`section name`)`  [W/L/M] +
+* `getReturnListFromSection(section name)`  [W/L/M] +
 For some section types - at this moment implemented only for `XMLPatch` sections and `opsiServiceCall` sections - there is a specific `return` statement which yields some result of the execution of the section (assumed to be of String list type). +
 E.g. we may use the statement
 [source,winst]
@@ -4021,55 +4025,55 @@ see also : <<getOutStreamFromSection>>
 
 anchor:getRegistryKeyList32[]
 
-* `getRegistryKeyList32(`<regkey>`) : stringlist` [W] +
+* `getRegistryKeyList32(<regkey>) : stringlist` [W] +
 Returns a stringlist with the names of all keys within <regkey>. +
 32 Bit mode (with redirection). Available since 4.11.3
 
 anchor:getRegistryKeyList64[]
 
-* `getRegistryKeyList64(`<regkey>`) : stringlist`  +
+* `getRegistryKeyList64(<regkey>) : stringlist`  +
 Returns a stringlist with the names of all keys within <regkey>. +
 64 Bit mode (without redirection). Available since 4.11.3
 
 anchor:getRegistryKeyListSysnative[]
 
-* `getRegistryKeyListSysnative(`<regkey>`) : stringlist`  +
+* `getRegistryKeyListSysnative(<regkey>) : stringlist`  +
 Returns a stringlist with the names of all keys within <regkey>. +
 Mode (redirection) depends on the architecture of the OS. Available since 4.11.3
 
 anchor:getRegistryVarList32[]
 
-* `getRegistryVarList32(`<regkey>`) : stringlist` +
+* `getRegistryVarList32(<regkey>) : stringlist` +
 Returns a stringlist with the names of all value entries associated with key <regkey>. +
 32 Bit mode (with redirection). Available since 4.11.3
 
 anchor:getRegistryVarList64[]
 
-* `getRegistryVarList64(`<regkey>`) : stringlist` +
+* `getRegistryVarList64(<regkey>) : stringlist` +
 Returns a stringlist with the names of all value entries associated with key <regkey>. +
 64 Bit mode (without redirection). Available since 4.11.3
 
 anchor:getRegistryVarListSysnative[]
 
-* `getRegistryVarListSysnative(`<regkey>`) : stringlist`  +
+* `getRegistryVarListSysnative(<regkey>) : stringlist`  +
 Returns a stringlist with the names of all value entries associated with key <regkey>. +
 Mode (redirection) depends on the architecture of the OS. Available since 4.11.3
 
 anchor:getRegistryVarMap32[]
 
-* `getRegistryVarMap32(`<regkey>`) : stringlist` +
+* `getRegistryVarMap32(<regkey>) : stringlist` +
 Provides a map of all name=value pairs in the given registry key <regkey>. +
 32 Bit Mode (with redirection). Since 4.11.3
 
 anchor:getRegistryVarMap64[]
 
-* `getRegistryVarMap64(`<regkey>`) : stringlist` +
+* `getRegistryVarMap64(<regkey>) : stringlist` +
 Provides a map of all name=value pairs in the given registry key <regkey>. +
 64 Bit Mode (with redirection). Since 4.11.3
 
 anchor:getRegistryVarMapSysnative[]
 
-* `getRegistryVarMapSysnative(`<regkey>`) : stringlist` +
+* `getRegistryVarMapSysnative(<regkey>) : stringlist` +
 Provides a map of all name=value pairs in the given registry key <regkey>. +
 Mode depend on the architecture of the operating system. Since 4.11.3
 
@@ -4148,7 +4152,7 @@ Registry started with redirection (32 Bit)
 
 anchor:getProductPropertyList[]
 
-* `getProductPropertyList(`<propname>,<default value>`)` +
+* `getProductPropertyList(<propname>,<default value>)` +
 returns a stringlist of values that are referred to by the multivalue product property <propname>. If there is no connection to the opsi server, then the resulting stringlist contains only <default value>. +
 If you call the function `GetProductProperty` with a multivalue property, then you will get the selected values in a comma-separated string format. This will lead to problems if the returned values contain any comma chars that are not meant to be parsed. +
 `<default value>` decribes the return value if no connection to the opsi-server is available. If `<default value>` is a string expression  this string is the first element of the returned list. Since 4.11.5.6 `<default value>` may also be a string list expression.
@@ -4293,7 +4297,7 @@ Set  $Files$ = listFiles($Path$,"*.Devices.*.dll*","False")
 
 anchor:replaceOpsiConstants_list[]
 
-`replaceOpsiConstants(`<string list>`) : stringlist`  //since 4.12.3.6 [W/L/M] 
+`replaceOpsiConstants(<string list>) : stringlist`  //since 4.12.3.6 [W/L/M] 
 returns a list, which has all occurrences of opsi constants in <string list> replaced with their value. +
 see also : <<replaceOpsiConstants_string>>
 
@@ -4302,7 +4306,7 @@ see also : <<replaceOpsiConstants_string>>
 
 anchor:getSubList[]
 
-* `getSubList (`<start index> : <end index>, <list>`) : stringlist` [W/L/M] +
+* `getSubList (<start index> : <end index>, <list>) : stringlist` [W/L/M] +
 returns a partial list of a given list. +
 E.g., if list represents the list of letters 'a', 'b', 'c', 'd', 'e', by the statement:
 [source,winst]
@@ -4348,77 +4352,77 @@ set $list1$ = getSubList(takestring(3,$list2$):takestring(5,$list2$), $list1$)
 
 anchor:getListContaining[]
 
-* `getListContaining(`<list>,<search string>`) : stringlist` [W/L/M] +
+* `getListContaining(<list>, <search string>) : stringlist` [W/L/M] +
 returns the first string from <list> which contains <search string>. Returns empty string if <seach string> is not found.
 
 anchor:getListContainingList[]
 
-* `getListContainingList(`<list1>,<list2>`) : stringlist`  //since 4.11.3.7 [W/L/M] +
+* `getListContainingList(<list1>, <list2>) : stringlist`  //since 4.11.3.7 [W/L/M] +
 returns the intersection of list1 and list2.
 
 anchor:getSubListByMatch_sl[]
 
-* `getSubListByMatch (`<search string>, <target list>`)` :stringlist //since 4.12.0.14 [W/L/M] +
+* `getSubListByMatch(<search string>, <target list>)` :stringlist //since 4.12.0.14 [W/L/M] +
 returns the part of <target list> where the string matches with <search string>. +
 The check is performed case-insensitive.
 
 anchor:getSubListByMatch_ll[]
 
-* `getSubListByMatch (`<search list>, <target list>`)` :stringlist //since 4.12.0.14 [W/L/M] +
+* `getSubListByMatch(<search list>, <target list>)` :stringlist //since 4.12.0.14 [W/L/M] +
 returns the part of <target list> where the string matches with one of the strings of <search list>. +
 The check is performed case-insensitive.
 
 anchor:getSubListByContaining_sl[]
 
-* `getSubListByContaining (` <search string>, <target list>`)` :stringlist //since 4.12.0.14 [W/L/M] +
+* `getSubListByContaining(<search string>, <target list>)` :stringlist //since 4.12.0.14 [W/L/M] +
 returns the part of <target list> where the string contains <search string>. +
 The check is performed case-insensitive.
 
 
 anchor:getSubListByContaining_ll[]
 
-* `getSubListByContaining (`<search list>, <target list>`)` :stringlist //since 4.12.0.14 [W/L/M] +
+* `getSubListByContaining(<search list>, <target list>)` :stringlist //since 4.12.0.14 [W/L/M] +
 returns the part of <target list> where the string contains with one of the strings of <search list>. +
 The check is performed case-insensitive.
 
 anchor:getSubListByKey_sl[]
 
-* `getSubListByKey (`<search string>, <target list>`)` :stringlist //since 4.12.0.14 [W/L/M] +
+* `getSubListByKey(<search string>, <target list>)` :stringlist //since 4.12.0.14 [W/L/M] +
 returns the part of <target list> where the string starts with '<search string>='. +
 The check is performed case-insensitive.
 
 anchor:getSubListByKey_ll[]
 
-* `getSubListByKey (`<search list>, <target list>`)` :stringlist //since 4.12.0.14 [W/L/M] +
+* `getSubListByKey(<search list>, <target list>)` :stringlist //since 4.12.0.14 [W/L/M] +
 returns the part of the key/value <target list> where the key is one of the strings of <search list>. +
 The check is performed case-insensitive.
 
 
 anchor:getKeyList[]
 
-* `getKeyList (`<list>`)` :stringlist //since 4.12.0.14 [W/L/M] +
+* `getKeyList(<list>)` :stringlist //since 4.12.0.14 [W/L/M] +
 returns from the the key/value list <list> (in the format key=value) the list of keys. +
 Is an entry in <list> not in the format key=vakue, the complete string will be part of the result list.
 
 
-* `takeFirstStringContaining(`<list>,<search string>`) : string` [W/L/M] +
+* `takeFirstStringContaining(<list>,<search string>) : string` [W/L/M] +
 returns the first string from <list> which contains <search string>. +
 Return en empty string if <search string> is not found. +
 see also : <<takeFirstStringContaining>>
 
 anchor:addtolist[]
 
-* `addtolist(`<list>,<string>`) : stringlist`	 //since 4.10.8 [W/L/M] +
+* `addtolist(<list>,<string>) : stringlist`	 //since 4.10.8 [W/L/M] +
 Appends <string> to the list <list>.
 
 anchor:addListToList[]
 
-* `addListToList(`<dest list>,<src list>`) : stringlist`	 //since 4.10.8 [W/L/M] +
+* `addListToList(<dest list>, <src list>) : stringlist`	 //since 4.10.8 [W/L/M] +
 Appends the list <list2> to the list <list1>.
 
 anchor:reverse[]
 
-* `reverse (`<list>`) : stringlist` [W/L/M] +
+* `reverse(<list>) : stringlist` [W/L/M] +
 produces the inverted list, +
 if $list$ is 'a', 'b', 'c', 'd', 'e', by +
 [source,winst]
@@ -4428,22 +4432,22 @@ set $list1$ = reverse ($list$)
 we get the $list1$ 'e', 'd', 'c', 'b', 'a'.
 
 anchor:emptylist[]
-`emptylist (`<list>`)  : stringlist`  //since 4.11.3.7 [W/L/M] +
+`emptylist(<list>)  : stringlist`  //since 4.11.3.7 [W/L/M] +
 clears the list.
 
 anchor:reencodestrlist[]
 
-* `reencodestrlist(`<list>, <from>, <to>`) : stringlist` //since 4.11.4.2 [W/L/M] +
+* `reencodestrlist(<list>, <from>, <to>) : stringlist` //since 4.11.4.2 [W/L/M] +
 assumes that <list> is encoded in <from> and returns the in <to> encoded version of <list>. <from> and <to> are encodings as listet in chapter <<opsi-winst-encoding>>.
 
 anchor:removeFromListByContaining_str[]
 
-* `removeFromListByContaining(`<search string>`,` <target list>`) : stringlist` //since 4.11.5.1 [W/L/M] +
+* `removeFromListByContaining(<search string>, <target list>) : stringlist` //since 4.11.5.1 [W/L/M] +
 Returns a copy of <target list> where all lines that contains <search string> are removed. The match to <search string> is case insensitiv.
 
 anchor:removeFromListByContaining_list[]
 
-* `removeFromListByContaining(`<search list>`,` <target list>`) : stringlist` //since 4.11.5.1 [W/L/M] +
+* `removeFromListByContaining(<search list>, <target list>) : stringlist` //since 4.11.5.1 [W/L/M] +
 Returns a copy of <target list> where all lines are removed that contains a string out of <search list>. The match to <search list> is case insensitiv.
 
 Examples:
@@ -4569,14 +4573,14 @@ endif
 
 anchor:removeFromListByMatch[]
 
-* `removeFromListByMatch(`<searchstring>,<target list>`) : stringlist`   //since 4.11.6 [W/L/M] +
+* `removeFromListByMatch(<searchstring>,<target list>) : stringlist`   //since 4.11.6 [W/L/M] +
 Returns a copy of <target list> where all lines are removed that exactly match a line out of <search list>. The match to <search sting> is case insensitiv. +
 see also : <<removeFromListByContaining_str>> +
 see also : <<removeFromListByContaining_list>>
 
 anchor:setStringInListAtIndex[]
 
-* `setStringInListAtIndex(`<newstring>,<list>,<indexstr>`) : stringlist`   //since 4.11.6 [W/L/M] +
+* `setStringInListAtIndex(<newstring>,<list>,<indexstr>) : stringlist`   //since 4.11.6 [W/L/M] +
 Replaces in the existing stringlist <list> the existing string at <index> by <newstring>. If <index> is to hight, <newstring> will be appended. In case of an error the result is an empty string list. +
 see also : <<takeString>>
 
@@ -4619,67 +4623,67 @@ Please note: The note variable is only valid in the directly called procedure. I
 
 anchor:jsonIsValid[]
 
-* `jsonIsValid(`<jsonstr>`) : boolean`  //since 4.11.6: [W/L/M]
+* `jsonIsValid(<jsonstr>) : boolean`  //since 4.11.6: [W/L/M]
 
 anchor:jsonIsArray[]
 
-* `jsonIsArray(`<jsonstr>`) : boolean`  //since 4.11.6: [W/L/M]
+* `jsonIsArray(<jsonstr>) : boolean`  //since 4.11.6: [W/L/M]
 
 anchor:jsonIsObject[]
 
-* `jsonIsObject(`<jsonstr>`) : boolean`  //since 4.11.6: [W/L/M]
+* `jsonIsObject(<jsonstr>) : boolean`  //since 4.11.6: [W/L/M]
 
 anchor:jsonAsObjectHasKey[]
 
-* `jsonAsObjectHasKey(`<jsonstr>,<keystr>`) : boolean`  //since 4.11.6: [W/L/M]
+* `jsonAsObjectHasKey(<jsonstr>, <keystr>) : boolean`  //since 4.11.6: [W/L/M]
 
 anchor:jsonAsArrayCountElements[]
 
-* `jsonAsArrayCountElements(`<jsonstr>`) : intstr`  //since 4.11.6: [W/L/M]
+* `jsonAsArrayCountElements(<jsonstr>) : intstr`  //since 4.11.6: [W/L/M]
 
 anchor:jsonAsObjectCountElements[]
 
-* `jsonAsObjectCountElements(`<jsonstr>`) : intstr`  //since 4.11.6: [W/L/M]
+* `jsonAsObjectCountElements(<jsonstr>) : intstr`  //since 4.11.6: [W/L/M]
 
 anchor:jsonAsArrayGetElementByIndex[]
 
-* `jsonAsArrayGetElementByIndex(`<jsonstr>, <indexstr>`) : jsonstring`  //since 4.11.6: [W/L/M]
+* `jsonAsArrayGetElementByIndex(<jsonstr>, <indexstr>) : jsonstring`  //since 4.11.6: [W/L/M]
 
 anchor:jsonAsObjectGetValueByKey[]
 
-* `jsonAsObjectGetValueByKey(`<jsonstr>, <keystr>`) : valuestring`  //since 4.11.6: [W/L/M]
+* `jsonAsObjectGetValueByKey(<jsonstr>, <keystr>) : valuestring`  //since 4.11.6: [W/L/M]
 
 anchor:jsonAsObjectSetValueByKey[]
 
-* `jsonAsObjectSetValueByKey(`<jsonstr>, <keystr>,<valuestring>`) : jsonstring`  //since 4.11.6: [W/L/M]
+* `jsonAsObjectSetValueByKey(<jsonstr>, <keystr>, <valuestring>) : jsonstring`  //since 4.11.6: [W/L/M]
 
 anchor:jsonAsObjectSetStringtypeValueByKey[]
 
-* `jsonAsObjectSetStringtypeValueByKey(`<jsonstr>, <keystr>,<valuestring>`) : jsonstring`  //since 4.11.6: [W/L/M]
+* `jsonAsObjectSetStringtypeValueByKey(<jsonstr>, <keystr>, <valuestring>) : jsonstring`  //since 4.11.6: [W/L/M]
 
 anchor:jsonAsObjectDeleteByKey[]
 
-* `jsonAsObjectDeleteByKey(`<jsonstr>, <keystr>`) : jsonstring`  //since 4.11.6.4: [W/L/M]
+* `jsonAsObjectDeleteByKey(<jsonstr>, <keystr>) : jsonstring`  //since 4.11.6.4: [W/L/M]
 
 anchor:jsonAsArrayPutObjectByIndex[]
 
-* `jsonAsArrayPutObjectByIndex(`<jsonstr>, <indexstr>, <objectstr>`) : jsonstring`  //since 4.11.6: [W/L/M]
+* `jsonAsArrayPutObjectByIndex(<jsonstr>, <indexstr>, <objectstr>) : jsonstring`  //since 4.11.6: [W/L/M]
 
 anchor:jsonAsArrayDeleteObjectByIndex[]
 
-* `jsonAsArrayDeleteObjectByIndex(`<jsonstr>, <indexstr>`) : jsonstring`  //since 4.11.6.4: [W/L/M]
+* `jsonAsArrayDeleteObjectByIndex(<jsonstr>, <indexstr>) : jsonstring`  //since 4.11.6.4: [W/L/M]
 
 anchor:jsonAsArrayToStringList[]
 
-* `jsonAsArrayToStringList(`<jsonstr>`) : stringlist`  //since 4.11.6: [W/L/M]
+* `jsonAsArrayToStringList(<jsonstr>) : stringlist`  //since 4.11.6: [W/L/M]
 
 anchor:jsonStringListToJsonArray[]
 
-* `jsonStringListToJsonArray(`<strlist>`) : jsonstr`  //since 4.11.6: [W/L/M]
+* `jsonStringListToJsonArray(<strlist>) : jsonstr`  //since 4.11.6: [W/L/M]
 
 anchor:jsonAsObjectGetKeyList[]
 
-* `jsonAsObjectGetKeyList(`<jsonstr>`) : stringlist`  //since 4.11.6: [W/L/M]
+* `jsonAsObjectGetKeyList(<jsonstr>) : stringlist`  //since 4.11.6: [W/L/M]
 
 
 Example: Restoring productOnClient entries from a file to the server:
@@ -4776,7 +4780,7 @@ set $poclist$ = setStringInListAtIndex($objectStr$,$poclist$,"%pocindex%")
 
 anchor:calculate[]
 
-* `calculate(`<arithmetic string expression>`) : string (number)` +
+* `calculate(<arithmetic string expression>) : string (number)` +
 this string function calculates the arithemtic expression of the string <str> and returns the rounded result as a string. +
 Internally the calculations are done with real numbers. This function acceptsthe operators `+`, `-`, `*`, `/` and round brackets `(`,`)`. +
 In case of an error, an empty string is returned and the error counter is incremented. If the passed string contains any characters other than numbers, valid operators and brackets, this results in an error. +
@@ -4965,7 +4969,7 @@ see also:
 
 anchor:isNumber[]
 
-* `isNumber(`<str>`) : bool` //since 4.11.3: true if <str> represents an integer [W/L/M] +
+* `isNumber(<str>) : bool` //since 4.11.3: true if <str> represents an integer [W/L/M] +
 Boolean function which returns 'true' if <str> represents an integer. +
 see also : <<isNumber>>
 
@@ -4981,37 +4985,37 @@ For the wording in this chapter see the chapter 'XML2 Sections' / 'XML structure
 
 anchor:getXml2DocumentFromFile[]
 
-`getXml2DocumentFromFile(`<path to xml file>`) : xml2stringlist`  //since 4.12.1 +
+`getXml2DocumentFromFile(<path to xml file>) : xml2stringlist`  //since 4.12.1 +
 Reads the xml file <path to xml file> and returns a string list that may be used in other xml2 functions as <xml2stringlist> +
 For example see 'XML2 Sections' / 'Examples' <<opsi-winst-xml2-examples>>
 
 anchor:getXml2Document[]
 
-`getXml2Document(`<stringlist with xml>`) : xml2stringlist`  //since 4.12.1 +
+`getXml2Document(<stringlist with xml>) : xml2stringlist`  //since 4.12.1 +
 If <stringlist with xml> contains valid xml data the function returns a string list that may be used in other xml2 functions as <xml2stringlist>
 
 anchor:xml2GetFirstChildNodeByName[]
 
-`xml2GetFirstChildNodeByName(`<xml2stringlist>, <node name str>`) : xml2stringlist`   //since 4.12.1. +
+`xml2GetFirstChildNodeByName(<xml2stringlist>, <node name str>) : xml2stringlist`   //since 4.12.1. +
 Searches in the given <xml2stringlist> the first occurence of a node with the name <node name str> and returns this node (with all child nodes) as a xml2stringlist. +
 For example see 'XML2 Sections' / 'Examples' <<opsi-winst-xml2-examples>>
 
 anchor:getXml2UniqueChildnodeByName[]
 
-`getXml2UniqueChildnodeByName(`<xml2stringlist>, <node name str>`) : xml2stringlist`   //since 4.12.1. +
+`getXml2UniqueChildnodeByName(<xml2stringlist>, <node name str>) : xml2stringlist`   //since 4.12.1. +
 Searches in the given <xml2stringlist> the occurences of a nodes with the name <node name str> and if there is only one, this one is returned (with all child nodes) as a xml2stringlist. +
 If there is none or more than one child found, a empty string list is returned.
 
 anchor:getXml2AttributeValueByKey[]
 
-`getXml2AttributeValueByKey(`<xml2stringlist>, <attr name str>`) : string`   //since 4.12.1. +
+`getXml2AttributeValueByKey(<xml2stringlist>, <attr name str>) : string`   //since 4.12.1. +
 Searches in the given <xml2stringlist> the first node and in this node an attribute with the name <attr name str> and returns the value of this attribute. +
 If not found or on any other error, a empty string will be returned. +
 For example see 'XML2 Sections' / 'Examples' <<opsi-winst-xml2-examples>>
 
 anchor:getXml2Text[]
 
-`getXml2Text(`<xml2stringlist>`) : string`   //since 4.12.1. +
+`getXml2Text(<xml2stringlist>) : string`   //since 4.12.1. +
 Returns the xml data given by <xml2stringlist> as a single line string.
 
 see also : <<opsi-winst-rc-xml2-functions>> +
@@ -5043,7 +5047,7 @@ http://www.weitz.de/regex-coach/
 
 anchor:isRegexMatch[]
 
-* `isRegexMatch(`<string>, <pattern>`) : boolean` +
+* `isRegexMatch(<string>, <pattern>) : boolean` +
 It will return 'true' if the pattern matches the string and return 'false' if pattern does not matches the string, +
 where pattern is the regular expression and the string would be searched for the matches.
 
@@ -5075,12 +5079,12 @@ endif
 
 anchor:getSubListByContainingRegex[]
 
-* `getSubListByContainingRegex(`<pattern>, <target list>`) : stringlist` +
+* `getSubListByContainingRegex(<pattern>, <target list>) : stringlist` +
 It will extract a sublist from target list by matching a single pattern, +
 where sublist is a list of whole lines containing the pattern.
 
 
-* `getSubListByContainingRegex(`<pattern list>, <target list>`) : stringlist` +
+* `getSubListByContainingRegex(<pattern list>, <target list>) : stringlist` +
 It will extract a sublist from target list by matching a list of patterns, +
 where sublist is a list of whole lines containing any of the patterns in the pattern list.
 
@@ -5122,12 +5126,12 @@ endif
 
 anchor:getRegexMatchList[]
 
-* `getRegexMatchList(`<pattern>, <target list>`) : stringlist` +
+* `getRegexMatchList(<pattern>, <target list>) : stringlist` +
 It will extract a sublist from the target list by matching a single pattern, +
 where sublist is a list of exact matches for the pattern.
 
 
-* `getRegexMatchList(`<pattern list>, <target list>`) : stringlist`  +
+* `getRegexMatchList(<pattern list>, <target list>) : stringlist`  +
 It will extract a sublist from the target list by matching a list of patterns, +
 where sublist is a list of exact matches for any of the patterns in the pattern list.
 
@@ -5169,10 +5173,10 @@ endif
 
 anchor:removeFromListByContainingRegex[]
 
-* `removeFromListByContainingRegex(`<pattern>, <target list>`) : stringlist`  +
+* `removeFromListByContainingRegex(<pattern>, <target list>) : stringlist`  +
 remove whole matching lines for a single pattern.
 
-* `removeFromListByContainingRegex(`<pattern list>, <target list>`) : stringlist`  +
+* `removeFromListByContainingRegex(<pattern list>, <target list>) : stringlist`  +
 remove whole matching lines for any of the patterns in the pattern list.
 
 Example:
@@ -5212,7 +5216,7 @@ endif
 
 anchor:stringReplaceRegex[]
 
-* `stringReplaceRegex(`<string>, <pattern>, <replacement string>`) : string`  +
+* `stringReplaceRegex(<string>, <pattern>, <replacement string>) : string`  +
 Replace exact matches in string with the replacement string.
 
 Example:
@@ -5230,7 +5234,7 @@ endif
 
 anchor:stringReplaceRegexInList[]
 
-* `stringReplaceRegexInList(`<target list>, <pattern>, <replacement string>`) : stringlist`  +
+* `stringReplaceRegexInList(<target list>, <pattern>, <replacement string>) : stringlist`  +
 Replace exact matches in the target list with the replacement string.
 
 Example:
@@ -5275,7 +5279,7 @@ They convert string URLs to a string list with the URL components:
 
 anchor:parseUrl[]
 
-* `parseUrl(`<url string>`) : stringlist`  +
+* `parseUrl(<url string>) : stringlist`  +
 Return url components as stringlist for the given <url string>.
 
 Example:
@@ -5319,7 +5323,7 @@ endif
 
 anchor:createUrl[]
 
-* `createUrl(`<urlcomponents list>`) : string`  +
+* `createUrl(<urlcomponents list>) : string`  +
 return url string for the given urlcomponents. +
 The <urlcomponents list> has not to be complete. You may give only the needed parts.
 
@@ -5364,7 +5368,7 @@ expecially the file `sub-scripts/urlparser.opsiscript`
 
 anchor:isValidIP4[]
 
-* `isValidIP4 (`<ip4adr>`) : boolean`  +
+* `isValidIP4 (<ip4adr>) : boolean`  +
 return true if the IPv4 address is valid.
 
 Example:
@@ -5395,7 +5399,7 @@ endif
 
 anchor:isValidIP4Network[]
 
-* `isValidIP4Network (`<ip4adr>, <netmask>`) : boolean`    +
+* `isValidIP4Network(<ip4adr>, <netmask>) : boolean`    +
 return true if the given ipv4 address is a valid network address +
 Netmask can be given in both cidr and dotted-decimal notation.
 
@@ -5435,7 +5439,7 @@ endif
 
 anchor:isValidIP4Host[]
 
-* `isValidIP4Host (`<ip4adr>, <netmask>`) : boolean`  +
+* `isValidIP4Host(<ip4adr>, <netmask>) : boolean`  +
 return true if the given ipv4 address is a valid host address +
 Netmask can be given in both cidr and dotted-decimal notation.
 
@@ -5478,7 +5482,7 @@ endif
 
 anchor:getIP4NetworkByAdrAndMask[]
 
-* `getIP4NetworkByAdrAndMask(`<ip4adr>, <netmask>`) : string`   +
+* `getIP4NetworkByAdrAndMask(<ip4adr>, <netmask>) : string`   +
 return network address for the given IP address and netmask.  +
 Netmask can be given in both cidr and dotted-decimal notation.
 
@@ -5510,7 +5514,7 @@ endif
 
 anchor:getDefaultNetmaskByIP4adr[]
 
-* `getDefaultNetmaskByIP4adr (`<ip4adr>`) : string`   +
+* `getDefaultNetmaskByIP4adr(<ip4adr>) : string`   +
 return default netmask for the given IPv4 address
 
 Example:
@@ -5534,17 +5538,17 @@ expecially the file `sub-scripts/networkcalc.opsiscript`
 
 anchor:waitForPackageLock[]
 
-* `waitForPackageLock(`<seconds timeout string>,<bool should we kill>`) : bool` //since 4.11.6.1 [L] +
+* `waitForPackageLock(<seconds timeout string>, <bool should we kill>) : bool` //since 4.11.6.1 [L] +
 Returns `true` if the Linux package system is not locked by an other process. If it is locked, it waits <seconds timeout string> to get the lock. If the timeout is reached and <bool should we kill> is `true` than the locking process is killed but using this feature ist *not recommended*.
 
 anchor:processIsRunning[]
 
-* `processIsRunning(`<process name>`) : boolean`  //since 4.11.6.1 [W/L/M] +
+* `processIsRunning(<process name>) : boolean`  //since 4.11.6.1 [W/L/M] +
 Returns `true` if <process name> is found in the process list
 
 anchor:shellCall_list[]
 
-* `shellCall (`<command string>`) : stringlist (output)` //since 4.11.4.2 [W/L/M] +
+* `shellCall(<command string>) : stringlist (output)` //since 4.11.4.2 [W/L/M] +
 Executing <command string> with the standard shell (cmd.exe / bash)
 [source,winst]
 ----
@@ -5561,7 +5565,7 @@ net start
 
 anchor:shellCall[]
 
-* `shellCall (`<command string>`) : noresult` //since 4.11.6.1 [W/L/M] +
+* `shellCall(<command string>) : noresult` //since 4.11.6.1 [W/L/M] +
 [source,winst]
 ----
 shellCall('net start')
@@ -5577,7 +5581,7 @@ net start
 
 anchor:shellCall_str[]
 
-* `shellCall (`<command string>`) : string (exitcode)` //since 4.11.6.1 [W/L/M] +
+* `shellCall(<command string>) : string (exitcode)` //since 4.11.6.1 [W/L/M] +
 [source,winst]
 ----
 set $exitcode$ = shellCall('net start')
@@ -5594,7 +5598,7 @@ net start
 
 anchor:powershellCall_list[]
 
-* `powershellCall(`<commandstr> [,<access str>='sysnative' [,<policy bool str>='true']]`) : stringlist (output)` //since 4.12.0.16 [W] +
+* `powershellCall(<commandstr> [,<access str>='sysnative' [,<policy bool str>='true']]) : stringlist (output)` //since 4.12.0.16 [W] +
 Runs <command string> with the powershell. +
 More exactly the powershell runs a script that looks like:
 ----
@@ -5631,7 +5635,7 @@ exit $LASTEXITCODE
 
 anchor:powershellCall[]
 
-* `powershellCall(`<commandstr> [,<access str>='sysnative' [,<policy bool str>='true']]`) : noresult` //since 4.12.0.16 [W] +
+* `powershellCall(<commandstr> [,<access str>='sysnative' [,<policy bool str>='true']]) : noresult` //since 4.12.0.16 [W] +
 see <<powershellCall_list>> +
 The function `powershellCall` may also be called where no result is expected.
 
@@ -5643,7 +5647,7 @@ powershellCall('Get-Process -ProcessName "opsi*"')
 
 anchor:powershellCall_str[]
 
-* `powershellCall(`<commandstr> [,<access str>='sysnative' [,<policy bool str>='true']]`) : string (exitcode)` //since 4.12.0.16 [W] +
+* `powershellCall(<commandstr> [,<access str>='sysnative' [,<policy bool str>='true']]) : string (exitcode)` //since 4.12.0.16 [W] +
 see <<powershellCall_list>> +
 If the `powershellCall` function is called where a string is expected it returns a string that contains the exit code of the executed script.
 
@@ -5656,7 +5660,7 @@ set $exitcode$ = powershellCall('Get-Process -ProcessName "opsi*"')
 
 anchor:processCall[]
 
-* `processCall(`<string>`) : string (exitcode)` //since 4.11.6.1 [W/L/M] +
+* `processCall(<string>) : string (exitcode)` //since 4.11.6.1 [W/L/M] +
 Starts the command binary <string> as process and returns te exitcode +
 [source,winst]
 ----
@@ -5707,7 +5711,7 @@ Example: `c:\windows\system32\regedit.exe` running on a 64bit system calls the 6
 
 anchor:Killtask[]
 
-* `Killtask` <process name> ` : noresult` [W/L/M] +
+* `Killtask <process name> : noresult` [W/L/M] +
 tries to stop all processes that execute the program named by the string expression. +
 E.g.
 [source,winst]
@@ -5717,7 +5721,7 @@ killtask "winword.exe"
 
 anchor:ChangeDirectory[]
 
-* `ChangeDirectory` <directory>  ` : noresult`  //since 4.11.2.6 [W/L/M] +
+* `ChangeDirectory <directory>  : noresult`  //since 4.11.2.6 [W/L/M] +
 Set the given directory as working directory of the '{opsi-winst}/opsi-script'. Affects all subsequent actions (e.g. winbatch sections) and will be reset at the end of a script.
 Beispiel :
 [source,winst]
@@ -5836,7 +5840,7 @@ comment: should be in the log file: This is a ***(confidential)*** string
 
 anchor:asConfidential[]
 
-* `asConfidential(` <secret string expression> `)` : string //since 4.12.0.16 [W/L/M] +
+* `asConfidential(<secret string expression>)` : string //since 4.12.0.16 [W/L/M] +
 This function should be used to get confidentail strings from an other string function without without logging the secret string. The Function work in the following sequence: +
 1. Backup the current log level. +
 2. Set the log level to Warning. (4) +
@@ -5926,7 +5930,7 @@ give one of the possible values 'Machine','Login': +
 ** 'Login' - the script is running as 'userLoginScript'
 
 
-* `GetUserSID(`<Windows Username>`)` +
+* `GetUserSID(<Windows Username>)` +
 see also : <<GetUserSID>> +
 
 anchor:GetLoggedInUser[]
@@ -6240,45 +6244,45 @@ There are some more Boolean functions implemented. Every call of such a function
 
 anchor:FileExists[]
 
-* `FileExists (`<file name>`) : bool` [W/L/M] +
+* `FileExists(<file name>) : bool` [W/L/M] +
 returns 'true' if the denoted file or directory exists otherwise 'false'.
 
-* `FileExists32`(<file name>)	see <<opsi-winst-64bit,Chapter 64 Bit support>>
+* `FileExists32(<file name>)`	see <<opsi-winst-64bit,Chapter 64 Bit support>>
 
-* `FileExists64`(<file name>)	see <<opsi-winst-64bit,Chapter 64 Bit support>>
+* `FileExists64(<file name>)`	see <<opsi-winst-64bit,Chapter 64 Bit support>>
 
 * `FileExistsSysNative`(<file name>) see <<opsi-winst-64bit,Chapter 64 Bit support>>
 
 anchor:LineExistsIn[]
 
-* `LineExistsIn (`<string>, <file name>`) : bool` [W/L/M] +
+* `LineExistsIn(<string>, <file name>) : bool` [W/L/M] +
 returns 'true' if the text file denoted by <file name> contains a line as specified in the first parameter where each parameter is a String expression. Otherwise (or if the file does not exist) it returns 'false'.
 
 anchor:LineBeginning_ExistsIn[]
 
-* `LineBeginning_ExistsIn (`<string>, <file name>`) : bool` [W/L/M] +
+* `LineBeginning_ExistsIn(<string>, <file name>) : bool` [W/L/M] +
 returns 'true' if there is line that begins with <string> in the text file denoted by <file name> (each parameter being a string expression). Otherwise (or if the file does not exist) it returns 'false'.
 
 anchor:LineContaining_ExistsIn[]
 
-* `LineContaining_ExistsIn(` <string>, <file name> `) : bool` [W/L/M] +
+* `LineContaining_ExistsIn(<string>, <file name>) : bool` [W/L/M] +
 returns 'true' if there is line that contains <string> in the text file denoted by <file name> (each parameter being a string expression). Otherwise (or if the file does not exist) it returns 'false'.
 
 anchor:XMLAddNamespace[]
 
-* `XMLAddNamespace`(<XMLfilename>, <XMLelementname>, <XMLnamespace>) +
+* `XMLAddNamespace(<XMLfilename>, <XMLelementname>, <XMLnamespace>)` +
 inserts a XML namespace definition into the first XML element with the given name (if not existing). It gives back if an insertion took place. (The '{opsi-winst}/opsi-script' XML patch section need the definitions of namespace.) +
 The file must be formatted that an element tag has no line breaks in it.
 For an example, cf. cookbook <<opsi-winst-cookbook-xmlnamespace>>.
 
 anchor:XMLRemoveNamespace[]
 
-* `XMLRemoveNamespace`(<XMLfilename>, <XMLelementname>, <XMLnamespace>) +
+* `XMLRemoveNamespace(<XMLfilename>, <XMLelementname>, <XMLnamespace>)` +
 removes the XML namespace definition from the XML element. It gives back if an removal took place. We need this to simulate that an original file is unchanged. For an example, cf. cookbook <<opsi-winst-cookbook-xmlnamespace>>.
 
 anchor:HasMinimumSpace[]
 
-* `HasMinimumSpace`(<Laufwerksname>, <Kapazität>) +
+* `HasMinimumSpace(<Laufwerksname>, <Kapazität>)` +
 returns true if at least a capacity capacity is left on drive drivename. capacity as well as drivename syntactically are String expressions. The capacity may be given as a number without unit specification (then interpreted as bytes) or with unit specifications "kB", "MB", or "GB" (case independent). +
 Example:
 [source,winst]
@@ -6291,7 +6295,7 @@ endif
 
 anchor:opsiLicenseManagementEnabled[]
 
-* `opsiLicenseManagementEnabled` : bool +
+* `opsiLicenseManagementEnabled : bool` +
 returns 'true' if the opsi license management module is enabled.
 
 anchor:runningAsAdmin[]
@@ -6306,13 +6310,13 @@ Available since 4.11.2.1 +
 see also : <<isLoginScript>> +
 
 
-* `contains(`<str>, <substr>`) : bool`   //since 4.11.3: true if <substr> in <str> [W/L/M] +
+* `contains(<str>, <substr>) : bool`   //since 4.11.3: true if <substr> in <str> [W/L/M] +
 Boolean function which returns 'true' if <str> contains <substr>. This function is case sensitive. +
 see also : <<contains>>
 
 //anchor:isNumber[]
 
-* `isNumber(`<str>`) : bool` //since 4.11.3: true if <str> represents an integer [W/L/M] +
+* `isNumber(<str>) : bool` //since 4.11.3: true if <str> represents an integer [W/L/M] +
 Boolean function which returns 'true' if <str> represents an integer. +
 see also : <<isNumber>>
 
@@ -6330,25 +6334,25 @@ true if the running OS is a Windows PE
 
 anchor:isDriveReady[]
 
-* `isDriveReady(`<drive letter>`)` //since 4.11.4.4: [W] +
+* `isDriveReady(<drive letter>)` //since 4.11.4.4: [W] +
 true: if the drive can be accessed
 
 anchor:saveTextFile[]
 
-* `saveTextFile(`<list>, < filename>`) : bool`  [W/L/M] +
+* `saveTextFile(<list>, < filename>) : bool`  [W/L/M] +
 true: if list is succesfully written to file
 
 anchor:saveTextFileWithEncoding[]
 
-* `saveTextFileWithEncoding(`<list>, < filename>`,` <encoding>`) : bool` //since 4.11.6.4 +
+* `saveTextFileWithEncoding(<list>, < filename>, <encoding>) : bool` //since 4.11.6.4 +
 true: if list is succesfully written to file [W/L/M]
 
 anchor:CompareDotSeparatedNumbers_bool[]
 
-* `CompareDotSeparatedNumbers(`<str1>,<relation str>,<str2>`) : bool`  //since 4.11.5.2: [W/L/M] +
+* `CompareDotSeparatedNumbers(<str1>,<relation str>,<str2>) : bool`  //since 4.11.5.2: [W/L/M] +
 compares two strings of the form <number>[.<number>[.<number>[.<number>]]] +
 by the <relation str> which may be one of [<,<=,=,>=,>]. +
-see also: string function `CompareDotSeparatedNumbers(`<string1>, <string2>`)` : see also : <<CompareDotSeparatedNumbers_str>>
+see also: string function `CompareDotSeparatedNumbers(<string1>, <string2>)` : see also : <<CompareDotSeparatedNumbers_str>>
 
 Example: +
 The code:
@@ -6459,22 +6463,22 @@ EndIf
 
 anchor:CompareDotSeparatedStrings_bool[]
 
-* `CompareDotSeparatedStrings(`<str1>,<relation str>,<str2>`) : bool`  //since 4.11.5.2: [W/L/M] +
+* `CompareDotSeparatedStrings(<str1>,<relation str>,<str2>) : bool`  //since 4.11.5.2: [W/L/M] +
 compares two strings of the form <str>[.<str>[.<str>[.<str>]]] +
 by the <relation str> which may be one of [<,<=,=,>=,>]. +
-see also: string function `CompareDotSeparatedStrings(`<string1>, <string2>`)`  : <<CompareDotSeparatedStrings_str>>`
+see also: string function `CompareDotSeparatedStrings(<string1>, <string2>)`  : <<CompareDotSeparatedStrings_str>>`
 
 anchor:boolToString[]
 
-* `boolToString(`<boolean expression>`)` : bool string (true/false) // since 4.12.0.0 [W/L/M]
+* `boolToString(<boolean expression>) : bool string` (true/false) // since 4.12.0.0 [W/L/M]
 
 anchor:stringToBool[]
 
-* `stringToBool(`<string expression: true/false>`)` : boolean // since 4.12.0.0 [W/L/M]
+* `stringToBool(<string expression: true/false>) : boolean` // since 4.12.0.0 [W/L/M]
 
 anchor:RegKeyExists[]
 
-* `RegKeyExists(`<regkey>[,<access str>]`) : bool` //since 4.12.0.16 [W] +
+* `RegKeyExists(<regkey>[,<access str>]) : bool` //since 4.12.0.16 [W] +
 Check if the given string expression <regkey> exists as registry key.
 If the registry key was found the result value ist `true` in all other cases `false`. +
 By Default the registry access mode is `sysnative`. Using the optional second parameter <access str>, the access mode can be explicitly given. In this case it has to be one of the following values: `32bit`, `sysnative`, `64bit`. +
@@ -6491,7 +6495,7 @@ RegKeyExists("HKEY_LOCAL_MACHINE\SOFTWARE\opsi.org\general","32bit")
 
 anchor:RegVarExists[]
 
-* `RegVarExists(`<regkey>, <var str> [,<access str>]`) : bool` //since 4.12.0.16 [W] +
+* `RegVarExists(<regkey>, <var str> [,<access str>]) : bool` //since 4.12.0.16 [W] +
 Check if the given string expression <regkey> exists as registry key and if there is a variable with name <var str>.
 If both was found the result value ist `true` in all other cases `false`. +
 By Default the registry access mode is `sysnative`. Using the optional second parameter <access str>, the access mode can be explicitly given. In this case it has to be one of the following values: `32bit`, `sysnative`, `64bit`. +
@@ -6507,7 +6511,7 @@ RegVarExists("HKEY_LOCAL_MACHINE\SOFTWARE\opsi.org\general","bootmode","32bit")
 
 anchor:runningWithGui[]
 
-* `runningWithGui : bool`` //since 4.12.3.6 [W/L/M]
+* `runningWithGui : bool` //since 4.12.3.6 [W/L/M]
 true: if the running OS has a GUI (at Win+Mac always true)[M/L/W] +
 
 anchor:isPingReachable[]
@@ -8175,7 +8179,7 @@ It is the sequence of nodes below the root node
 * `xml2stringlist` +
 The opsi-script xml2 functions do not work directly on a xml file,
 but on a stringlist representation of this file or parts of it (a node). +
-So with the function `getXml2DocumentFromFile(`<path to xml file>`)` you get a stringlist that contains the representation of the content of this file in a  `xml2stringlist`. This variable may be used to analyze the `xml2stringlist` by other xml2 functions. +
+So with the function `getXml2DocumentFromFile(<path to xml file>)` you get a stringlist that contains the representation of the content of this file in a  `xml2stringlist`. This variable may be used to analyze the `xml2stringlist` by other xml2 functions. +
 The result of those functions may be also a stringlist from type `xml2stringlist` +
 In fact the the `xml2stringlist` is a string list that contains the content of the xml file in a special format and without the header. But do not try to construct it without using `getXml2DocumentFromFile` or `getXml2Document`. +
 see : <<opsi-winst-xml2-functions>> +
@@ -9057,17 +9061,17 @@ This modifier has the following limitation: +
 
 
 .Sequential processing of a script that waits for the end of a program
-image::waitforprocess_scheme_std.png["waitforprocess_scheme_std",width=150]
+image::waitforprocess_scheme_std.png["waitforprocess_scheme_std", pdfwidth=70%]
 
 There are some external programs which start another process and then end without waiting for their child process to end. From the point of view of '{opsi-winst}/opsi-script', the process is ended and the next command could be started.
 
 .End of process while child process is still running
-image::waitforprocess_scheme_fork1.png["waitforprocess_scheme_fork1",width=200]
+image::waitforprocess_scheme_fork1.png["waitforprocess_scheme_fork1", pdfwidth=70%]
 
 If you run an uninstall program and a setup program in sequence and the uninstall program works with such a child process, you can have conflicting processes running because the uninstallation and installation processes are running at the same time.
 
 .Overlapping of a child process and a parent process
-image::waitforprocess_scheme_fork2.png["waitforprocess_scheme_fork2",width=200]
+image::waitforprocess_scheme_fork2.png["waitforprocess_scheme_fork2", pdfwidth=70%]
 
 Using the modifier `/WaitForProcessEnding` helps to avoid such a situation.
 
