@@ -10,8 +10,14 @@ stages:
 .build_template_html: &build_template_html
   stage: build
   script:
-    # - apt-get install ruby-dev
-    # - gem install prawn-gmagick
+    - ruby -v
+    - apk add ruby-dev
+    - apk add ruby-full
+    - apk add build-base
+    - apk add graphicsmagick
+    - apk add graphicsmagick-dev
+    - apk add imagemagick
+    - gem install prawn-gmagick
     - python3 tools/create_docu.py --lang $LANGUAGE --files $DOCUMENT --output html
     - echo $DOCUMENT
     - echo $LANGUAGE
@@ -40,6 +46,14 @@ stages:
 .build_template_pdf: &build_template_pdf
   stage: build
   script:
+    - ruby -v
+    - apk add ruby-dev
+    - apk add ruby-full
+    - apk add build-base
+    - apk add graphicsmagick
+    - apk add graphicsmagick-dev
+    - apk add imagemagick
+    - gem install prawn-gmagick
     - python3 tools/create_docu.py --lang $LANGUAGE --files $DOCUMENT --output pdf
     - test -f build/$LANGUAGE/pdf/$DOCUMENT/$DOCUMENT.pdf
   artifacts:
