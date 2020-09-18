@@ -1,6 +1,7 @@
-image: docker.uib.local/opsi/opsidoc-builder
+image: asciidoctor/docker-asciidoctor
 
 stages:
+  - asciidoctor
   - build
   - test
 
