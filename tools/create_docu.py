@@ -39,7 +39,7 @@ for lang in languages:
 				print("########: ", f)
 				source = os.path.join(root,f)
 				for output in outputs:
-					destination_folder = f"build-test/{lang}/{output}/{root_basename}"
+					destination_folder = f"build/{lang}/{output}/{root_basename}"
 					try:
 						os.makedirs(destination_folder)
 					except OSError:
