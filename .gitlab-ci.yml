@@ -2,6 +2,7 @@ image: docker.uib.local/opsi/opsidoc-builder
 
 stages:
   - build
+  - test
 
 build_docu:
   stage: build
@@ -10,8 +11,8 @@ build_docu:
   
 
 # - HTML build jobs -
-.build_template_html: &build_template_html
-  stage: build
+.test_template: &test_template
+  stage: test
   script:
     - test -f build/$FORMAT/$LANGUAGE/$DOCUMENT/$DOCUMENT.html
   artifacts:
@@ -21,69 +22,69 @@ build_docu:
 
 
 en-html-getting-started-v4.2:
-  <<: *build_template_html
+  <<: *test_template
   variables:
     LANGUAGE: en
     DOCUMENT: opsi-getting-started-v4.2
     FORMAT: html
 
 de-html-manual-v4.2:
-  <<: *build_template_html
+  <<: *test_template
   variables:
     LANGUAGE: de
     DOCUMENT: opsi-manual-v4.2
     FORMAT: html
 
 en-html-manual-v4.2:
-  <<: *build_template_html
+  <<: *test_template
   variables:
     LANGUAGE: en
     DOCUMENT: opsi-manual-v4.2
     FORMAT: html
 
 de-html-winst-manual:
-  <<: *build_template_html
+  <<: *test_template
   variables:
     LANGUAGE: de
     DOCUMENT: opsi-winst-manual
     FORMAT: html
 
 en-html-winst-manual:
-  <<: *build_template_html
+  <<: *test_template
   variables:
     LANGUAGE: en
     DOCUMENT: opsi-winst-manual
     FORMAT: html
 
 en-html-winst-reference-card:
-  <<: *build_template_html
+  <<: *test_template
   variables:
     LANGUAGE: en
     DOCUMENT: opsi-winst-reference-card
     FORMAT: html
 
 # de-html-releasenotes-v4.2:
-#   <<: *build_template_html
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: de
 #     DOCUMENT: opsi-v4.2-releasenotes
 
 en-html-releasenotes-v4.2:
-  <<: *build_template_html
+  <<: *test_template
   variables:
     LANGUAGE: en
     DOCUMENT: opsi-v4.2-releasenotes
     FORMAT: html
 
 de-html-supportmatrix:
-  <<: *build_template_html
+  <<: *test_template
   variables:
     LANGUAGE: de
     DOCUMENT: opsi-supportmatrix
     FORMAT: html
 
 en-html-supportmatrix:
-  <<: *build_template_html
+  <<: *test_template
   variables:
     LANGUAGE: en
     DOCUMENT: opsi-supportmatrix
@@ -91,73 +92,73 @@ en-html-supportmatrix:
 
 # - pdf build jobs -
 de-pdf-getting-started-v4.2:
-  <<: *build_template_pdf
+  <<: *test_template
   variables:
     LANGUAGE: de
     DOCUMENT: opsi-getting-started-v4.2
     FORMAT: pdf
 
 en-pdf-getting-started-v4.2:
-  <<: *build_template_pdf
+  <<: *test_template
   variables:
     LANGUAGE: en
     DOCUMENT: opsi-getting-started-v4.2
     FORMAT: pdf
 
 de-pdf-manual-v4.2:
-  <<: *build_template_pdf
+  <<: *test_template
   variables:
     LANGUAGE: de
     DOCUMENT: opsi-manual-v4.2
     FORMAT: pdf
 
 en-pdf-manual-v4.2:
-  <<: *build_template_pdf
+  <<: *test_template
   variables:
     LANGUAGE: en
     DOCUMENT: opsi-manual-v4.2
     FORMAT: pdf
 
 de-pdf-winst-manual:
-  <<: *build_template_pdf
+  <<: *test_template
   variables:
     LANGUAGE: de
     DOCUMENT: opsi-winst-manual
     FORMAT: pdf
 
 en-pdf-winst-manual:
-  <<: *build_template_pdf
+  <<: *test_template
   variables:
     LANGUAGE: en
     DOCUMENT: opsi-winst-manual
     FORMAT: pdf
 
 en-pdf-winst-reference-card:
-  <<: *build_template_pdf
+  <<: *test_template
   variables:
     LANGUAGE: en
     DOCUMENT: opsi-winst-reference-card
     FORMAT: pdf
 
 # de-pdf-releasenotes-v4.2:
-#   <<: *build_template_pdf
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: de
 #     DOCUMENT: opsi-v4.2-releasenotes
 
 en-pdf-releasenotes-v4.2:
-  <<: *build_template_pdf
+  <<: *test_template
   variables:
     LANGUAGE: en
     DOCUMENT: opsi-v4.2-releasenotes
 de-pdf-supportmatrix:
-  <<: *build_template_pdf
+  <<: *test_template
   variables:
     LANGUAGE: de
     DOCUMENT: opsi-supportmatrix
 
 en-pdf-supportmatrix:
-  <<: *build_template_pdf
+  <<: *test_template
   variables:
     LANGUAGE: en
     DOCUMENT: opsi-supportmatrix
@@ -166,7 +167,7 @@ en-pdf-supportmatrix:
 
 
 # per document-type job templates
-# .build_template_html: &build_template_html
+# .test_template: &test_template
 #   stage: build
 #   script:
 #     - make DEBUG=1 LANG=$LANGUAGE $DOCUMENT.html
@@ -186,7 +187,7 @@ en-pdf-supportmatrix:
 #       - build/epub/$LANGUAGE/$DOCUMENT/$DOCUMENT.epub
 #     expire_in: 2 days
 
-# .build_template_pdf: &build_template_pdf
+# .test_template: &test_template
 #   stage: build
 #   script:
 #     - make LANG=$LANGUAGE $DOCUMENT.pdf
@@ -199,66 +200,66 @@ en-pdf-supportmatrix:
 
 # # - HTML build jobs -
 # de-html-getting-started-v4.2:
-#   <<: *build_template_html
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: de
 #     DOCUMENT: opsi-getting-started-v4.2
 
 # en-html-getting-started-v4.2:
-#   <<: *build_template_html
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: en
 #     DOCUMENT: opsi-getting-started-v4.2
 
 # de-html-manual-v4.2:
-#   <<: *build_template_html
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: de
 #     DOCUMENT: opsi-manual-v4.2
 
 # en-html-manual-v4.2:
-#   <<: *build_template_html
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: en
 #     DOCUMENT: opsi-manual-v4.2
 
 # de-html-winst-manual:
-#   <<: *build_template_html
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: de
 #     DOCUMENT: opsi-winst-manual
 
 # en-html-winst-manual:
-#   <<: *build_template_html
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: en
 #     DOCUMENT: opsi-winst-manual
 
 # en-html-winst-reference-card:
-#   <<: *build_template_html
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: en
 #     DOCUMENT: opsi-winst-reference-card
 
 # # de-html-releasenotes-v4.2:
-# #   <<: *build_template_html
+# #   <<: *test_template
 # #   variables:
 # #     LANGUAGE: de
 # #     DOCUMENT: opsi-v4.2-releasenotes
 
 # en-html-releasenotes-v4.2:
-#   <<: *build_template_html
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: en
 #     DOCUMENT: opsi-v4.2-releasenotes
 # de-html-supportmatrix:
-#   <<: *build_template_html
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: de
 #     DOCUMENT: opsi-supportmatrix
 
 # en-html-supportmatrix:
-#   <<: *build_template_html
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: en
 #     DOCUMENT: opsi-supportmatrix
@@ -333,66 +334,66 @@ en-pdf-supportmatrix:
 
 # # - pdf build jobs -
 # de-pdf-getting-started-v4.2:
-#   <<: *build_template_pdf
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: de
 #     DOCUMENT: opsi-getting-started-v4.2
 
 # en-pdf-getting-started-v4.2:
-#   <<: *build_template_pdf
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: en
 #     DOCUMENT: opsi-getting-started-v4.2
 
 # de-pdf-manual-v4.2:
-#   <<: *build_template_pdf
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: de
 #     DOCUMENT: opsi-manual-v4.2
 
 # en-pdf-manual-v4.2:
-#   <<: *build_template_pdf
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: en
 #     DOCUMENT: opsi-manual-v4.2
 
 # de-pdf-winst-manual:
-#   <<: *build_template_pdf
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: de
 #     DOCUMENT: opsi-winst-manual
 
 # en-pdf-winst-manual:
-#   <<: *build_template_pdf
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: en
 #     DOCUMENT: opsi-winst-manual
 
 # en-pdf-winst-reference-card:
-#   <<: *build_template_pdf
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: en
 #     DOCUMENT: opsi-winst-reference-card
 
 # # de-pdf-releasenotes-v4.2:
-# #   <<: *build_template_pdf
+# #   <<: *test_template
 # #   variables:
 # #     LANGUAGE: de
 # #     DOCUMENT: opsi-v4.2-releasenotes
 
 # en-pdf-releasenotes-v4.2:
-#   <<: *build_template_pdf
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: en
 #     DOCUMENT: opsi-v4.2-releasenotes
 # de-pdf-supportmatrix:
-#   <<: *build_template_pdf
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: de
 #     DOCUMENT: opsi-supportmatrix
 
 # en-pdf-supportmatrix:
-#   <<: *build_template_pdf
+#   <<: *test_template
 #   variables:
 #     LANGUAGE: en
 #     DOCUMENT: opsi-supportmatrix
