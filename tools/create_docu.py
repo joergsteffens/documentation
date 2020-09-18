@@ -51,9 +51,9 @@ for lang in languages:
 					if output == "pdf":
 						print(f"asciidoctor -r asciidoctor-pdf -b pdf -a icons=font -a doctype=book -a icons=font -a pdf-style=conf/pdf-theme.yml -a imagesdir=../images -D '{destination_folder}' {f}")
 						os.system(f"asciidoctor -r asciidoctor-pdf -b pdf -a icons=font -a doctype=book -a icons=font -a pdf-style=conf/pdf-theme.yml -a imagesdir=../images -D '{destination_folder}' {os.path.join(root, f)}")					
-					# if output == "html":
-					# 	os.system(f'asciidoctor -a encoding=UTF-8 -a doctype=book -a icons=font -a xrefstyle=full -a lang={lang} --verbose  --out-file "{destination}" {source} ')
-					# 	copy_images(destination, f"{lang}/images", destination_folder)
+					if output == "html":
+						os.system(f'asciidoctor -a encoding=UTF-8 -a doctype=book -a icons=font -a xrefstyle=full -a lang={lang} --verbose  --out-file "{destination}" {source} ')
+						copy_images(destination, f"{lang}/images", destination_folder)
 
 		# print("root: %s", root)
 		# print("dirs: %s", dirs)
