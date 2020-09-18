@@ -5,6 +5,7 @@ stages:
   - build
   - test
 
+
 build_docu:
   stage: build
   script:
@@ -15,6 +16,8 @@ build_docu:
 # - HTML build jobs -
 .test_template: &test_template
   stage: test
+  dependencies:
+    - build_docu
   script:
     - test -f build/$FORMAT/$LANGUAGE/$DOCUMENT/$DOCUMENT.html
   artifacts:
