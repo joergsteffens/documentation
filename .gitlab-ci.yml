@@ -28,7 +28,7 @@ stages:
     - apk add build-base
     - apk add graphicsmagick-dev
     - gem install prawn-gmagick
-    - python3 tools/create_docu.py --lang $LANGUAGE --files $DOCUMENT --output pdf
+    - python3 tools/create_docu.py --lang $LANGUAGE --files $DOCUMENT --theme conf/opsi-theme.yml --output pdf
     - test -f build/$LANGUAGE/pdf/$DOCUMENT/$DOCUMENT.pdf
   artifacts:
     paths:
