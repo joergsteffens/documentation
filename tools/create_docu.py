@@ -11,9 +11,13 @@ parser.add_argument("-l", "--lang", type=str, help="languages")
 parser.add_argument("-o", "--outputs", type=str, help="output formates")
 parser.add_argument("-f", "--files", type=str, help="files")
 parser.add_argument("-t", "--theme", type=str, help="pdf theme to use")
+parser.add_argument("-s", "--stylesheet", type=str, help="pdf theme to use")
 args = parser.parse_args()
 
 print(args)
+
+project_path = os.getcwd()
+print(project_path)
 
 languages = []
 if args.lang:
@@ -39,6 +43,11 @@ if args.theme:
 	pdf_style = f"-a pdf-style={args.theme}"
 else:
 	pdf_style = ""
+
+if args.stylesheet:
+	html_style = f"-a stylesdir={project_path}/conf/stylesheets -a stylesheet={args.stylesheet}.css"
+else:
+	html_style = ""
 
 print(languages)
 print(outputs)
@@ -94,8 +103,8 @@ for lang in languages:
 						print(f"asciidoctor -r asciidoctor-pdf -b pdf -a icons=font -a doctype=book -a icons=font {pdf_style} -a imagesdir=../images -D '{destination_folder}' {f}")
 						os.system(f"asciidoctor -r asciidoctor-pdf -b pdf -a icons=font -a doctype=book -a icons=font {pdf_style} -a imagesdir=../images -D '{destination_folder}' {os.path.join(root, f)}")					
 					if output == "html":
-						print(f'asciidoctor -a encoding=UTF-8 -a doctype=book -a icons=font -a xrefstyle=full -a lang={lang} --verbose  --out-file "{destination}" {source} ')
-						os.system(f'asciidoctor -a encoding=UTF-8 -a doctype=book -a icons=font -a xrefstyle=full -a lang={lang} --verbose  --out-file "{destination}" {source} ')
+						print(f'asciidoctor -a encoding=UTF-8 -a doctype=book -a icons=font -a xrefstyle=full -a lang={lang} {html_style} --verbose  --out-file "{destination}" {source} ')
+						os.system(f'asciidoctor -a encoding=UTF-8 -a doctype=book -a icons=font -a xrefstyle=full -a lang={lang} {html_style} --verbose  --out-file "{destination}" {source} ')
 						copy_images(destination, f"{lang}/images", destination_folder)
 
 		
