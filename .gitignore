@@ -7,6 +7,7 @@ pub/*
 pub.tar
 # Mac OS preview stuff...
 .DS_Store
+conf/stylesheets/opsi.css
 
 # Temporary files
 *~
