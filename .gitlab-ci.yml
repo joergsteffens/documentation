@@ -14,7 +14,10 @@ stages:
     - apk add build-base
     - apk add graphicsmagick-dev
     - gem install prawn-gmagick
-    - python3 tools/create_docu.py --lang $LANGUAGE --files $DOCUMENT --output html
+    - gem install compass
+    - gem install zurb-foundation --version 4.3.2
+    - sh tools/build_stylesheets.sh
+    - python3 tools/create_docu.py --lang $LANGUAGE --files $DOCUMENT --stylesheet opsi --output html 
     - test -f build/$LANGUAGE/html/$DOCUMENT/$DOCUMENT.html
   artifacts:
     paths:
