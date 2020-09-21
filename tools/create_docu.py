@@ -7,11 +7,11 @@ import argparse
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-l", "--lang", type=str, help="languages")
-parser.add_argument("-o", "--outputs", type=str, help="output formates")
-parser.add_argument("-f", "--files", type=str, help="files")
-parser.add_argument("-t", "--theme", type=str, help="pdf theme to use")
-parser.add_argument("-s", "--stylesheet", type=str, help="pdf theme to use")
+parser.add_argument("-l", "--lang", type=str, help="languages to build (en,de)")
+parser.add_argument("-o", "--outputs", type=str, help="output formates (html,pdf)")
+parser.add_argument("-f", "--files", type=str, help="docu files to build")
+parser.add_argument("-t", "--theme", type=str, help="pdf theme to use (opsi)")
+parser.add_argument("-s", "--stylesheet", type=str, help="html style to use (opsi)")
 args = parser.parse_args()
 
 print(args)
@@ -40,7 +40,7 @@ if args.files:
 
 #-a pdf-style=conf/opsi-theme.yml
 if args.theme:
-	pdf_style = f"-a pdf-style={args.theme}"
+	pdf_style = f"-a pdf-style={args.theme}-theme.yml"
 else:
 	pdf_style = ""
 
@@ -53,6 +53,7 @@ print(languages)
 print(outputs)
 print(input_files)
 print(pdf_style)
+print(html_style)
 
 
 def copy_images(filename, source_dir, destination):

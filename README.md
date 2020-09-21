@@ -139,3 +139,59 @@ With `tools/check_links.py` exists a script that scans build documentation for b
 This script requires Python 3 to be able to run.
 
 To use this script first build the documentation and then run the script. It will show what links are broken and in case there are links that can not be opened a non-zero exit-code will be returned.
+
+## How to build an opsi manual with asciidoctor
+
+### Create CSS stylesheet
+
+To create the css files call the build_stylesheets.sh script.
+```shell
+sh tools/build_stylesheets.sh
+``` 
+This will take the conf/stylesheets/opsi.sass and build the conf/stylesheets/opsi.css using.
+
+### PDF theme 
+
+To modify the PDF theme edit conf/opsi-theme.yml.
+
+### Docu
+
+The docu can be build with the script create_docu.py in tools. This script uses python 3.
+
+```shell
+usage: create_docu.py [-h] [-l LANG] [-o OUTPUTS] [-f FILES] [-t THEME]
+                      [-s STYLESHEET]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -l LANG, --lang LANG  languages to build (en,de)
+  -o OUTPUTS, --outputs OUTPUTS
+                        output formates (html,pdf)
+  -f FILES, --files FILES
+                        docu files to build
+  -t THEME, --theme THEME
+                        pdf theme to use (opsi)
+  -s STYLESHEET, --style STYLE
+                        html style to use (opsi)
+```
+
+Examples:
+
+Build all files in all languages as html and pdf with opsi theme/style:
+```shell
+python3 tools/create_docu.py -s opsi -t opsi
+```
+
+Build opsi manual in english and german as html:
+```shell
+python3 tools/create_docu.py -l en,de -o html -s opsi -f opsi-manual-v4.2
+```
+
+Build getting started pdf in english:
+```shell
+python3 tools/create_docu.py -l en -o pdf -t opsi -f opsi-getting-started-v4.2
+```
+
+
+
+
