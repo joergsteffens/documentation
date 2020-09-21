@@ -10,6 +10,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-l", "--lang", type=str, help="languages")
 parser.add_argument("-o", "--outputs", type=str, help="output formates")
 parser.add_argument("-f", "--files", type=str, help="files")
+parser.add_argument("-t", "--theme", type=str, help="pdf theme to use")
 args = parser.parse_args()
 
 print(args)
@@ -33,10 +34,16 @@ if args.files:
 	for f in args.files.split(","):
 		input_files.append(f)
 
+#-a pdf-style=conf/opsi-theme.yml
+if args.theme:
+	pdf_style = f"-a pdf-style={args.theme}"
+else:
+	pdf_style = ""
 
 print(languages)
 print(outputs)
 print(input_files)
+print(pdf_theme)
 
 
 def copy_images(filename, source_dir, destination):
@@ -84,8 +91,8 @@ for lang in languages:
 
 					destination = os.path.join(destination_folder, f"{root_basename}.{output}")
 					if output == "pdf":
-						print(f"asciidoctor -r asciidoctor-pdf -b pdf -a icons=font -a doctype=book -a icons=font -a pdf-style=conf/pdf-theme.yml -a imagesdir=../images -D '{destination_folder}' {f}")
-						os.system(f"asciidoctor -r asciidoctor-pdf -b pdf -a icons=font -a doctype=book -a icons=font -a pdf-style=conf/pdf-theme.yml -a imagesdir=../images -D '{destination_folder}' {os.path.join(root, f)}")					
+						print(f"asciidoctor -r asciidoctor-pdf -b pdf -a icons=font -a doctype=book -a icons=font {pdf_style} -a imagesdir=../images -D '{destination_folder}' {f}")
+						os.system(f"asciidoctor -r asciidoctor-pdf -b pdf -a icons=font -a doctype=book -a icons=font {pdf_style} -a imagesdir=../images -D '{destination_folder}' {os.path.join(root, f)}")					
 					if output == "html":
 						print(f'asciidoctor -a encoding=UTF-8 -a doctype=book -a icons=font -a xrefstyle=full -a lang={lang} --verbose  --out-file "{destination}" {source} ')
 						os.system(f'asciidoctor -a encoding=UTF-8 -a doctype=book -a icons=font -a xrefstyle=full -a lang={lang} --verbose  --out-file "{destination}" {source} ')
