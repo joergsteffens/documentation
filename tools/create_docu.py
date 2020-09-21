@@ -43,7 +43,7 @@ else:
 print(languages)
 print(outputs)
 print(input_files)
-print(pdf_theme)
+print(pdf_style)
 
 
 def copy_images(filename, source_dir, destination):
