@@ -1,0 +1,41 @@
+extends: default
+base:
+  align: justify
+
+page:
+  margin: [1.5cm, 1cm, 3cm, 1cm]
+
+header:
+  border-color: #dddddd
+  border-style: solid
+  border-width: 0.25
+  margin: [15mm,5mm,0mm,0mm]
+  padding: [5mm,5mm,0mm,0mm]
+  height: $base_line_height_length * 2.5
+  line_height: 1
+  recto:
+    left:
+      content: "{chapter-title} "
+    right: 
+      content: "{page-number} / {page-count}"
+  verso:
+    left:
+      content: "{chapter-title} "
+    right: 
+      content: "{page-number} / {page-count}"
+    # left: $header-recto-left-content
+    # right: $header-recto-right-content
+
+footer:
+  margin: [5mm,10mm,20mm,0mm]
+  colums: =100%
+  recto:
+    left:
+      content: null
+    right: 
+      content: image:uib.png[width="30"]
+  verso: 
+    right: 
+      content: image:uib.png[width="30"]
+    left:
+      content: null
