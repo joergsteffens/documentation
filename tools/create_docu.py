@@ -32,8 +32,9 @@ outputs = []
 if args.outputs:
 	for output in args.outputs.split(","):
 		outputs.append(output)
+print("?:", len(outputs) == 0)
 if len(outputs) == 0:
-	outputs == ["html", "pdf"]
+	outputs = ["html", "pdf"]
 
 input_files = []
 if args.files:

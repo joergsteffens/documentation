@@ -142,13 +142,13 @@ To use this script first build the documentation and then run the script. It wil
 
 ## How to build an opsi manual with asciidoctor
 
-### Create CSS stylesheet
+### CSS stylesheet
 
 To create the css files call the build_stylesheets.sh script.
 ```shell
 sh tools/build_stylesheets.sh
 ``` 
-This will take the conf/stylesheets/opsi.sass and build the conf/stylesheets/opsi.css using.
+This will take the conf/stylesheets/opsi.sass and build the *conf/stylesheets/opsi.css* using. Images used in the scss files should be in the folder *conf/stylesheets/images*. `create_docu.py` copies all images to *\<destination\>/opsi-css/* (location of the html file).
 
 ### PDF theme 
 
@@ -156,11 +156,11 @@ To modify the PDF theme edit conf/opsi-theme.yml.
 
 ### Docu
 
-The docu can be build with the script create_docu.py in tools. This script uses python 3.
+The docu can be build with the script `create_docu.py` in tools. This script uses python 3.
 
 ```shell
 usage: create_docu.py [-h] [-l LANG] [-o OUTPUTS] [-f FILES] [-t THEME]
-                      [-s STYLESHEET]
+                      [-s STYLESHEET] [-p PROJECT_PATH]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -171,13 +171,15 @@ optional arguments:
                         docu files to build
   -t THEME, --theme THEME
                         pdf theme to use (opsi)
-  -s STYLESHEET, --style STYLE
+  -s STYLESHEET, --stylesheet STYLESHEET
                         html style to use (opsi)
+  -p PROJECT_PATH, --project-path PROJECT_PATH
+                        path to docu project
 ```
 
 Examples:
 
-Build all files in all languages as html and pdf with opsi theme/style:
+Build all files in all languages as html and pdf with opsi style/theme:
 ```shell
 python3 tools/create_docu.py -s opsi -t opsi
 ```
