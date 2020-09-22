@@ -12,11 +12,13 @@ parser.add_argument("-o", "--outputs", type=str, help="output formates (html,pdf
 parser.add_argument("-f", "--files", type=str, help="docu files to build")
 parser.add_argument("-t", "--theme", type=str, help="pdf theme to use (opsi)")
 parser.add_argument("-s", "--stylesheet", type=str, help="html style to use (opsi)")
+parser.add_argument("-p", "--project-path", type=str, help="path to docu project")
 args = parser.parse_args()
 
 print(args)
 
-project_path = os.getcwd()
+if not args.project_path:
+	project_path = os.getcwd()
 print(project_path)
 
 languages = []
@@ -71,6 +73,11 @@ def copy_images(filename, source_dir, destination):
 	for f in img_files:
 		# print(f"copy {f} to {destination}")
 		shutil.copy(f"{source_dir}/{f}", destination)
+	if html_style:
+		print("copy css images")
+		if os.path.exists(f"{destination}/opsi-css"):
+			shutil.rmtree(f"{destination}/opsi-css")
+		shutil.copytree(f"{project_path}/conf/stylesheets/images", f"{destination}/opsi-css")
 
 def listdirs(path):
     return [d for d in os.listdir(path) if os.path.isdir(os.path.join(path, d)) and d.startswith("opsi")]
@@ -107,5 +114,5 @@ for lang in languages:
 						print(f'asciidoctor -a encoding=UTF-8 -a doctype=book -a icons=font -a xrefstyle=full -a lang={lang} {html_style} --verbose  --out-file "{destination}" {source} ')
 						os.system(f'asciidoctor -a encoding=UTF-8 -a doctype=book -a icons=font -a xrefstyle=full -a lang={lang} {html_style} --verbose  --out-file "{destination}" {source} ')
 						copy_images(destination, f"{lang}/images", destination_folder)
-
+						
 		

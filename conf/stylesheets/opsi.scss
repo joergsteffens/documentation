@@ -57,7 +57,7 @@ p > em {
 .admonitionblock {
   > table {
     width: 100%;
-    background-image: image-url('riak/info-bg.jpg', false, false);
+    background-image: url('opsi-css/info-bg.jpg');
     border-collapse: separate;
     border-spacing: 0;
     @include radius(5px);
@@ -80,7 +80,7 @@ p > em {
 
 .admonitionblock .literalblock > .content > pre,
 .admonitionblock .listingblock > .content > pre {
-  background-image: image-url('riak/info-bg.jpg', false, false);
+  background-image: url('opsi-css/info-bg.jpg');
 }
 
 .exampleblock > .content {
@@ -89,7 +89,7 @@ p > em {
 }
 
 .sidebarblock {
-  background-image: image-url('riak/sidebar-bg.jpg', false, false);
+  background-image: url('opsi-css/sidebar-bg.jpg');
   //@include bg-noise-mono(#444445, 8, .125, 200);
   @include radius(5px);
   > .content {
@@ -130,7 +130,7 @@ table.tableblock.grid-all {
 }
 
 #footer {
-  background-image: image-url('riak/footer-bg.jpg', false, false);
+  background-image: url('opsi-css/footer-bg.jpg');
   padding: 25px 0;
 }
 
