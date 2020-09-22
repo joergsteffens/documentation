@@ -42,7 +42,7 @@ if args.files:
 
 #-a pdf-style=conf/opsi-theme.yml
 if args.theme:
-	pdf_style = f"-a pdf-style={args.theme}-theme.yml"
+	pdf_style = f"-a pdf-style={project_path}/conf/{args.theme}-theme.yml"
 else:
 	pdf_style = ""
 
