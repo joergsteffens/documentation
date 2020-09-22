@@ -32,7 +32,6 @@ outputs = []
 if args.outputs:
 	for output in args.outputs.split(","):
 		outputs.append(output)
-print("?:", len(outputs) == 0)
 if len(outputs) == 0:
 	outputs = ["html", "pdf"]
 
@@ -115,5 +114,9 @@ for lang in languages:
 						print(f'asciidoctor -a encoding=UTF-8 -a doctype=book -a icons=font -a xrefstyle=full -a lang={lang} {html_style} --verbose  --out-file "{destination}" {source} ')
 						os.system(f'asciidoctor -a encoding=UTF-8 -a doctype=book -a icons=font -a xrefstyle=full -a lang={lang} {html_style} --verbose  --out-file "{destination}" {source} ')
 						copy_images(destination, f"{lang}/images", destination_folder)
-						
+					if output == "epub":
+						shutil.copytree(f"{root}/../images", f"{root}/images")
+						print(f"asciidoctor -r asciidoctor-epub3 -b epub3 -a icons=font -a doctype=book -a icons=font -a imagesdir=images -D '{destination_folder}' {f}")
+						os.system(f"asciidoctor -r asciidoctor-epub3 -b epub3 -a icons=font -a doctype=book -a icons=font -a imagesdir=images -D '{destination_folder}' {os.path.join(root, f)}")
+						shutil.rmtree(f"{root}/images")
 		
