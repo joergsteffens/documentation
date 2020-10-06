@@ -142,13 +142,21 @@ To use this script first build the documentation and then run the script. It wil
 
 ## How to build an opsi manual with asciidoctor
 
+
+### Dependencies
+ 
+- asciidoctor: https://github.com/asciidoctor/asciidoctor
+- asciidoctor-pdf: https://github.com/asciidoctor/asciidoctor-pdf
+  - prawn-gmagick: better PNG support 
+- asciidoctor-epub3: https://github.com/asciidoctor/asciidoctor-epub3
+
 ### CSS stylesheet
 
 To create the css files call the build_stylesheets.sh script.
 ```shell
 sh tools/build_stylesheets.sh
 ``` 
-This will take the conf/stylesheets/opsi.sass and build the *conf/stylesheets/opsi.css* using. Images used in the scss files should be in the folder *conf/stylesheets/images*. `create_docu.py` copies all images to *\<destination\>/opsi-css/* (location of the html file).
+This will take the *conf/stylesheets/opsi.sass* and build the *conf/stylesheets/opsi.css*. Images used in the scss files should be in the folder *conf/stylesheets/images*. `create_docu.py` copies all images to *\<destination\>/opsi-css/* (location of the html file).
 
 ### PDF theme 
 
