@@ -8,11 +8,12 @@ import argparse
 parser = argparse.ArgumentParser()
 
 parser.add_argument("-l", "--lang", type=str, help="languages to build (en,de)")
-parser.add_argument("-o", "--outputs", type=str, help="output formates (html,pdf)")
+parser.add_argument("-o", "--outputs", type=str, help="output formates (html,pdf,epub)")
 parser.add_argument("-f", "--files", type=str, help="docu files to build")
 parser.add_argument("-t", "--theme", type=str, help="pdf theme to use (opsi)")
 parser.add_argument("-s", "--stylesheet", type=str, help="html style to use (opsi)")
 parser.add_argument("-p", "--project-path", type=str, help="path to docu project")
+# parser.add_argument("-a", "--asciidoc-option", type=str, help="asciidoc option to add (asciidoctor -a <...>)")
 args = parser.parse_args()
 
 print(args)
@@ -33,7 +34,7 @@ if args.outputs:
 	for output in args.outputs.split(","):
 		outputs.append(output)
 if len(outputs) == 0:
-	outputs = ["html", "pdf"]
+	outputs = ["html", "pdf", "epub"]
 
 input_files = []
 if args.files:

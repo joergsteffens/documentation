@@ -20,7 +20,8 @@
 :numbered:
 :icons: font 
 :xrefstyle: full
-:chapter-label: 
+:chapter-label:
+:manual: opsi-v4.2 
 
 
 
