@@ -9,16 +9,17 @@ base:
   align: justify
 
 page:
-  margin: [1.5cm, 1cm, 3cm, 1cm]
+  margin: [2.2cm, 1.5cm, 2cm, 1.5cm]
 
 header:
   border-color: #dddddd
   border-style: solid
   border-width: 0.25
-  margin: [15mm,5mm,0mm,0mm]
-  padding: [5mm,5mm,0mm,0mm]
-  height: $base_line_height_length * 2.5
-  line_height: 1
+  margin: [100,10,0,10]
+  # content-margin: [50,10,0,10]
+  padding: [40,10,0,10]
+  height: 2cm #$base_line_height_length * 10
+  line_height: 1 #$base_line_height_length
   recto:
     left:
       content: "{chapter-title} "
@@ -33,7 +34,10 @@ header:
     # right: $header-recto-right-content
 
 footer:
-  margin: [5mm,10mm,20mm,0mm]
+  # margin: [0,10,80,10]
+  # padding: [0,10,20,10]
+  height: 2cm #$base_line_height_length * 10
+  # line_height: 1.5 #$base_line_height_length
   colums: =100%
   recto:
     left:
