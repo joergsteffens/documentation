@@ -1,4 +1,4 @@
-////
+﻿////
 ; Copyright (c) uib gmbh (www.uib.de)
 ; This documentation is owned by uib
 ; and published under the german creative commons by-sa license
@@ -25,12 +25,13 @@ include::../common/opsi_terms.asciidoc[]
 === Netboot products
 
 [[opsi-manual-netboot-bootimage-parametrization]]
-==== Parameteters for the opsi linux boot image
+==== Parameters for the opsi linux bootimage
 
-The opsi-linux-bootimage has some parameters which may be used to change the behaviour of the bootimage. You will try this if the opsi-linux-bootimages doesn't run properly with the standard parameters on your hardware (e.g. black screen). +
-You may change these standard parameters by the '{opsi-configed}' choosing the Tab 'Hostparameter' and use there the entry 'opsi-linux-bootimage.append'.
+The opsi-linux-bootimage has a number of settings which influence the behaviour of the bootimage.
+If the screen remains black after loading the boot image or the network card does not work (correctly), the start parameters of the bootimage may have to be adjusted for this specific hardware. +
+You can do this in '{opsi-configed}' in the tab 'Host parameters' at the entry 'opsi-linux-bootimage.append'.
 
-Typical values are (may be combined):
+Typical values are (individually or combined):
 
 * +acpi=off+
 
@@ -40,11 +41,23 @@ Typical values are (may be combined):
 
 * +reboot=bios+
 
-An other important default is the password of the root user within the opsi-linux-bootimage. This password is 'linux123' by default and you should change this for security reasons.
+Another important default setting is the password of the root user within the opsi-linux-bootimage. This password is 'linux123' by default and you should change this for security reasons.
 
-To do this change the 'opsi-linux-bootimage.append' entry at the 'server-configuration'.
+In order to carry out these modifications, it is best to change the 'opsi-linux-bootimage.append' entry in the 'server-configuration'.
 
-The option you have to change is 'pwh' (password hash). As the value to this option you have to give a new password as a hash, which will be loaded to the `/etc/shadow` during the boot process.
+The important option here is 'pwh'. This option must be given the encrypted password as a hash value. This is then automatically loaded into the file '/etc/shadow' when booting. This means that the password is changed before a login on the client is possible. There are several ways to get this hash. To make sure that you get the right hash in the right formatting and type (MD5, SHA1, etc ...), we recommend the following procedure.
+
+If you want to start a Python script before the actual netboot product, there are the following parameters:
+
+* +pre-execute+
+
+* +pre-script+
+
+In addition, these parameters require an address from which the corresponding script is to be downloaded. This can be an 'http://' or 'tftp://' address. Here is an example:
+
+* +tftp://172.16.166/linux/test.py+
+
+Please note that the port for communication with the tftp server is set to 69 by default.
 
 The best way to get the correct password hash is to login via ssh to your bootimage:
 
