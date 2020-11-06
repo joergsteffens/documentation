@@ -59,80 +59,67 @@ In addition, these parameters require an address from which the corresponding sc
 
 Please note that the port for communication with the tftp server is set to 69 by default.
 
-The best way to get the correct password hash is to login via ssh to your bootimage:
+Start an opsi-client via PXE or with the current opsi-client boot CD. Then establish a connection as root via putty or directly from the '{opsi-server}' via ssh. From the '{opsi-server}':
 
 [source,prompt]
 ----
 ssh root@<client.domain.tld>
 ----
 
-The old password is 'linux123'.
-
-Now set a new password for root:
+The password is linux123. Then simply reset the password of root:
 
 [source,prompt]
 ----
 passwd
 ----
 
-Get the new hash
+Now you have to get the set hash.
 
 [source,prompt]
 ----
 grep root /etc/shadow
 ----
 
-The output should look like this:
+The output should now look like this:
 
 [source,prompt]
 ----
 root:$6$344YXKIT$D4RPZfHMmv8e1/i5nNkOFaRN2oYNobCEjCHnkehiEFA7NdkDW9KF496OHBmyHHq0kD2FBLHZoTdr5YoDlIoWz/:14803:0:99999:7:::
 ----
 
-Now copy from after the first colon until to the second colon and use this as value for 'pwh'.
-
-So the option for 'opsi-linux-bootimage.append' may be:
+To set the password, it is sufficient to copy the hash that begins after the first colon and ends with the second colon in the line. The resulting option for the configuration 'opsi-linux-bootimage.append' would be:
 
 [source,prompt]
 ----
 pwh=$6$344YXKIT$D4RPZfHMmv8e1/i5nNkOFaRN2oYNobCEjCHnkehiEFA7NdkDW9KF496OHBmyHHq0kD2FBLHZoTdr5YoDlIoWz/
 ----
 
-One can execute a pythin script before the execution of the desired netboot product. Therefore the bootimage append supports two parameter:
-
-* +pre-execute+
-
-* +pre-script+
-
-In addition these parameter require an address with the script. This can be a 'http://' or 'tftp://' address. Please refer to the following example:
-
-* +tftp://172.16.166/linux/test.py+
-
-When using tftp please keep in mind that the default port 69 is used.
 
 [[opsi-manual-netboot-unattended]]
-==== Unattended automated OS installation
+==== Automatic unattended automated OS installation
 
 
 [[opsi-manual-netboot-unattended-overview]]
 ===== Overview
 
+Steps of a re-installation:
 
-.Steps of a re-installation:
+* Using PXE Boot:
+** Via '{opsi-configed}' or '{opsi-admin}' the PC for the new installation is selected.
+**  During the next boot process, the client detects with the help of the PXE boot prom, that it should be reinstalled and loads a boot image from the '{opsi-server}'.
 
-* Using PXE-Boot:
-** Choose the client which has to be installed with the utility opsi-configed or opsi-admin.
-* At the next reboot, the client detects (via PXE-Bootprom) the re-installation request and loads the boot image from the opsi-server.
+* Using CD Boot:
+** The client boots the boot image from the opsi-client boot CD.
+** The boot image asks for the host name of the client and the opsi server service url.
 
-*Using CD-Boot:
-** The client boots the boot image from the 'opsi-client-boot-cd'.
-*The boot image starts and asks for confirmation to proceed with the re-installation. This is the only interactive question. After confirming this, the installation proceeds without any further request for interaction.
-* The bootimage formats and partitions the hard disk.
-* The bootimage copies the required installation files and configuration information from the '{opsi-server}' to the client and initiates a reboot.
-* Windows Installation: After the reboot the client installs the OS according to the provided configuration information without any interaction.
-* Linux Installation: By default the Linux Netboot products initiate a 'kexec' command from within the bootimage and directly jumpt to the distribution installaer.
-* Next the '{opsi-client-agent}' is installed as the opsi installer for automated software distribution.
-* The automated software distribution then installs all the software packages as defined in the client's configuration.
+* Whichever boot option is chosen, the re-installation will procede as follows:
+** The boot image starts and asks whether the PC should actually be reinstalled. After confirming this, the installation proceeds without any further request for interaction.
+** The boot image partitions and formats the hard drive.
+** The boot image transfers the necessary installation files and configuration information from the '{opsi-server}' to the client and initiates a reboot.
+** After the reboot, the client automatically installs the operating system based on the transferred configuration information.
+** Then the opsi-client-agent is installed to integrate the automated software distribution.
+** The automated software distribution then installs all software packages as defined in the configuration of this client.
+
 
 [[opsi-manual-netboot-unattended-requirements]]
 ===== Preconditions

@@ -1,4 +1,4 @@
-////
+﻿////
 ; Copyright (c) uib gmbh (www.uib.de)
 ; This documentation is owned by uib
 ; and published under the german creative commons by-sa license
@@ -102,21 +102,24 @@ pwh=$6$344YXKIT$D4RPZfHMmv8e1/i5nNkOFaRN2oYNobCEjCHnkehiEFA7NdkDW9KF496OHBmyHHq0
 [[opsi-manual-netboot-unattended-overview]]
 ===== Überblick
 
-
-.Ablauf einer Reinstallation:
+Ablauf einer Reinstallation:
 
 * Bei PXE-Boot:
 ** Über den '{opsi-configed}' oder '{opsi-admin}' wird der PC für die Neuinstallation ausgewählt.
-* Der Client erkennt beim nächsten Bootvorgang mit Hilfe des PXE-Bootproms, dass er reinstalliert werden soll und lädt ein Bootimage vom '{opsi-server}'.
+** Der Client erkennt beim nächsten Bootvorgang mit Hilfe des PXE-Bootproms, dass er reinstalliert werden soll und lädt ein Bootimage vom '{opsi-server}'.
+
 * Bei CD-Boot:
 ** Der Client bootet von der opsi-client-boot-cd das Bootimage.
-* Das Bootimage stellt am Client die Rückfrage, ob der PC tatsächlich reinstalliert werden soll. Dies ist die einzige Interaktion des gesamten Prozesses.
-* Das Bootimage partitioniert und formatiert die Festplatte.
-* Das Bootimage überträgt die notwendigen Installationsdateien und Konfigurationsinformationen vom '{opsi-server}' auf den Client und leitet einen Reboot ein.
-* Nach dem Reboot installiert der Client selbstständig das Betriebssystem anhand der übertragenen Konfigurationsinformationen.
-* Im Anschluss wird der opsi-client-agent zur Einbindung der automatischen
-Softwareverteilung installiert.
-* Die automatische Softwareverteilung installiert die gesamte Software, die gemäß Konfigurationsdatei auf diesen Rechner gehört.
+** Das Bootimage fragt nach dem Hostnamen des Clients und der URL des opsi-server dienstes.
+
+* Unabhängig von der gewählten Startoption erfolgt die Neuinstallation wie folgt:
+** Das Bootimage stellt am Client die Rückfrage, ob der PC tatsächlich reinstalliert werden soll. Dies ist die einzige Interaktion des gesamten Prozesses.
+** Das Bootimage partitioniert und formatiert die Festplatte.
+** Das Bootimage überträgt die notwendigen Installationsdateien und Konfigurationsinformationen vom '{opsi-server}' auf den Client und leitet einen Reboot ein.
+** Nach dem Reboot installiert der Client selbstständig das Betriebssystem anhand der übertragenen Konfigurationsinformationen.
+** Im Anschluss wird der opsi-client-agent zur Einbindung der automatischen Softwareverteilung installiert.
+** Die automatische Softwareverteilung installiert die gesamte Software, die gemäß Konfigurationsdatei auf diesen Rechner gehört.
+
 
 [[opsi-manual-netboot-unattended-requirements]]
 ===== Voraussetzungen
