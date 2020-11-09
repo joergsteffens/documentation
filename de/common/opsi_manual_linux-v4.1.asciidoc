@@ -589,15 +589,15 @@ default: True
 ----
 
 .Installationsquelle CentOS
-Installations DVD hier herunterladen, beispielsweise von link:http://isoredirect.centos.org/centos/7/isos/x86_64/[hier].
-ISO-File kopieren nach `/var/lib/opsi/depot/opsi_nfs_share/centos70/64/`
+Installations DVD hier herunterladen, beispielsweise von link:http://isoredirect.centos.org/centos/8/isos/x86_64/[hier].
+ISO-File kopieren nach `/var/lib/opsi/depot/opsi_nfs_share/centos8/64/`
 Ausführung von `opsi-set-rights` nicht vergessen.
 
 .Installationsquelle RedHat
 Zum herunterladen der Installations DVD brauchen Sie einen Account bei RedHat.
 Installations DVD sollte heissen (mit einer Datei dieses Namens haben wir getestet): +
-rhel-server-7.0-x86_64-dvd.iso
-ISO-File kopieren nach `/var/lib/opsi/depot/opsi_nfs_share/redhat70/64/`
+rhel-8.3-x86_64-dvd.iso
+ISO-File kopieren nach `/var/lib/opsi/depot/opsi_nfs_share/redhat8/64/`
 Ausführung von `opsi-set-rights` nicht vergessen.
 
 
@@ -620,8 +620,7 @@ Sie sind mit einem Frame pro Sekunde aufgenommen und dadurch schneller anzusehen
 Für die Installation eines Linux Basissystems wird zunächst per Netboot das Standard opsi-linux-bootimage gebootet (welches auch für die Windows-Installationen zum Einsatz kommt). +
 Von diesem Bootimage aus wird die Ziel-Festplatte partitioniert (/ und swap) und formatiert. Nun folgt die Installation des Grundsystems (mit Netzwerkkonfiguration und ssh aber ohne X11). Die Abläufe dieser Grundinstallation unterscheiden sich naturgemäß zwischen den unterschiedlichen Distributionen erheblich. Gemeinsam ist, dass die Installation direkt aus den Originalpaketen der Distribution erfolgt.
 
-Auf diese Basisinstallation können optional die opsi-Pakete installiert werden, um aus dem System einen opsi-Server (z.B. neuen Depotserver) zu machen. +
-Ebenfalls optional kann nun der opsi-client-agent für Linux installiert werden. Dieser ist dann für die Installation und Konfiguration weiterer Software zuständig.
+Optional kann nun der opsi-client-agent für Linux installiert werden. Dieser ist dann für die Installation und Konfiguration weiterer Software zuständig.
 
 Die opsi-Netboot-Produkte zur Linuxinstallation sind bereits als Open Source freigegeben.
 
@@ -705,9 +704,7 @@ Die Basis Installation erfolgt per debootstrap direkt aus dem Netz.
 
 Das Produkt hat produktiven Status.
 
-Das Produkt ist UEFI/GPT kompatibel (getestet für release=trusty).
-
-Es gibt für diese Produkt passende opsi-server Pakete welche über 'install_opsi_server=true' installiert werden können.
+Das Produkt ist UEFI/GPT kompatibel (getestet für release=xenial, bionic und focal).
 
 [[opsi-manual-linux-netboot-special-debian]]
 ===== debian
@@ -716,9 +713,7 @@ Die Basis Installation erfolgt per debootstrap direkt aus dem Netz.
 
 Das Produkt hat produktiven Status.
 
-Das Produkt ist UEFI/GPT kompatibel (getestet für release=wheezy).
-
-Es gibt für diese Produkt passende opsi-server Pakete welche über 'install_opsi_server=true' installiert werden können.
+Das Produkt ist UEFI/GPT kompatibel (getestet für release=buster und stretch).
 
 
 [[opsi-manual-linux-clientagent]]
@@ -744,11 +739,13 @@ Der `opsiclientd` ist derzeit nicht für alle unterstützten Distributionen verf
 
 Der `opsiclientd` steht auf folgenden Distributionen / Releases zur Verfügung:
 
-* Debian 7 / 8
-* Ubuntu 12.04 / 14.04 / 16.04
-* openSuse 13.2 / 42.1
-* SLES 12 / 12SP1
-* UCS 4.0 / 4.1
+* Debian 9 / 10
+* Ubuntu 16.04 / 18.04 / 20.04
+* openSuse 15.1 / 15.2
+* RedHat 7 / 8
+* CentOS 7 / 8
+* SLES 12 / 12SP1 / 12SP2 / 12SP3 / 12SP4 / 15 / 15-1
+* UCS 4.4
 
 Steht kein opsiclientd zur Verfügung, wird der `opsiscriptstarter` so installiert, das er die Aufgaben des `opsiclientd` beim Systemstart übernimmt:
 
@@ -1197,14 +1194,14 @@ Das Produkt 'l-opsi-server' hat folgende Properties:
 
 * `opsi_online_repository`: +
 (Basis-) Repository für die opsi-server installation. +
-(Default="http://download.opensuse.org/repositories/home:/uibmz:/opsi:/opsi40") +
+(Default="https://download.opensuse.org/repositories/home:/uibmz:/opsi:/4.1:/") +
 siehe auch 'repo_kind'
 
 * `opsi_noproxy_online_repository`: +
 (Basis-) Repository für die opsi-server installation (ohne cache proxy). +
-(Default="http://download.opensuse.org/repositories/home:/uibmz:/opsi:/opsi40") +
+(Default="https://download.opensuse.org/repositories/home:/uibmz:/opsi:/4.1:/") +
 Sollten Sie bei `opsi_online_repository` einen Proxy oder deb-cacher mit angegeben haben
-(z.B. 'http://mydeb-cacher:9999/download.opensuse.org/repositories/home:/uibmz:/opsi:/opsi40"),
+(z.B. 'http://mydeb-cacher:9999/download.opensuse.org/repositories/home:/uibmz:/opsi:/4.1:/"),
 dann geben Sie hier die URL nochmal ohne den Proxy an. Ansonsten geben Sie hier das selbe an wie bei `opsi_noproxy_online_repository`.
 
 * `repo_kind`: +
@@ -1266,7 +1263,7 @@ Nicht verwendet wenn 'install_and_configure_dhcp=false'
 
 * `ucs_master_admin_password`: +
 Passwort des users 'Administrators' auf dem UCS-Master. +
-Wird nur für UCS-Server benötigt und hier nur für alle Rollen ausser 'Master'. (Default='linux123')
+Wird nur für UCS-Server benötigt und hier nur für alle Rollen außer 'Master'. (Default='linux123')
 
 * `update_test`: +
 Nicht verwenden: Internal Debuging. (Default='False')
@@ -1336,7 +1333,7 @@ Softwareinventarisierung auf Basis des Paketmanagers
 ===== l-hwaudit
 
 Hardwareinventarisierung. +
-Die Hardwareinventarisierung basiert zur Zeit auf der in Python implementierten Methode wie sie auch vom bootimage verwendet wird. Dazu muss das Paket `python-opsi` aus dem opsi-Repository der Distribution installiert werden. Ist für die Distribution kein opsi-Repository verfügbar, so scheitert auch die Hardwareinventarisierung.
+Die Hardwareinventarisierung basiert zur Zeit auf der in Python implementierten Methode wie sie auch vom Bootimage verwendet wird. Dazu muss das Paket `python-opsi` aus dem opsi-Repository der Distribution installiert werden. Ist für die Distribution kein opsi-Repository verfügbar, so scheitert auch die Hardwareinventarisierung.
 
 [[opsi-manual-linux-localboot-l-jedit]]
 ===== l-jedit
@@ -1355,10 +1352,8 @@ Die Softwareinventarisierung basiert auf den Daten des Paketmanagements der verw
 [[opsi-manual-linux-uefi]]
 ==== UEFI / GPT Unterstützung
 
-Einige der opsi v4.0.5 Linuxprodukte sind UEFI/GPT kompatibel. Details siehe hierzu in der obigen Auflistung der Netbootprodukte.
+Die Meisten der opsi v4.1 Linux Netbootprodukte sind UEFI/GPT kompatibel. Details siehe hierzu in der obigen Auflistung der Netbootprodukte.
 
-Die opsi v4.0.6 Linuxprodukte sind leider noch nicht UEFI/GPT kompatibel.
-Die Informationen über die UEFI Umgebung gehen im Moment noch bei dem kexec Boot verloren. Wir hoffen, das wir dieses Problem mit einem neueren bootimage irgendwann beheben können.
 
 [[opsi-manual-linux-roadmap]]
 ==== Roadmap
