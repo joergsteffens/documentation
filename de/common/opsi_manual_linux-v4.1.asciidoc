@@ -713,7 +713,7 @@ Die Basis Installation erfolgt per debootstrap direkt aus dem Netz.
 
 Das Produkt hat produktiven Status.
 
-Das Produkt ist UEFI/GPT kompatibel (getestet für release=buster und stretch).
+Das Produkt ist UEFI/GPT kompatibel (getestet für release=stretch und buster).
 
 
 [[opsi-manual-linux-clientagent]]
