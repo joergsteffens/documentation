@@ -72,7 +72,7 @@ The installation during shutdown can be carried out in addition to the installat
 Windows does not differentiate between a shutdown and a reboot. The installation during shutdown is therefore executed both during shutdown and reboot and it is not possible to distinguish between these two cases when executing a script. The Windows API does not allow conversion of a shutdown to a reboot (or vice versa) at this time. Aborting the shutdown/reboot is also not allowed. If individual software packages require a multi-phase installation with reboot, the installation is only continued at the next start of the client.
 
 [[opsi-on-shutdown-concept]]
-==== Technical concept
+=== Technical concept
 
 The following explanations serve for a better understanding of the technical correlations for special configuration variants as well as for investigation in case of error. Normally, all necessary settings are carried out by the package '{opsi-client-agent}' and the {opsiclientd} independently and fully automatically.
 

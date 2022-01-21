@@ -1244,7 +1244,7 @@ Die Anleitung zur nachträglichen Installation des '{opsi-client-agent}s' finden
 Siehe aus Kapitel xref:modules/software-on-demand#software-on-demand[opsi Software On Demand (Kiosk-Mode)]
 
 [[opsi-manual-clientagent-manual-installation]]
-===== Manuelle Installation des opsi-client-agent
+==== Manuelle Installation des opsi-client-agent
 
 Der opsi-client-agent kann in vielen unterschiedlichen Modi installiert werden:
 

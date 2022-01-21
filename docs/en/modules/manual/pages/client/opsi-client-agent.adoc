@@ -1185,7 +1185,7 @@ The '{opsi-login-blocker}' is implemented as a 'credential provider filter'. It 
 The information about the 'Subsequent installation of the opsi-client-agent' you will find in the 'opsi-getting-started' manual (Chapter 'First Steps').
 
 [[opsi-manual-clientagent-manual-installation]]
-===== Manual installation of the opsi-client-agent
+==== Manual installation of the opsi-client-agent
 
 The opsi-client-agent can be installed in many different modes:
 
