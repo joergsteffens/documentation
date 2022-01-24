@@ -682,7 +682,7 @@ password = first900
 
 [source,prompt]
 ----
-opsi-admin -d task setupWhereInstalled "softprod"
+opsi-admin -d method setupWhereInstalled "softprod"
 ----
 
 
